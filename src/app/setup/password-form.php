@@ -13,7 +13,7 @@
  */
 add_filter( 'the_password_form', function( $output ) {
 	ob_start();
-	include __DIR__ '/../template-parts/password-form.php';
+	include( __DIR__ . '/../template-parts/password-form.php' );
 	$output = ob_get_clean();
 	$output = str_replace( [ "\n", "\r", "\n\r", "\t" ], '', $output );
 	return $output;

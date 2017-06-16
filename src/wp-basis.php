@@ -12,6 +12,7 @@ class Inc2734_WP_Basis {
 
 	public function __construct() {
 		$includes = array(
+			'/app/model',
 			'/app/setup',
 		);
 		foreach ( $includes as $include ) {
