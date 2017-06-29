@@ -35,7 +35,7 @@ add_filter( 'comment_form_field_comment', function( $comment_field ) {
  * @return string
  */
 add_filter( 'comment_form_submit_field', function( $submit_field ) {
-	return str_replace( 'class="submit"', 'class="_c-btn"', $submit_field );
+	return str_replace( 'class="submit"', 'class="c-btn"', $submit_field );
 } );
 
 /**
@@ -44,5 +44,5 @@ add_filter( 'comment_form_submit_field', function( $submit_field ) {
  * @param $field The field html
  */
 function wpbasis_add_class_attribute( $field ) {
-	return preg_replace( '/(id=".+?")/', '$1 class="_c-form-control"', $field );
+	return preg_replace( '/(id=".+?")/', '$1 class="c-form-control"', $field );
 }

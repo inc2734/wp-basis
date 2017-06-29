@@ -26,5 +26,5 @@ add_filter( 'the_password_form', function( $output ) {
  * @return string
  */
 add_action( 'the_content', function( $content ) {
-	return preg_replace( '/<p>(<input class="_c-input-group__btn")/', '$1', $content );
+	return preg_replace( '/<p>(<input class="c-input-group__btn")/', '$1', $content );
 } );

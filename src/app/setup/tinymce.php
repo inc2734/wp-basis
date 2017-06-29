@@ -12,6 +12,6 @@
  * @return array
  */
 add_filter( 'tiny_mce_before_init', function( $init ) {
-	$init['body_class'] = '_c-entry__content';
+	$init['body_class'] = 'c-entry__content';
 	return $init;
 } );

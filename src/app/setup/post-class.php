@@ -25,6 +25,6 @@ add_filter( 'post_class', function( $classes ) {
  * @return array
  */
 add_filter( 'post_class', function( $classes ) {
-	$classes['_c-entry'] = '_c-entry';
+	$classes['c-entry'] = 'c-entry';
 	return $classes;
 } );

@@ -15,7 +15,7 @@
  */
 add_action( 'embed_oembed_html', function( $cache, $url, $attr, $post_id ) {
 	if ( preg_match( '/^https?:\/\/www\.youtube\.com/', $url ) ) {
-		$cache = '<div class="_c-responsive-container-16-9">' . $cache . '</div>';
+		$cache = '<div class="c-responsive-container-16-9">' . $cache . '</div>';
 	}
 	return $cache;
 }, 10, 4 );
@@ -30,13 +30,13 @@ add_action( 'embed_oembed_html', function( $cache, $url, $attr, $post_id ) {
 add_filter( 'the_content', function( $content ) {
 	$content = preg_replace(
 		'/(<iframe [^>]*?>[^<]*?<\/iframe>)/i',
-		'<div class="_c-responsive-container-16-9">$1</div>',
+		'<div class="c-responsive-container-16-9">$1</div>',
 		$content
 	);
 
 	$content = preg_replace(
 		'/<div class="c-responsive-container"><div class="c-responsive-container">(.*?)<\/div><\/div>/',
-		'<div class="_c-responsive-container-16-9">$1</div>',
+		'<div class="c-responsive-container-16-9">$1</div>',
 		$content
 	);
 

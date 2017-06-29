@@ -29,7 +29,7 @@ class Inc2734_WP_Basis_Drawer_Nav {
 
 		return preg_replace(
 			'/<ul +class="sub-menu">/ms',
-			'<div class="_c-drawer__toggle" data-c="drawer__toggle" aria-expanded="false"><span class="_ic-angle-right" aria-hidden="true"></span></div><ul class="_c-drawer__submenu" data-c="drawer__submenu" aria-hidden="true">',
+			'<div class="c-drawer__toggle" aria-expanded="false"><span class="c-ic-angle-right" aria-hidden="true"></span></div><ul class="c-drawer__submenu" aria-hidden="true">',
 			$nav_menu
 		);
 	}
@@ -46,9 +46,9 @@ class Inc2734_WP_Basis_Drawer_Nav {
 		}
 
 		if ( $depth > 0 ) {
-			$classes[] = '_c-drawer__subitem';
+			$classes[] = 'c-drawer__subitem';
 		} else {
-			$classes[] = '_c-drawer__item';
+			$classes[] = 'c-drawer__item';
 		}
 		return $classes;
 	}

@@ -37,7 +37,7 @@ function wpbasis_the_wp_link_pages() {
 	ob_start();
 
 	wp_link_pages( [
-		'before'           => '<div class="_c-pagination"><div class="nav-links">',
+		'before'           => '<div class="c-pagination"><div class="nav-links">',
 		'after'            => '</div></div>',
 		'link_before'      => '',
 		'link_after'       => '',
@@ -56,7 +56,7 @@ function wpbasis_the_wp_link_pages() {
  */
 function wpbasis_the_posts_pagination() {
 	?>
-	<div class="_c-pagination">
+	<div class="c-pagination">
 		<?php
 		ob_start();
 
@@ -118,12 +118,12 @@ function _wpbasis_pagination( $pagination ) {
 	);
 	$pagination = str_replace(
 		'<span class="page-numbers',
-		'<span class="_c-pagination__item',
+		'<span class="c-pagination__item',
 		$pagination
 	);
 	$pagination = str_replace(
 		'<a class="page-numbers',
-		'<a class="_c-pagination__item-link',
+		'<a class="c-pagination__item-link',
 		$pagination
 	);
 	$pagination = str_replace(
@@ -132,13 +132,13 @@ function _wpbasis_pagination( $pagination ) {
 		$pagination
 	);
 	$pagination = str_replace(
-		'_c-pagination__item dots"',
-		'_c-pagination__item-ellipsis" aria-hidden="true"',
+		'c-pagination__item dots"',
+		'c-pagination__item-ellipsis" aria-hidden="true"',
 		$pagination
 	);
 	$pagination = str_replace(
 		[ 'next page-numbers', 'prev page-numbers' ],
-		'_c-pagination__item-link',
+		'c-pagination__item-link',
 		$pagination
 	);
 

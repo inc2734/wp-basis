@@ -13,6 +13,6 @@
  */
 add_filter( 'body_class', function( $classes ) {
 	return array_merge( $classes, [
-		'_l-body' => '_l-body',
+		'l-body' => 'l-body',
 	] );
 } );

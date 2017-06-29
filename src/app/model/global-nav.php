@@ -35,19 +35,19 @@ class Inc2734_WP_Basis_Global_Nav {
 
 		$nav_menu = preg_replace(
 			'/(_c-navbar__item.*?)"/ms',
-			'$1" data-c="navbar__item"',
+			'$1"',
 			$nav_menu
 		);
 
 		$nav_menu = preg_replace(
 			'/(_c-navbar__subitem.*?)"/ms',
-			'$1" data-c="navbar__subitem"',
+			'$1"',
 			$nav_menu
 		);
 
 		$nav_menu = preg_replace(
 			'/<ul +class="sub-menu">/ms',
-			'<ul class="_c-navbar__submenu" data-c="navbar__submenu" aria-hidden="true">',
+			'<ul class="c-navbar__submenu" aria-hidden="true">',
 			$nav_menu
 		);
 
@@ -66,9 +66,9 @@ class Inc2734_WP_Basis_Global_Nav {
 		}
 
 		if ( $depth > 0 ) {
-			$classes[] = '_c-navbar__subitem';
+			$classes[] = 'c-navbar__subitem';
 		} else {
-			$classes[] = '_c-navbar__item';
+			$classes[] = 'c-navbar__item';
 		}
 		return $classes;
 	}
