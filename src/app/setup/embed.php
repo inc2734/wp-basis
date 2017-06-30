@@ -14,8 +14,10 @@
  * @param int $post_id
  */
 add_action( 'embed_oembed_html', function( $cache, $url, $attr, $post_id ) {
-	if ( preg_match( '/^https?:\/\/www\.youtube\.com/', $url ) ) {
+	if ( wp_basis_is_16to9_oembed( $url ) ) {
 		$cache = '<div class="c-responsive-container-16-9">' . $cache . '</div>';
+	} elseif ( wp_basis_is_4to3_oembed( $url ) ) {
+		$cache = '<div class="c-responsive-container-4-3">' . $cache . '</div>';
 	}
 	return $cache;
 }, 10, 4 );
@@ -35,10 +37,47 @@ add_filter( 'the_content', function( $content ) {
 	);
 
 	$content = preg_replace(
-		'/<div class="c-responsive-container"><div class="c-responsive-container">(.*?)<\/div><\/div>/',
-		'<div class="c-responsive-container-16-9">$1</div>',
+		'/<div class="c-responsive-container-([^ \"]+?)"><div class="c-responsive-container-[^ \"]+?">(.*?)<\/div><\/div>/',
+		'<div class="c-responsive-container-$1">$2</div>',
 		$content
 	);
 
 	return $content;
 } );
+
+/**
+ * Return true when 16:9 oEmbed URL
+ *
+ * @param string  $url
+ * @return boolean
+ */
+function wp_basis_is_16to9_oembed( $url ) {
+	$patterns = [
+		'https?:\/\/www\.youtube\.com',
+	];
+	foreach ( $patterns as $pattern ) {
+		if ( preg_match( '/^' . $pattern . '/', $url ) ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
+ * Return true when 4:3 oEmbed URL
+ *
+ * @param string  $url
+ * @return boolean
+ */
+function wp_basis_is_4to3_oembed( $url ) {
+	$patterns = [
+		'https?:\/\/www\.slideshare\.net',
+		'https?:\/\/speakerdeck\.com',
+	];
+	foreach ( $patterns as $pattern ) {
+		if ( preg_match( '/^' . $pattern . '/', $url ) ) {
+			return true;
+		}
+	}
+	return false;
+}

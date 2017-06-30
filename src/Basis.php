@@ -10,10 +10,6 @@ namespace Inc2734\WP_Basis;
 /**
  * Main class
  */
-class Basis {
-
-	public function __construct() {
-		include_once( __DIR__ . '/wp-basis.php' );
-		new \Inc2734_WP_Basis();
-	}
+include_once( __DIR__ . '/wp-basis.php' );
+class Basis extends \Inc2734_WP_Basis {
 }
