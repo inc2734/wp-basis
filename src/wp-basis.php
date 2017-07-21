@@ -11,6 +11,8 @@
 class Inc2734_WP_Basis {
 
 	public function __construct() {
+		load_textdomain( 'inc2734-wp-basis', __DIR__ . '/languages/' . get_locale() . '.mo' );
+
 		$includes = array(
 			'/app/model',
 			'/app/setup',

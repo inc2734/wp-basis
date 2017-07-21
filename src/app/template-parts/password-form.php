@@ -7,22 +7,15 @@
 ?>
 <form action="<?php echo esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ); ?>" class="post-password-form" method="post">
 	<p>
-		<?php
-		$message = 'This content is password protected. To view it please enter your password below:';
-		echo esc_html( apply_filters( 'inc2734_wp_basis_password_form_message', $message ) );
-		?>
+		<?php esc_html_e( 'This content is password protected. To view it please enter your password below:', 'inc2734-wp-basis' ); ?>
 	</p>
 	<div class="c-input-group">
 		<div class="c-input-group__addon">
-			<?php
-			$label = 'Password:';
-			echo esc_html( apply_filters( 'inc2734_wp_basis_password_form_label', $label ) );
-			?>
+			<?php esc_html_e( 'Password:', 'inc2734-wp-basis' ); ?>
 		</div>
 		<div class="c-input-group__field">
 			<input name="post_password" type="password" size="20" />
 		</div>
-		<?php $submit_label = 'Enter'; ?>
-		<input class="c-input-group__btn" type="submit" name="Submit" value="<?php echo esc_attr( apply_filters( 'inc2734_wp_basis_password_form_submit_label', $submit_label ) ); ?>" />
+		<input class="c-input-group__btn" type="submit" name="Submit" value="<?php esc_attr_e( 'Enter', 'inc2734-wp-basis' ); ?>" />
 	</div>
 </form>
