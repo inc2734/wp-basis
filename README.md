@@ -4,6 +4,10 @@
 [![Latest Stable Version](https://poser.pugx.org/inc2734/wp-basis/v/stable)](https://packagist.org/packages/inc2734/wp-basis)
 [![License](https://poser.pugx.org/inc2734/wp-basis/license)](https://packagist.org/packages/inc2734/wp-basis)
 
+## Requirements
+* Node.js
+* Yarn
+
 ## Install
 ```
 $ composer require inc2734/wp-basis
@@ -20,6 +24,12 @@ include_once( get_theme_file_path( '/vendor/inc2734/wp-basis/src/wp-basis.php' )
 $Basis = new Inc2734_WP_Basis();
 ```
 
-### Install sass-basis
-You need to install sass-basis on your theme by yourself.
-https://sass-basis.github.io/getstarted.html
+```
+// Install sass-basis
+$ cd vendor/inc2734/wp-basis
+$ yarn install && yarn upgrade
+
+// in style.scss
+$_font-path: '../../../vendor/inc2734/wp-basis/node_modules/sass-basis/src/font' !default;
+@import '../../../vendor/inc2734/wp-basis/node_modules/sass-basis/src/css/basis';
+```
