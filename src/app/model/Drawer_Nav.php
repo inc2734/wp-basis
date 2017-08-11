@@ -5,7 +5,9 @@
  * @license GPL-2.0+
  */
 
-class Inc2734_WP_Basis_Global_Nav {
+namespace Inc2734\WP_Basis\App\Model;
+
+class Drawer_Nav {
 
 	protected $theme_location;
 
@@ -27,31 +29,11 @@ class Inc2734_WP_Basis_Global_Nav {
 			return $nav_menu;
 		}
 
-		$nav_menu = preg_replace(
-			'/menu-item-has-children(.*?)"/ms',
-			'menu-item-has-children$1" aria-haspopup="true"',
-			$nav_menu
-		);
-
-		$nav_menu = preg_replace(
-			'/(_c-navbar__item.*?)"/ms',
-			'$1"',
-			$nav_menu
-		);
-
-		$nav_menu = preg_replace(
-			'/(_c-navbar__subitem.*?)"/ms',
-			'$1"',
-			$nav_menu
-		);
-
-		$nav_menu = preg_replace(
+		return preg_replace(
 			'/<ul +class="sub-menu">/ms',
-			'<ul class="c-navbar__submenu" aria-hidden="true">',
+			'<div class="c-drawer__toggle" aria-expanded="false"><span class="c-ic-angle-right" aria-hidden="true"></span></div><ul class="c-drawer__submenu" aria-hidden="true">',
 			$nav_menu
 		);
-
-		return $nav_menu;
 	}
 
 	/**
@@ -66,9 +48,9 @@ class Inc2734_WP_Basis_Global_Nav {
 		}
 
 		if ( $depth > 0 ) {
-			$classes[] = 'c-navbar__subitem';
+			$classes[] = 'c-drawer__subitem';
 		} else {
-			$classes[] = 'c-navbar__item';
+			$classes[] = 'c-drawer__item';
 		}
 		return $classes;
 	}

@@ -6,5 +6,5 @@
  */
 
 function wp_basis_global_navigation( $theme_location ) {
-	new Inc2734_WP_Basis_Global_Nav( $theme_location );
+	new Inc2734\WP_Basis\App\Model\Global_Nav( $theme_location );
 }

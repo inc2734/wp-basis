@@ -16,6 +16,7 @@ class Inc2734_WP_Basis {
 		$includes = array(
 			'/app/model',
 			'/app/setup',
+			'/app/function',
 		);
 		foreach ( $includes as $include ) {
 			foreach ( glob( __DIR__ . $include . '/*.php' ) as $file ) {

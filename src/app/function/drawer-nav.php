@@ -6,5 +6,5 @@
  */
 
 function wp_basis_drawer_navigation( $theme_location ) {
-	new Inc2734_WP_Basis_Drawer_Nav( $theme_location );
+	new Inc2734\WP_Basis\App\Model\Drawer_Nav( $theme_location );
 }
