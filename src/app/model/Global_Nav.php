@@ -9,6 +9,9 @@ namespace Inc2734\WP_Basis\App\Model;
 
 class Global_Nav {
 
+	/**
+	 * @var string
+	 */
 	protected $theme_location;
 
 	public function __construct( $theme_location ) {
