@@ -30,11 +30,13 @@ add_action( 'embed_oembed_html', function( $cache, $url, $attr, $post_id ) {
  * @return string
  */
 add_filter( 'the_content', function( $content ) {
-	$content = preg_replace(
-		'/(<iframe [^>]*?>[^<]*?<\/iframe>)/i',
-		'<div class="c-responsive-container-16-9">$1</div>',
-		$content
-	);
+	if ( apply_filters( 'inc2734_wp_basis_use_responsive_iframe', true ) ) {
+		$content = preg_replace(
+			'/(<iframe [^>]*?>[^<]*?<\/iframe>)/i',
+			'<div class="c-responsive-container-16-9">$1</div>',
+			$content
+		);
+	}
 
 	$content = preg_replace(
 		'/<div class="c-responsive-container-([^ \"]+?)"><div class="c-responsive-container-[^ \"]+?">(.*?)<\/div><\/div>/',
@@ -74,6 +76,7 @@ function wp_basis_is_4to3_oembed( $url ) {
 		'https?:\/\/www\.slideshare\.net',
 		'https?:\/\/speakerdeck\.com',
 	];
+	$patterns = apply_filters( 'inc2734_wp_basis_4to3_oembed_domains', $patterns );
 	foreach ( $patterns as $pattern ) {
 		if ( preg_match( '/^' . $pattern . '/', $url ) ) {
 			return true;

@@ -33,3 +33,33 @@ $ yarn install && yarn upgrade
 $_font-path: '../../../vendor/inc2734/wp-basis/node_modules/sass-basis/src/font' !default;
 @import '../../../vendor/inc2734/wp-basis/node_modules/sass-basis/src/css/basis';
 ```
+
+## Filter hooks
+### inc2734_wp_basis_use_responsive_iframe
+```
+/**
+ * Return false when you don't want to use responsive iframe
+ *
+ * @param boolean $use true
+ * @return boolean
+ */
+add_filter( 'inc2734_wp_basis_use_responsive_iframe', function( $use ) {
+  return false;
+} );
+```
+
+### inc2734_wp_basis_4to3_oembed_domains
+```
+/**
+ * oEmbed container size is 16 to 9.
+ * Return domains if you want to make the size 4 to 3 in some domains.
+ *
+ * @param array $domains
+ *    @var string https?:\/\/www\.slideshare\.net
+ *    @var string https?:\/\/speakerdeck\.com
+ * @return array
+ */
+add_filter( 'inc2734_wp_basis_4to3_oembed_domains', function( $domains ) {
+  return $domains;
+} );
+```
