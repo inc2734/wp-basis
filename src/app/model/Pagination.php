@@ -60,19 +60,14 @@ class Pagination {
 			'"',
 			$pagination
 		);
-		$pagination = str_replace(
-			'<span class="page-numbers',
-			'<span class="c-pagination__item',
+		$pagination = preg_replace(
+			'|<span ([^>]*?)class="page-numbers|',
+			'<span $1 class="c-pagination__item',
 			$pagination
 		);
 		$pagination = str_replace(
 			'<a class="page-numbers',
 			'<a class="c-pagination__item-link',
-			$pagination
-		);
-		$pagination = str_replace(
-			' current"',
-			' " aria-current="page"',
 			$pagination
 		);
 		$pagination = str_replace(
