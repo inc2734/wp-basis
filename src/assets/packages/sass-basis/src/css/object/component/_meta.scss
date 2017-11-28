@@ -1,0 +1,22 @@
+/*
+---
+name: .c-meta
+category:
+  - object/component
+  - object/component/meta
+---
+Meta component
+
+### html
+```html
+<ul class="c-meta">
+  <li class="c-meta__item">
+    ...
+  </li>
+</ul>
+```
+*/
+
+.#{$_prefix}c-meta {
+  @include _meta();
+}

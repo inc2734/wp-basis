@@ -1,0 +1,25 @@
+/*
+---
+name: _strip-unit()
+category:
+  - core/function
+---
+Return numeric value that doesn't have the unit.
+
+### scss
+```scss
+//
+// @param   length  $value  numeric value
+// @return  int
+//
+
+$value: _strip-unit(10px); // => 10
+```
+*/
+
+@function _strip-unit($value) {
+  @if (_is-null($value)) {
+    @return $value;
+  }
+  @return ($value / ($value * 0 + 1));
+}

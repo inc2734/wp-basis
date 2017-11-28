@@ -1,0 +1,30 @@
+.#{$_prefix}p-local-nav {
+  ul {
+    @include _list-unstyled();
+  }
+
+  li {
+    li {
+      @include _padding(0, 0, 0, .5);
+
+      li {
+        display: none;
+      }
+    }
+  }
+
+  a[href] {
+    color: _light($_color-text);
+    text-decoration: none;
+
+    @include _hover() {
+      text-decoration: underline;;
+    }
+  }
+
+  a:not([href]) {
+    color: _lightest($_color-text);
+    cursor: text;
+    text-decoration: none;
+  }
+}

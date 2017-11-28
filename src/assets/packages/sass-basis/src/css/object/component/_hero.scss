@@ -1,0 +1,46 @@
+/*
+---
+name: .c-hero
+category:
+  - object/component
+  - object/component/hero
+---
+Hero component
+
+### html
+```html
+<div class="c-hero" style="background-image: url(/basis/aigis_assets/images/dummy.jpg)">
+  <div class="c-hero__header">
+    ...
+  </div>
+  <div class="c-hero__content">
+    ...
+  </div>
+  <div class="c-hero__footer">
+    ...
+  </div>
+</div>
+```
+*/
+
+.#{$_prefix}c-hero {
+  @include _hero();
+
+  &--full {
+    height: 100vh;
+  }
+
+  &--cover {
+    @include _background-image-cover();
+  }
+
+  &--overlay {
+    @include _overlay(#000, .7);
+  }
+
+  &--fixed {
+    @include _media-min(lg) {
+      @include _background-image-fixed();
+    }
+  }
+}

@@ -1,0 +1,44 @@
+/*
+---
+name: _section()
+category:
+  - core/abstract
+---
+Abstract section component
+
+### scss
+```scss
+.c-section {
+  @include _section();
+  @include _padding(2, 0);
+
+  &__title {
+    @include _margin(0, 0, 2);
+    @include _font-size-line-height($_base-font-size * 1.5);
+    text-align: center;
+  }
+
+  &__content {
+    @include _content();
+  }
+}
+```
+
+### html
+```ejs
+<section class="c-section">
+  <div class="_c-container">
+    <h2 class="c-section__title">...</h2>
+    <div class="c-section__content">
+      ...
+    </div>
+  </div>
+</section>
+```
+*/
+
+@mixin _section() {
+  &__title {
+    margin-top: 0;
+  }
+}

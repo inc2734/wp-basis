@@ -1,0 +1,189 @@
+/*
+---
+name: .u-visible
+category:
+  - object/utility
+  - object/utility/visible
+  - object/utility/visible/visible
+---
+Visible utility
+
+### html
+```html
+<div class="u-visible">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</div>
+```
+*/
+
+.#{$_prefix}u-visible {
+  @include _visible();
+}
+
+/*
+---
+name: .u-visible-sm
+category:
+  - object/utility
+  - object/utility/visible
+  - object/utility/visible/visible-sm
+---
+Visible utility for sm
+
+### html
+```html
+<div class="u-hidden u-visible-sm">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</div>
+```
+*/
+
+.#{$_prefix}u-visible-sm {
+  @include _media-only(sm) {
+    @include _visible();
+  }
+}
+
+/*
+---
+name: .u-visible-md
+category:
+  - object/utility
+  - object/utility/visible
+  - object/utility/visible/visible-md
+---
+Visible utility for md
+
+### html
+```html
+<div class="u-hidden u-visible-md">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</div>
+```
+*/
+
+.#{$_prefix}u-visible-md {
+  @include _media-only(md) {
+    @include _visible();
+  }
+}
+
+/*
+---
+name: .u-visible-md-up
+category:
+  - object/utility
+  - object/utility/visible
+  - object/utility/visible/visible-md-up
+---
+Visible utility for md or more
+
+### html
+```html
+<div class="u-hidden u-visible-md-up">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</div>
+```
+*/
+
+.#{$_prefix}u-visible-md-up {
+  @include _media-min(md) {
+    @include _visible();
+  }
+}
+
+/*
+---
+name: .u-visible-lg
+category:
+  - object/utility
+  - object/utility/visible
+  - object/utility/visible/visible-lg
+---
+Visible utility for lg
+
+### html
+```html
+<div class="u-hidden u-visible-lg">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</div>
+```
+*/
+
+.#{$_prefix}u-visible-lg {
+  @include _media-only(lg) {
+    @include _visible();
+  }
+}
+
+/*
+---
+name: .u-visible-lg-up
+category:
+  - object/utility
+  - object/utility/visible
+  - object/utility/visible/visible-lg-up
+---
+Visible utility for lg or more
+
+### html
+```html
+<div class="u-hidden u-visible-lg-up">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</div>
+```
+*/
+
+.#{$_prefix}u-visible-lg-up {
+  @include _media-min(lg) {
+    @include _visible();
+  }
+}
+
+/*
+---
+name: .u-visible-xl
+category:
+  - object/utility
+  - object/utility/visible
+  - object/utility/visible/visible-xl
+---
+Visible utility for xl
+
+### html
+```html
+<div class="u-hidden u-visible-xl">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</div>
+```
+*/
+
+.#{$_prefix}u-visible-xl {
+  @include _media-only(xl) {
+    @include _visible();
+  }
+}
+
+/*
+---
+name: .u-visible-xl-up
+category:
+  - object/utility
+  - object/utility/visible
+  - object/utility/visible/visible-xl-up
+---
+Visible utility for xl or more
+
+### html
+```html
+<div class="u-hidden u-visible-xl-up">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+</div>
+```
+*/
+
+.#{$_prefix}u-visible-xl-up {
+  @include _media-min(xl) {
+    @include _visible();
+  }
+}

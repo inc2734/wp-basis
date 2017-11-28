@@ -1,0 +1,22 @@
+/*
+---
+name: .c-page-effect
+category:
+  - object/component
+  - object/component/page-effect
+---
+Page effect component
+
+### html
+```ejs
+<div class="c-page-effect" data-page-effect="fadein" aria-hidden="false">
+  <div class="c-page-effect__item">
+    Loading...
+  </div>
+</div>
+```
+*/
+
+.#{$_prefix}c-page-effect {
+  @include _page-effect();
+}

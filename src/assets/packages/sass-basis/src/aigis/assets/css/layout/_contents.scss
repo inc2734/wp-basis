@@ -1,0 +1,6 @@
+.#{$_prefix}l-contents {
+}
+
+.#{$_prefix}l-main, .#{$_prefix}l-sub {
+  @include _padding(2, 0);
+}

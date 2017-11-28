@@ -1,0 +1,17 @@
+{
+  "name": "node-normalize-scss",
+  "version": "3.0.0",
+  "description": "Normalize.css as an npm packaged, libsass module with no changes",
+  "files": [
+    "LICENSE.md",
+    "_normalize.scss",
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ranjandatta/node-normalize-scss.git"
+  },
+  "main": "index.js",
+  "author": "Ranjan Datta <ranjandatta@gmail.com>",
+  "license": "MIT"
+}

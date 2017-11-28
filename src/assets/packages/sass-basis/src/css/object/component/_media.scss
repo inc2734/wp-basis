@@ -1,0 +1,35 @@
+/*
+---
+name: .c-media
+category:
+  - object/component
+  - object/component/media
+---
+Media component
+
+### html
+```html
+<div class="c-media">
+  <div class="c-media__figure">
+    <img src="/basis/aigis_assets/images/dummy.jpg" style="width: 150px">
+  </div>
+  <div class="c-media__body">
+    ...
+  </div>
+</div>
+```
+*/
+
+.#{$_prefix}c-media {
+  @include _media();
+
+  &--middle {
+    align-items: center;
+  }
+
+  &--reverse {
+    .#{$_prefix}c-media__figure {
+      order: 1;
+    }
+  }
+}

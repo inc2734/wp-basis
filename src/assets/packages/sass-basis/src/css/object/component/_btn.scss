@@ -1,0 +1,33 @@
+/*
+---
+name: .c-btn
+category:
+  - object/component
+  - object/component/btn
+---
+Button component
+
+### html
+```html
+<a class="c-btn" role="button">btn</a>
+```
+```html
+<a class="c-btn c-btn--block" role="button">btn</a>
+```
+```html
+<a class="c-btn c-btn--ghost" role="button">btn</a>
+```
+*/
+
+.#{$_prefix}c-btn {
+  @include _btn();
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  &--ghost {
+    @include _ghost();
+  }
+}

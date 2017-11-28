@@ -30,8 +30,8 @@ $ cd vendor/inc2734/wp-basis
 $ yarn install && yarn upgrade
 
 // in style.scss
-$_font-path: '../../../vendor/inc2734/wp-basis/node_modules/sass-basis/src/font' !default;
-@import '../../../vendor/inc2734/wp-basis/node_modules/sass-basis/src/css/basis';
+$_font-path: '../../../vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/font' !default;
+@import '../../../vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/css/basis';
 ```
 
 ## Filter hooks

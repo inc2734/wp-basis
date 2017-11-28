@@ -1,0 +1,34 @@
+/*
+---
+name: _btn()
+category:
+  - core/abstract
+---
+Abstract button component
+
+### scss
+```scss
+.c-btn {
+  @include _btn();
+  @include _padding(.5, 1);
+  background-color: #fff;
+  color: $_color-text;
+}
+```
+
+## html
+```ejs
+<a class="c-btn" role="button">btn</a>
+```
+*/
+
+@mixin _btn() {
+  display: inline-block;
+  cursor: pointer;
+  line-height: 1;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}

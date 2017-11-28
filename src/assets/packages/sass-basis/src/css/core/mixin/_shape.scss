@@ -1,0 +1,175 @@
+/*
+---
+name: _circle()
+category:
+  - core/mixin
+  - core/mixin/shape
+---
+Create circle object
+
+### scss
+```scss
+//
+// @param  length  $size
+//
+
+.c-foo {
+  @include _circle(30px);
+}
+```
+*/
+
+@mixin _circle($size) {
+  border-radius: 100%;
+  height: $size;
+  width: $size;
+  overflow: hidden;
+}
+
+/*
+---
+name: _square()
+category:
+  - core/mixin
+  - core/mixin/shape
+---
+Creating square
+
+### scss
+```scss
+//
+// @param  length  $size
+// @param  length  $border-radius
+//
+
+.c-foo {
+  @include _square(30px);
+}
+```
+*/
+
+@mixin _square($size, $border-radius: null) {
+  height: $size;
+  width: $size;
+
+  @if (_is-length($border-radius)) {
+    border-radius: $border-radius;
+  }
+}
+
+/*
+---
+name: _triangle-top()
+category:
+  - core/mixin
+  - core/mixin/shape
+---
+Generate top triangle style
+
+### scss
+```scss
+//
+// @param  length  $width
+// @param  length  $height
+// @param  hex     $color
+//
+
+.c-triangle-top {
+  @include _triangle-top(10px, 10px, #000);
+}
+```
+*/
+
+@mixin _triangle-top($width, $height, $color) {
+  @include _square(0);
+  border-style: solid;
+  border-width: 0 ($width / 2) $height ($width / 2);
+  border-color: transparent transparent $color transparent;
+}
+
+/*
+---
+name: _triangle-right()
+category:
+  - core/mixin
+  - core/mixin/shape
+---
+```scss
+//
+// Generate right triangle style
+//
+// @param  length  $width
+// @param  length  $height
+// @param  hex     $color
+//
+
+.c-triangle-right {
+  _triangle-right(10px, 10px, #000);
+}
+```
+*/
+
+@mixin _triangle-right($width, $height, $color) {
+  @include _square(0);
+  border-style: solid;
+  border-width: ($height / 2) 0 ($height / 2) $width;
+  border-color: transparent transparent transparent $color;
+}
+
+/*
+---
+name: _triangle-bottom()
+category:
+  - core/mixin
+  - core/mixin/shape
+---
+```scss
+//
+// Generate bottom triangle style
+//
+// @param  length  $width
+// @param  length  $height
+// @param  hex     $color
+//
+
+.c-triangle-bottom {
+  @include _triangle-bottom(10px, 10px, #000);
+}
+```
+*/
+
+@mixin _triangle-bottom($width, $height, $color) {
+  @include _square(0);
+  border-style: solid;
+  border-width: $height ($width / 2) 0 ($width / 2);
+  border-color: $color transparent transparent transparent;
+}
+
+/*
+---
+name: _triangle-left()
+category:
+  - core/mixin
+  - core/mixin/shape
+---
+```scss
+//
+// Generate left triangle style
+//
+// @param  length  $width
+// @param  length  $height
+// @param  hex     $color
+//
+
+.c-triangle-left {
+  @include _triangle-left(10px, 10px, #000);
+}
+```
+*/
+
+@mixin _triangle-left($width, $height, $color) {
+  @include _square(0);
+  border-style: solid;
+  border-width: ($height / 2) $width ($height / 2) 0;
+  border-color: transparent $color transparent transparent;
+}

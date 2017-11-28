@@ -1,0 +1,42 @@
+/*
+---
+name: .c-fluid-container
+category:
+  - object/component
+  - object/component/container/fluid-container
+---
+Fluid container component
+
+### html
+```html
+<div class="c-fluid-container">
+  ...
+</div>
+```
+*/
+
+.#{$_prefix}c-fluid-container {
+  @include _fluid-container();
+}
+
+/*
+---
+name: .c-container
+category:
+  - object/component
+  - object/component/container
+  - object/component/container/container
+---
+Container component
+
+### html
+```html
+<div class="c-container">
+  ...
+</div>
+```
+*/
+
+.#{$_prefix}c-container {
+  @include _container();
+}

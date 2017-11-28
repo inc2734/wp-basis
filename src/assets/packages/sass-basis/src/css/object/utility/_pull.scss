@@ -1,0 +1,41 @@
+/*
+---
+name: .u-pull-right
+category:
+  - object/utility
+  - object/utility/pull
+  - object/utility/pull/pull-right
+---
+Pull right utility
+
+### html
+```html
+<img class="u-pull-right" src="/basis/aigis_assets/images/dummy.jpg" style="width: 150px; margin-left: 1em">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+```
+*/
+
+.#{$_prefix}u-pull-right {
+  float: right !important;
+}
+
+/*
+---
+name: .u-pull-left
+category:
+  - object/utility
+  - object/utility/pull
+  - object/utility/pull/pull-left
+---
+Pull left utility
+
+### html
+```html
+<img class="u-pull-left" src="/basis/aigis_assets/images/dummy.jpg" style="width: 150px; margin-right: 1em">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+```
+*/
+
+.#{$_prefix}u-pull-left {
+  float: left !important;
+}

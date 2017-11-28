@@ -1,0 +1,138 @@
+/*
+---
+name: _drawer()
+category:
+  - core/abstract
+---
+Abstract drawer component
+
+### scss
+```scss
+//
+// @param  hash  $params
+//   width      length
+//   max-width  length
+//
+
+.c-drawer {
+  @include _drawer((
+    width: ($_base-line-height * 10),
+    max-width: 80%,
+  ));
+
+  $item-padding-coefficient: 1;
+
+  &__menu {
+    @include _list-unstyled();
+  }
+
+  &__item, &__subitem {
+    position: relative;
+  }
+
+  &__item {
+    @include _padding(.5, $item-padding-coefficient, 0);
+  }
+
+  &__submenu {
+    @include _list-unstyled();
+    @include _margin(0, ($item-padding-coefficient * -1), 0, 0);
+    padding-left: 1em;
+  }
+
+  &__subitem {
+    @include _padding(.5, $item-padding-coefficient, 0, 0);
+  }
+
+  &__toggle {
+    @include _position(absolute, _space(.5), 5px, 0);
+    @include _square($_base-line-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+```
+
+### js
+```js
+import BasisDrawer from 'node_modules/sass-basis/src/js/drawer.js';
+new BasisDrawer({
+  drawer : '.c-drawer',
+  toggle : '.c-drawer__toggle',
+  submenu: '.c-drawer__submenu'
+});
+```
+
+### html
+```ejs
+<div style="min-height: 200px">
+  <nav id="drawer" class="c-drawer" role="navigation" aria-hidden="true" aria-labelledby="hamburger-btn">
+    <ul class="c-drawer__menu">
+      <li class="c-drawer__item"><a href="#">menu</a></li>
+      <li class="c-drawer__item"><a href="#">menu</a></li>
+      <li class="c-drawer__item">
+        <a href="#">menu</a>
+        <div class="c-drawer__toggle" aria-expanded="false">
+          <span class="c-ic-angle-right" aria-hidden="true"></span>
+        </div>
+        <ul class="c-drawer__submenu" aria-hidden="true">
+          <li class="c-drawer__subitem"><a href="#">submenu</a></li>
+          <li class="c-drawer__subitem"><a href="#">submenu</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div id="hamburger-btn" class="c-hamburger-btn" aria-expanded="false" aria-controls="drawer">
+  <div class="c-hamburger-btn__bar"></div>
+  <div class="c-hamburger-btn__bar"></div>
+  <div class="c-hamburger-btn__bar"></div>
+</div>
+```
+*/
+
+@mixin _drawer($params: ()) {
+  $params: map-merge(
+    (
+      width: ($_base-line-height * 10),
+      max-width: 80%,
+    ),
+    $params
+  );
+
+  $width: map-get($params, 'width');
+  $max-width: map-get($params, 'max-width');
+
+  @include _position(absolute, 0, null, 0, -100%, 10);
+  @include _transition(left);
+  width: $width;
+  max-width: $max-width;
+  overflow-y: auto;
+
+  &[aria-hidden="false"] {
+    left: 0;
+  }
+
+  &__submenu {
+    height: 0;
+    overflow: hidden;
+
+    &[aria-hidden="false"] {
+      height: auto;
+      overflow: visible;
+    }
+  }
+
+  &__item, &__subitem {
+    > a {
+      display: block;
+      text-decoration: none;
+    }
+  }
+
+  &__toggle {
+    cursor: pointer;
+  }
+}

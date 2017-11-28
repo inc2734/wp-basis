@@ -1,0 +1,36 @@
+/*
+---
+name: .c-form-control
+category:
+  - object/component
+  - object/component/form-control
+---
+Form control component
+
+### html
+```html
+<input type="text" class="c-form-control">
+```
+```html
+<textarea class="c-form-control"></textarea>
+```
+```html
+<input type="text" class="c-form-control" disabled>
+```
+```html
+<input type="text" class="c-form-control" readonly>
+```
+*/
+
+.#{$_prefix}c-form-control {
+  @include _form-control();
+
+  &[disabled] {
+    background-color: _lighter($_color-gray);
+    cursor: not-allowed;
+  }
+
+  &[readonly] {
+    background-color: _lighter($_color-gray);
+  }
+}

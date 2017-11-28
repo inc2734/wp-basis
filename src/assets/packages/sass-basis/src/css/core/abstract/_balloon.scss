@@ -1,0 +1,167 @@
+/*
+---
+name: _top-balloon()
+category:
+  - core/abstract
+  - core/abstract/balloon
+---
+Abstract top balloon component
+
+### scss
+```scss
+//
+// @param  hash  $params
+//   background-color  hex
+//   border-color      hex
+//   border-size       length
+//   triangle-size     length
+//
+
+.c-top-balloon {
+  @include _top-balloon((
+    background-color: #fff,
+    border-color: null,
+    border-size: null,
+    triangle-size: 10px,
+  ));
+  @include _padding(1);
+}
+```
+
+### html
+```ejs
+<div class="c-top-balloon">
+  ...
+</div>
+```
+*/
+
+@mixin _top-balloon($params: ()) {
+  @include _balloon(top, $params);
+}
+
+/*
+---
+name: _right-balloon()
+category:
+  - core/abstract
+  - core/abstract/balloon
+---
+Abstract right balloon component
+
+### scss
+```scss
+//
+// @param  hash  $params
+//   background-color  hex
+//   border-color      hex
+//   border-size       length
+//   triangle-size     length
+//
+
+.c-right-balloon {
+  @include _right-balloon((
+    background-color: #fff,
+    border-color: null,
+    border-size: null,
+    triangle-size: 10px,
+  ));
+  @include _padding(1);
+}
+```
+
+### html
+```ejs
+<div class="c-right-balloon">
+  ...
+</div>
+```
+*/
+
+@mixin _right-balloon($params: ()) {
+  @include _balloon(right, $params);
+}
+
+/*
+---
+name: _bottom-balloon()
+category:
+  - core/abstract
+  - core/abstract/balloon
+---
+Abstract bottom balloon component
+
+### scss
+```scss
+//
+// @param  hash  $params
+//   background-color  hex
+//   border-color      hex
+//   border-size       length
+//   triangle-size     length
+//
+
+.c-bottom-balloon {
+  @include _bottom-balloon((
+    background-color: #fff,
+    border-color: null,
+    border-size: null,
+    triangle-size: 10px,
+  ));
+  @include _padding(1);
+}
+```
+
+### html
+```ejs
+<div class="c-bottom-balloon">
+  ...
+</div>
+```
+*/
+
+@mixin _bottom-balloon($params: ()) {
+  @include _balloon(bottom, $params);
+}
+
+/*
+---
+name: _left-balloon()
+category:
+  - core/abstract
+  - core/abstract/balloon
+---
+Abstract left balloon component
+
+### scss
+```scss
+//
+// @param  hash  $params
+//   background-color  hex
+//   border-color      hex
+//   border-size       length
+//   triangle-size     length
+//
+
+.c-left-balloon {
+  @include _left-balloon((
+    background-color: #fff,
+    border-color: null,
+    border-size: null,
+    triangle-size: 10px,
+  ));
+  @include _padding(1);
+}
+```
+
+### html
+```ejs
+<div class="c-left-balloon">
+  ...
+</div>
+```
+*/
+
+@mixin _left-balloon($params: ()) {
+  @include _balloon(left, $params);
+}

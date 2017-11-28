@@ -1,0 +1,284 @@
+/*
+---
+name: _bounce-vertical()
+category:
+  - core/mixin
+  - core/mixin/animation
+---
+Bounce vertical
+
+### scss
+```scss
+//
+// @param   length             $px        bounce size
+// @param   second|milisecond  $delay: 0  animate time
+//
+
+.c-foo {
+  @include _hover() {
+    @include _bounce-vertical(4px, .5s);
+  }
+}
+```
+*/
+
+@mixin _bounce-vertical($px, $delay: 0) {
+  $keyframe-name: _sanitize-animation-name(_bounce-vertical- + $px);
+  position: relative;
+  animation: $keyframe-name $delay;
+
+  @keyframes #{$keyframe-name} {
+    0%   { top: ($px * -1); }
+    25%  { top: $px; }
+    50%  { top: ($px / 2 * -1); }
+    75%  { top: ($px / 2); }
+    100% { top: 0; }
+  }
+}
+
+/*
+---
+name: _shake-vertical()
+category:
+  - core/mixin
+  - core/mixin/animation
+---
+Shake vertical
+
+### scss
+```scss
+.c-foo {
+  @include _hover() {
+    @include _shake-vertical();
+  }
+}
+```
+*/
+
+@mixin _shake-vertical() {
+  @include _bounce-vertical(4px, .5s);
+}
+
+/*
+---
+name: _vibrate-vertical()
+category:
+  - core/mixin
+  - core/mixin/animation
+---
+Vibrate vertical
+
+### scss
+```scss
+.c-foo {
+  @include _hover() {
+    @include _vibrate-vertical();
+  }
+}
+```
+*/
+
+@mixin _vibrate-vertical() {
+  @include _bounce-vertical(2px, .2s);
+}
+
+/*
+---
+name: _bounce-horizontal()
+category:
+  - core/mixin
+  - core/mixin/animation
+---
+Bounce horizontal
+
+### scss
+```scss
+//
+// @param   length             $px        bounce size
+// @param   second|milisecond  $delay: 0  animate time
+//
+
+.c-foo {
+  @include _hover() {
+    @include _bounce-horizontal(4px, .5s);
+  }
+}
+```
+*/
+
+@mixin _bounce-horizontal($px, $delay: 0) {
+  $keyframe-name: _sanitize-animation-name(_bounce-horizontal- + $px);
+  position: relative;
+  animation: $keyframe-name $delay;
+
+  @keyframes #{$keyframe-name} {
+    0%   { left: ($px * -1); }
+    25%  { left: $px; }
+    50%  { left: ($px / 2 * -1); }
+    75%  { left: ($px / 2); }
+    100% { left: 0; }
+  }
+}
+
+/*
+---
+name: _shake-horizontal()
+category:
+  - core/mixin
+  - core/mixin/animation
+---
+Shake horizontal
+
+### scss
+```scss
+.c-foo {
+  @include _hover() {
+    @include _shake-horizontal();
+  }
+}
+```
+*/
+
+@mixin _shake-horizontal() {
+  @include _bounce-horizontal(4px, .5s);
+}
+
+/*
+---
+name: _vibrate-horizontal()
+category:
+  - core/mixin
+  - core/mixin/animation
+---
+Vibrate horizontal
+
+### scss
+```scss
+.c-foo {
+  @include _hover() {
+    @include _vibrate-horizontal();
+  }
+}
+```
+*/
+
+@mixin _vibrate-horizontal() {
+  @include _bounce-horizontal(2px, .2s);
+}
+
+/*
+---
+name: _bounce-scale()
+category:
+  - core/mixin
+  - core/mixin/animation
+---
+Bounce scale
+
+### scss
+```scss
+//
+// @param   float              $px        bounce size
+// @param   second|milisecond  $delay: 0  animate time
+//
+
+.c-foo {
+  @include _hover() {
+    @include _bounce-scale(1.2, .5s);
+  }
+}
+```
+*/
+@mixin _bounce-scale($float, $delay: 0) {
+  $suffix: _strip-unit(percentage($float));
+  $keyframe-name: _sanitize-animation-name(_bounce-scale- + $suffix);
+  animation: $keyframe-name $delay ease-out;
+
+  @keyframes #{$keyframe-name} {
+    0%   { transform: scale(1); }
+    25%  { transform: scale($float); }
+    50%  { transform: scale(1); }
+    75%  { transform: scale((1 + ($float - 1) / 2)); }
+    100% { transform: scale(1); }
+  }
+}
+
+/*
+---
+name: _shake-scale()
+category:
+  - core/mixin
+  - core/mixin/animation
+---
+Shake scale
+
+### scss
+```scss
+.c-foo {
+  @include _hover() {
+    @include _shake-scale();
+  }
+}
+```
+*/
+
+@mixin _shake-scale() {
+  @include _bounce-scale(1.2, .5s);
+}
+
+/*
+---
+name: _vibrate-scale()
+category:
+  - core/mixin
+  - core/mixin/animation
+---
+Vibrate scale
+
+### scss
+```scss
+.c-foo {
+  @include _hover() {
+    @include _vibrate-scale();
+  }
+}
+```
+*/
+
+@mixin _vibrate-scale() {
+  @include _bounce-scale(1.1, .2s);
+}
+
+/*
+---
+name: _extend-underline()
+category:
+  - core/mixin
+  - core/mixin/animation
+---
+Extend the underline from the center.
+
+* This mixin use the pseudo-elements.
+
+### scss
+```scss
+.c-foo a {
+  @include _hover() {
+    &::after {
+      @include _extend-underline();
+    }
+  }
+}
+```
+*/
+
+@mixin _extend-underline() {
+  @include _position(absolute, null, null, 0, 50%);
+  display: block;
+  content: '';
+  width: 0;
+  height: 1px;
+  transition: width $_transition-duration $_transition-function-timing;
+  transform: translateX(-50%);
+  background-color: $_color-text;
+}

@@ -1,0 +1,25 @@
+/*
+---
+name: .c-section
+category:
+  - object/component
+  - object/component/section
+---
+Section component
+
+### html
+```html
+<section class="c-section">
+  <div class="_c-container">
+    <h2 class="c-section__title">...</h2>
+    <div class="c-section__content">
+      ...
+    </div>
+  </div>
+</section>
+```
+*/
+
+.#{$_prefix}c-section {
+  @include _section();
+}

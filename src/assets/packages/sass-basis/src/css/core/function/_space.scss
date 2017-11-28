@@ -1,0 +1,36 @@
+/*
+---
+name: _space()
+category:
+  - core/function
+---
+Return the margin conforming to the rhythm
+
+* When coefficient is lenght return it as is
+
+### scss
+```scss
+//
+// @param   int|length  $coefficient
+// @return  length
+//
+
+padding: _space(1);
+```
+*/
+
+@function _space($coefficient) {
+  @if (0 == $coefficient) {
+    @return 0;
+  }
+  @if (_is-length($coefficient)) {
+    @return $coefficient;
+  }
+  $margin    : ($_base-line-height * $coefficient);
+  $add-margin: ($_base-line-height * ($_margin-coefficient - 1));
+  $space     : ($margin + $add-margin);
+  @if (0 == $space) {
+    @return 0;
+  }
+  @return $space;
+}

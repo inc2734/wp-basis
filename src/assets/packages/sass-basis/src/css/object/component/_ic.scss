@@ -1,0 +1,64 @@
+[class^="#{$_prefix}c-ic-"],
+[class*=" #{$_prefix}c-ic-"] {
+  @include _ic();
+}
+
+/*
+---
+name: .c-ic-angle-right
+category:
+  - object/component
+  - object/component/icon
+  - object/component/icon/ic-angle-right
+---
+Icon (Angle Right) component
+
+### html
+```html
+<span class="c-ic-angle-right" aria-hidden="true"></span>
+```
+*/
+
+.#{$_prefix}c-ic-angle-right::before {
+  content: "\e900";
+}
+
+/*
+---
+name: .c-ic-check
+category:
+  - object/component
+  - object/component/icon
+  - object/component/icon/ic-check
+---
+Icon (Check) component
+
+### html
+```html
+<span class="c-ic-check" aria-hidden="true"></span>
+```
+*/
+
+.#{$_prefix}c-ic-check::before {
+  content: "\e901";
+}
+
+/*
+---
+name: .c-ic-angle-down
+category:
+  - object/component
+  - object/component/icon
+  - object/component/icon/ic-angle-down
+---
+Icon (Angle Down) component
+
+### html
+```html
+<span class="c-ic-angle-down" aria-hidden="true"></span>
+```
+*/
+
+.#{$_prefix}c-ic-angle-down::before {
+  content: "\e902";
+}

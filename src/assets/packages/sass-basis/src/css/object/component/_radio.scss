@@ -1,0 +1,26 @@
+/*
+---
+name: .c-radio
+category:
+  - object/component
+  - object/component/radio
+---
+Radio button component
+
+### html
+```html
+<label>
+  <span class="c-radio">
+    <input type="radio">
+    <span class="c-radio__control"></span>
+  </span>
+  ...
+</label>
+```
+*/
+
+.#{$_prefix}c-radio {
+  @include _radio((
+    size: $_base-font-size-px,
+  ));
+}

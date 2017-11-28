@@ -1,0 +1,32 @@
+/*
+---
+name: _meta()
+category:
+  - core/abstract
+---
+Abstract meta component
+
+### scss
+```scss
+.c-meta {
+  @include _meta();
+}
+```
+
+### html
+```ejs
+<ul class="c-meta">
+  <li class="c-meta__item">
+    ...
+  </li>
+</ul>
+```
+*/
+
+@mixin _meta() {
+  @include _list-unstyled();
+
+  &__item {
+    display: inline;
+  }
+}

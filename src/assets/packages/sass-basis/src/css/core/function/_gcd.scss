@@ -1,0 +1,29 @@
+/*
+---
+name: _gcd()
+category:
+  - core/function
+---
+Return greatest common divisor
+
+### scss
+```scss
+//
+// @param   int  $a  The number to be divided
+// @param   int  $b  The number to divide
+// @return  int  The number of the remainder
+//
+
+$gcd: _gcd(4, 8);
+```
+*/
+
+@function _gcd($a, $b) {
+  $r: $a % $b;
+  @while $r != 0 {
+    $a: $b;
+    $b: $r;
+    $r: $a % $b;
+  }
+  @return $b;
+}

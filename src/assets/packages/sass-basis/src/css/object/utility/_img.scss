@@ -1,0 +1,18 @@
+/*
+---
+name: .u-img-2x
+category:
+  - object/utility
+  - object/utility/img-2x
+---
+Retina image size utility
+
+### html
+```html
+<img class="u-img-2x" src="/basis/aigis_assets/images/dummy.jpg">
+```
+*/
+
+.#{$_prefix}u-img-2x {
+  zoom: 0.5 !important;
+}

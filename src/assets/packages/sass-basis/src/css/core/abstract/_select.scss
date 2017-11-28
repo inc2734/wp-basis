@@ -1,0 +1,72 @@
+/*
+---
+name: _select()
+category:
+  - core/abstract
+  - core/abstract/form
+---
+Abstract selectbox component
+
+### scss
+```scss
+.c-select {
+  @include _select();
+}
+```
+
+### js
+```js
+import BasisSelect from 'node_modules/sass-basis/src/js/select.js';
+new BasisSelect({
+  select: '.c-select',
+  label : '.c-select__label'
+});
+```
+
+### html
+```ejs
+<span class="c-select c-select--block" aria-selected="false">
+  <select>
+    <option value="1">label-1</option>
+    <option value="2">label-2</option>
+    <option value="3">label-3</option>
+  </select>
+  <span class="c-select__label"></span>
+</span>
+```
+*/
+
+@mixin _select() {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background-color: #fff;
+  @include _form-control-base-border();
+
+  &::before {
+    @include _position(absolute, 50%, ($_between-lines * 2), null, null, 1);
+    transform: translateY(-50%);
+    @include _ic();
+    content: "\e902";
+  }
+
+  > select,
+  &__label {
+    @include _form-control-base-padding();
+  }
+
+  > select {
+    @include _position(relative, null, null, null, null, 1);
+    opacity: 0 !important;
+    margin: 0;
+    appearance: none;
+    border: none;
+    outline: 0;
+    @include _padding-right(1.5);
+  }
+
+  &__label {
+    @include _position(absolute, 0, 0, 0, 0, 0);
+    padding-right: 0;
+  }
+}

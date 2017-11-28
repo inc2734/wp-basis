@@ -1,0 +1,34 @@
+/*
+---
+name: _form-control()
+category:
+  - core/abstract
+  - core/abstract/form
+---
+Abstract form control component
+
+### scss
+```scss
+.c-form-control {
+  @include _form-control();
+}
+```
+
+### html
+```ejs
+<input type="text" class="c-form-control">
+```
+*/
+
+@mixin _form-control() {
+  @include _form-control-base-border();
+  @include _form-control-base-padding();
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .035);
+
+  @at-root {
+    textarea#{&} {
+      height: auto;
+      width: 100%;
+    }
+  }
+}

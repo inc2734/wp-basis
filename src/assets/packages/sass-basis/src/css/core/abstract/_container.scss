@@ -1,0 +1,112 @@
+/*
+---
+name: $_container-margin
+category:
+  - core/abstract
+  - core/abstract/container
+  - core/variable/container
+---
+Container side margin
+
+### scss
+```scss
+//
+// @var  length
+//
+
+$_container-margin: $_base-line-height;
+```
+*/
+
+$_container-margin: $_base-line-height !default;
+
+/*
+---
+name: _fluid-container()
+category:
+  - core/abstract
+  - core/abstract/container
+---
+Abstract fluid container component
+
+### scss
+```scss
+.c-fluid-container {
+  @include _fluid-container();
+}
+```
+
+### html
+```ejs
+<div class="c-fluid-container">
+  ...
+</div>
+```
+*/
+
+@mixin _fluid-container() {
+  padding-right: ($_container-margin / 2);
+  padding-left: ($_container-margin / 2);
+
+  @include _media-min(md) {
+    padding-right: $_container-margin;
+    padding-left: $_container-margin;
+  }
+}
+
+/*
+---
+name: $_container-max-width
+category:
+  - core/abstract
+  - core/abstract/container
+  - core/variable/container
+---
+Container max width
+
+### scss
+```scss
+//
+// @var  length
+//
+
+$_container-max-width: 1200px;
+```
+*/
+
+$_container-max-width: 1200px !default;
+
+/*
+---
+name: _container()
+category:
+  - core/abstract
+  - core/abstract/container
+---
+Abstract container component
+
+### scss
+```scss
+.c-container {
+  @include _container();
+}
+```
+
+### html
+```ejs
+<div class="c-container">
+  ...
+</div>
+```
+*/
+
+@mixin _container() {
+  @include _fluid-container();
+
+  margin-right: auto;
+  margin-left: auto;
+
+  @include _media-min(lg) {
+    max-width: _px2rem($_container-max-width);
+  }
+}
