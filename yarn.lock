@@ -949,9 +949,9 @@ sass-basis-layout@^8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/sass-basis-layout/-/sass-basis-layout-8.0.1.tgz#767778fd7c5e4834fa48f1abbb549febcb760034"
 
-sass-basis@^8.0.0:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/sass-basis/-/sass-basis-8.0.1.tgz#9b6304051d7a3cf42f3725d1064099beaf658562"
+sass-basis@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/sass-basis/-/sass-basis-8.0.2.tgz#a2bab3f06bb1f32da687517759de9dad60ea2046"
   dependencies:
     html5shiv "^3.7.3"
     node-normalize-scss "^3.0.0"

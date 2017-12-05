@@ -3735,6 +3735,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   /* 2 */
 }
@@ -4179,10 +4180,9 @@ blockquote footer {
 }
 
 code {
-  background-color: #fad8d4;
+  background-color: #eeeeee;
   border-radius: 3px;
-  color: #e74c3c;
-  padding: 2px 4px;
+  padding: 2px 6px;
 }
 
 pre {
@@ -13841,6 +13841,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   /* 2 */
 }
@@ -14285,10 +14286,9 @@ blockquote footer {
 }
 
 code {
-  background-color: #fad8d4;
+  background-color: #eeeeee;
   border-radius: 3px;
-  color: #e74c3c;
-  padding: 2px 4px;
+  padding: 2px 6px;
 }
 
 pre {
