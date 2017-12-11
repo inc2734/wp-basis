@@ -49,6 +49,30 @@ class Pagination {
 	}
 
 	/**
+	 * the_comments_pagination() for Basis
+	 *
+	 * @return void
+	 */
+	public static function the_comments_pagination( $args = array() ) {
+		?>
+		<div class="c-pagination">
+			<?php
+			ob_start();
+
+			$args = array_merge( $args, [
+				'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+				'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+			] );
+
+			the_comments_pagination( $args );
+
+			self::_sanitize_pagination_e( self::pagination( ob_get_clean() ) );
+			?>
+		</div>
+		<?php
+	}
+
+	/**
 	 * Update pagination
 	 *
 	 * @param string $pagination
