@@ -38,11 +38,6 @@ add_filter( 'the_content', function( $content ) {
 		);
 
 		if ( ! empty( $reg[1] ) ) {
-			$patterns = array_merge(
-				wp_basis_get_16to9_oembed_domains(),
-				wp_basis_get_4to3_oembed_domains()
-			);
-
 			if ( wp_basis_is_oembed_domains( $reg[1] ) ) {
 				$content = preg_replace(
 					'/(<iframe [^>]*?>[^<]*?<\/iframe>)/i',
@@ -69,6 +64,11 @@ add_filter( 'the_content', function( $content ) {
  * @return boolean
  */
 function wp_basis_is_oembed_domains( $src ) {
+	$patterns = array_merge(
+		wp_basis_get_16to9_oembed_domains(),
+		wp_basis_get_4to3_oembed_domains()
+	);
+
 	foreach ( $patterns as $pattern ) {
 		if ( preg_match( '/^' . $pattern . '/', $src ) ) {
 			return true;
