@@ -2,7 +2,7 @@
   "name": "inc2734/wp-basis",
   "description": "This library customizes HTML to use sass-basis in WordPress.",
   "license": "GPL-2.0+",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "require": {
     "php": ">=5.6"
   },
