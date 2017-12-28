@@ -85,6 +85,8 @@ function wp_basis_is_oembed_domains( $src ) {
 function wp_basis_get_16to9_oembed_domains() {
 	return [
 		'(https?:)?\/\/www\.youtube\.com',
+		'(https?:)?\/\/youtu.be',
+		'(https?:)?\/\/vimeo.com',
 	];
 }
 
