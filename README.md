@@ -18,10 +18,6 @@ $ composer require inc2734/wp-basis
 <?php
 // When Using composer auto loader
 $Basis = new Inc2734\WP_Basis\Basis();
-
-// When not Using composer auto loader
-// include_once( get_theme_file_path( '/vendor/inc2734/wp-basis/src/wp-basis.php' ) );
-// $Basis = new Inc2734_WP_Basis();
 ```
 
 ```

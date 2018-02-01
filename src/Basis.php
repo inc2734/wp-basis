@@ -7,9 +7,20 @@
 
 namespace Inc2734\WP_Basis;
 
-/**
- * Main class
- */
-include_once( __DIR__ . '/wp-basis.php' );
-class Basis extends \Inc2734_WP_Basis {
+class Basis {
+
+	public function __construct() {
+		load_textdomain( 'inc2734-wp-basis', __DIR__ . '/languages/' . get_locale() . '.mo' );
+
+		$includes = array(
+			'/app/model',
+			'/app/setup',
+			'/app/function',
+		);
+		foreach ( $includes as $include ) {
+			foreach ( glob( __DIR__ . $include . '/*.php' ) as $file ) {
+				require_once( $file );
+			}
+		}
+	}
 }
