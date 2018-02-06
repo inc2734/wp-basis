@@ -13,8 +13,8 @@ class Basis {
 		load_textdomain( 'inc2734-wp-basis', __DIR__ . '/languages/' . get_locale() . '.mo' );
 
 		$includes = array(
-			'/app/setup',
-			'/app/function',
+			'/App/setup',
+			'/App/function',
 		);
 		foreach ( $includes as $include ) {
 			foreach ( glob( __DIR__ . $include . '/*.php' ) as $file ) {

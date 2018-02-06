@@ -31,20 +31,22 @@ add_action( 'embed_oembed_html', function( $cache, $url, $attr, $post_id ) {
  */
 add_filter( 'the_content', function( $content ) {
 	if ( ! apply_filters( 'inc2734_wp_basis_use_responsive_iframe', true ) ) {
-		preg_match(
-			'/<iframe[^>]*?src=["\']?([^"\'> ]*)["\']?[^<]*?<\/iframe>/i',
-			$content,
-			$reg
-		);
+		return $content;
+	}
 
-		if ( ! empty( $reg[1] ) ) {
-			if ( wp_basis_is_oembed_domains( $reg[1] ) ) {
-				$content = preg_replace(
-					'/(<iframe [^>]*?>[^<]*?<\/iframe>)/i',
-					'<div class="c-responsive-container-16-9">$1</div>',
-					$content
-				);
-			}
+	preg_match(
+		'/<iframe[^>]*?src=["\']?([^"\'> ]*)["\']?[^<]*?<\/iframe>/i',
+		$content,
+		$reg
+	);
+
+	if ( ! empty( $reg[1] ) ) {
+		if ( wp_basis_is_oembed_domains( $reg[1] ) ) {
+			$content = preg_replace(
+				'/(<iframe [^>]*?>[^<]*?<\/iframe>)/i',
+				'<div class="c-responsive-container-16-9">$1</div>',
+				$content
+			);
 		}
 	}
 
