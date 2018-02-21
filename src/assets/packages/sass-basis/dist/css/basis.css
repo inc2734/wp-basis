@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * Name: Basis v8.0.4
+ * Name: Basis v8.0.5
  * Description: A lightweight responsive Sass/CSS framework based on flexible box.
  * Author: Takashi Kitajima ( inc2734 )
  * Author URL: https://2inc.org
@@ -9507,7 +9507,7 @@ Content utility
 </div>
 ```
 */
-.u-content > *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) + *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+.u-content > :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) + :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   margin-top: 1.5rem;
 }
 

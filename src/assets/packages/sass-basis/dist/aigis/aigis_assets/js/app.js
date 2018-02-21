@@ -196,6 +196,7 @@ var BasisDrawer$1 = function () {
       submenu: '.c-drawer__submenu'
     }, args);
     this.drawer = $(this.args.drawer);
+    this.windowWidth = $(window).width();
     this.setListener();
   }
 
@@ -224,8 +225,11 @@ var BasisDrawer$1 = function () {
         });
 
         $(window).on('resize', function (event) {
-          _this.hidden(drawer);
-          _this.close(btn);
+          if ($(window).width() !== _this.windowWidth) {
+            _this.hidden(drawer);
+            _this.close(btn);
+            _this.windowWidth = $(window).width();
+          }
         });
 
         toggleBtns.each(function (i, e) {
@@ -317,12 +321,19 @@ var BasisNavbar$1 = function () {
 
       this.items.each(function (i, e) {
         var item = $(e);
-        item.on('mouseover focus', function (event) {
+        item.on('mouseover focusin', function (event) {
           _this.show(item.children(_this.args.submenu));
         });
 
         item.on('mouseleave', function (event) {
           _this.hidden(item.children(_this.args.submenu));
+        });
+      });
+
+      $(this.args.item).each(function (i, e) {
+        var item = $(e);
+        item.on('focusin', function (event) {
+          _this.hidden(item.siblings(_this.args.item).children(_this.args.submenu));
         });
       });
     }
