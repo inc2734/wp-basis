@@ -1,5 +1,18 @@
 #Changelog
 
+## June 14, 2018 v9.0.0
+* Add `_responsive-talbe()`
+* Add `.c-responsive-table`
+* Remove `.c-row__col--offset-*`
+* Remove `.c-copyright`
+* Remove `_flex-media()`
+* Remove `.c-flex-media`
+* Remove `_card()`
+* Remove `.c-card`
+* Refactoring `_hamburger-button()`
+* Refactoring `.c-hamburger-button`
+* Accessibility fix for `.c-navbar`
+
 ## February 21, 2018 v8.0.5
 * Fix drawer bug.
 * Fix `_content()` bug.

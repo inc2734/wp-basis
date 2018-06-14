@@ -3,123 +3,6 @@
 
 $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
-var asyncGenerator = function () {
-  function AwaitValue(value) {
-    this.value = value;
-  }
-
-  function AsyncGenerator(gen) {
-    var front, back;
-
-    function send(key, arg) {
-      return new Promise(function (resolve, reject) {
-        var request = {
-          key: key,
-          arg: arg,
-          resolve: resolve,
-          reject: reject,
-          next: null
-        };
-
-        if (back) {
-          back = back.next = request;
-        } else {
-          front = back = request;
-          resume(key, arg);
-        }
-      });
-    }
-
-    function resume(key, arg) {
-      try {
-        var result = gen[key](arg);
-        var value = result.value;
-
-        if (value instanceof AwaitValue) {
-          Promise.resolve(value.value).then(function (arg) {
-            resume("next", arg);
-          }, function (arg) {
-            resume("throw", arg);
-          });
-        } else {
-          settle(result.done ? "return" : "normal", result.value);
-        }
-      } catch (err) {
-        settle("throw", err);
-      }
-    }
-
-    function settle(type, value) {
-      switch (type) {
-        case "return":
-          front.resolve({
-            value: value,
-            done: true
-          });
-          break;
-
-        case "throw":
-          front.reject(value);
-          break;
-
-        default:
-          front.resolve({
-            value: value,
-            done: false
-          });
-          break;
-      }
-
-      front = front.next;
-
-      if (front) {
-        resume(front.key, front.arg);
-      } else {
-        back = null;
-      }
-    }
-
-    this._invoke = send;
-
-    if (typeof gen.return !== "function") {
-      this.return = undefined;
-    }
-  }
-
-  if (typeof Symbol === "function" && Symbol.asyncIterator) {
-    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
-      return this;
-    };
-  }
-
-  AsyncGenerator.prototype.next = function (arg) {
-    return this._invoke("next", arg);
-  };
-
-  AsyncGenerator.prototype.throw = function (arg) {
-    return this._invoke("throw", arg);
-  };
-
-  AsyncGenerator.prototype.return = function (arg) {
-    return this._invoke("return", arg);
-  };
-
-  return {
-    wrap: function (fn) {
-      return function () {
-        return new AsyncGenerator(fn.apply(this, arguments));
-      };
-    },
-    await: function (value) {
-      return new AwaitValue(value);
-    }
-  };
-}();
-
-
-
-
-
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -143,8 +26,6 @@ var createClass = function () {
     return Constructor;
   };
 }();
-
-'use strict';
 
 var BasisHamburgerBtn = function () {
   function BasisHamburgerBtn() {
@@ -182,8 +63,6 @@ var BasisHamburgerBtn = function () {
   }]);
   return BasisHamburgerBtn;
 }();
-
-'use strict';
 
 var BasisDrawer = function () {
   function BasisDrawer() {
@@ -298,8 +177,6 @@ var BasisDrawer = function () {
   return BasisDrawer;
 }();
 
-'use strict';
-
 var BasisNavbar = function () {
   function BasisNavbar() {
     var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -325,7 +202,7 @@ var BasisNavbar = function () {
           _this.show(item.children(_this.args.submenu));
         });
 
-        item.on('mouseleave', function (event) {
+        item.on('mouseleave blur', function (event) {
           _this.hidden(item.children(_this.args.submenu));
         });
       });
@@ -333,7 +210,14 @@ var BasisNavbar = function () {
       $(this.args.item).each(function (i, e) {
         var item = $(e);
         item.on('focusin', function (event) {
-          _this.hidden(item.siblings(_this.args.item).children(_this.args.submenu));
+          _this.hidden(item.siblings(_this.args.item).find(_this.args.submenu));
+        });
+
+        item.find(_this.args.subitem).each(function (i, e) {
+          var subitem = $(e);
+          subitem.on('focusin', function (event) {
+            _this.hidden(subitem.siblings(_this.args.subitem).find(_this.args.submenu));
+          });
         });
       });
     }
@@ -350,8 +234,6 @@ var BasisNavbar = function () {
   }]);
   return BasisNavbar;
 }();
-
-'use strict';
 
 var BasisPageEffect = function () {
   function BasisPageEffect() {
@@ -415,8 +297,6 @@ var BasisPageEffect = function () {
   return BasisPageEffect;
 }();
 
-'use strict';
-
 var BasisSelect = function BasisSelect() {
   var _this = this;
 
@@ -447,8 +327,6 @@ var BasisSelect = function BasisSelect() {
     });
   });
 };
-
-'use strict';
 
 new BasisHamburgerBtn();
 
