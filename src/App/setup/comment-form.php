@@ -44,5 +44,9 @@ add_filter( 'comment_form_submit_field', function( $submit_field ) {
  * @param $field The field html
  */
 function wpbasis_add_class_attribute( $field ) {
+	if ( false !== strpos( $field, 'type="checkbox"' ) ) {
+		return $field;
+	}
+
 	return preg_replace( '/(id=".+?")/', '$1 class="c-form-control"', $field );
 }
