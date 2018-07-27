@@ -6,7 +6,6 @@
 
 ## Requirements
 * Node.js
-* Yarn
 
 ## Install
 ```
@@ -23,11 +22,25 @@ $Basis = new Inc2734\WP_Basis\Basis();
 ```
 // Install sass-basis
 $ cd vendor/inc2734/wp-basis
-$ yarn install && yarn upgrade
+$ npm install
 
 // in style.scss
 $_font-path: '../../../vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/font' !default;
 @import '../../../vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/css/basis';
+```
+
+## Walker_Nav_Menu for navbar
+```
+wp_nav_menu( [
+  'walker' => new \Inc2734\WP_Basis\App\Walker\Navbar(),
+] );
+```
+
+## Walker_Nav_Menu for drawer
+```
+wp_nav_menu( [
+  'walker' => new \Inc2734\WP_Basis\App\Walker\Drawer(),
+] );
 ```
 
 ## Filter hooks
