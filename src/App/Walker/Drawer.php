@@ -33,7 +33,11 @@ class Drawer extends \Walker_Nav_Menu {
 	 * @see https://developer.wordpress.org/reference/classes/walker_nav_menu/
 	 */
 	public function _nav_menu_css_class( $classes, $item, $args, $depth ) {
-		if ( 'Inc2734\WP_Basis\App\Walker\Drawer' !== get_class( $args->walker ) ) {
+		if ( ! is_object( $args->walker ) ) {
+			return $classes;
+		}
+
+		if ( ! $args->walker instanceof \Inc2734\WP_Basis\App\Walker\Drawer ) {
 			return $classes;
 		}
 
