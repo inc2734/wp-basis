@@ -46,6 +46,9 @@ class Drawer extends \Walker_Nav_Menu {
 		} else {
 			$classes[] = 'c-drawer__item';
 		}
+
+		$classes = array_unique( $classes );
+
 		return $classes;
 	}
 }

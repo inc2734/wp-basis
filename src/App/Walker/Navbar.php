@@ -41,26 +41,8 @@ class Navbar extends \Walker_Nav_Menu {
 		parent::start_el( $output, $item, $depth, $args, $item_id );
 
 		$output = preg_replace(
-			'/menu-item-has-children(.*?)"/ms',
-			'menu-item-has-children$1" aria-haspopup="true"',
-			$output
-		);
-
-		$output = preg_replace(
-			'/(_c-navbar__item.*?)"/ms',
-			'$1"',
-			$output
-		);
-
-		$output = preg_replace(
-			'/(_c-navbar__subitem.*?)"/ms',
-			'$1"',
-			$output
-		);
-
-		$output = preg_replace(
-			'/<ul +class="sub-menu">/ms',
-			'<ul class="c-navbar__submenu" aria-hidden="true">',
+			'/menu-item-has-children([^>\"]*?)">/ms',
+			'menu-item-has-children$1" aria-haspopup="true">',
 			$output
 		);
 	}
@@ -85,6 +67,9 @@ class Navbar extends \Walker_Nav_Menu {
 		} else {
 			$classes[] = 'c-navbar__item';
 		}
+
+		$classes = array_unique( $classes );
+
 		return $classes;
 	}
 }
