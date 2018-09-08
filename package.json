@@ -6,13 +6,18 @@
     "sass-basis-layout": "^8.0.1"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "cpy-cli": "^2.0.0"
   },
   "scripts": {
-    "gulp": "gulp",
-    "start": "gulp",
-    "build": "gulp build",
-    "postinstall": "gulp build"
+    "cleanup:packages": "rimraf src/assets/packages && mkdir -p src/assets/packages",
+    "packages:html5shiv": "cpy 'html5shiv/**' '../src/assets/packages' --cwd=node_modules --parents",
+    "packages:node-normalize-scss": "cpy 'node-normalize-scss/**' '../src/assets/packages' --cwd=node_modules --parents",
+    "packages:sass-basis": "cpy 'sass-basis/**' '../src/assets/packages' --cwd=node_modules --parents",
+    "packages:sass-basis-layout": "cpy 'sass-basis-layout/**' '../src/assets/packages' --cwd=node_modules --parents",
+    "packages": "npm run cleanup:packages && npm-run-all packages:*",
+    "start": "npm run build",
+    "build": "npm-run-all -p packages",
+    "postinstall": "npm run build"
   }
 }
