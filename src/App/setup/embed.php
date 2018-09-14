@@ -13,7 +13,7 @@
  * @param array $attr
  * @param int $post_id
  */
-add_action( 'embed_oembed_html', function( $cache, $url, $attr, $post_id ) {
+add_filter( 'embed_oembed_html', function( $cache, $url, $attr, $post_id ) {
 	if ( wp_basis_is_16to9_oembed_domains( $url ) ) {
 		$cache = '<div class="c-responsive-container-16-9">' . $cache . '</div>';
 	} elseif ( wp_basis_is_4to3_oembed_domains( $url ) ) {
