@@ -11,12 +11,15 @@
  * @param array $classes An array of post classes
  * @return array
  */
-add_filter( 'post_class', function( $classes ) {
-	if ( in_array( 'hentry', $classes ) ) {
-		unset( $classes[ array_search( 'hentry', $classes ) ] );
+add_filter(
+	'post_class',
+	function( $classes ) {
+		if ( in_array( 'hentry', $classes ) ) {
+			unset( $classes[ array_search( 'hentry', $classes ) ] );
+		}
+		return $classes;
 	}
-	return $classes;
-} );
+);
 
 /**
  * Added ._c-entry
@@ -24,7 +27,10 @@ add_filter( 'post_class', function( $classes ) {
  * @param array $classes An array of post classes
  * @return array
  */
-add_filter( 'post_class', function( $classes ) {
-	$classes['c-entry'] = 'c-entry';
-	return $classes;
-} );
+add_filter(
+	'post_class',
+	function( $classes ) {
+		$classes['c-entry'] = 'c-entry';
+		return $classes;
+	}
+);

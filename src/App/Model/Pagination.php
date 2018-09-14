@@ -12,16 +12,18 @@ class Pagination {
 	public static function the_wp_link_pages() {
 		ob_start();
 
-		wp_link_pages( [
-			'before'           => '<div class="c-pagination"><div class="nav-links">',
-			'after'            => '</div></div>',
-			'link_before'      => '',
-			'link_after'       => '',
-			'separator'        => '',
-			'nextpagelink'     => '&gt;',
-			'previouspagelink' => '%lt;',
-			'pagelink'         => '%',
-		] );
+		wp_link_pages(
+			[
+				'before'           => '<div class="c-pagination"><div class="nav-links">',
+				'after'            => '</div></div>',
+				'link_before'      => '',
+				'link_after'       => '',
+				'separator'        => '',
+				'nextpagelink'     => '&gt;',
+				'previouspagelink' => '%lt;',
+				'pagelink'         => '%',
+			]
+		);
 
 		self::_sanitize_pagination_e( ob_get_clean() );
 	}
@@ -37,10 +39,12 @@ class Pagination {
 			<?php
 			ob_start();
 
-			the_posts_pagination( [
-				'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-				'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
-			] );
+			the_posts_pagination(
+				[
+					'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+					'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+				]
+			);
 
 			self::_sanitize_pagination_e( self::pagination( ob_get_clean() ) );
 			?>
@@ -59,10 +63,13 @@ class Pagination {
 			<?php
 			ob_start();
 
-			$args = array_merge( $args, [
-				'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-				'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
-			] );
+			$args = array_merge(
+				$args,
+				[
+					'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+					'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+				]
+			);
 
 			the_comments_pagination( $args );
 

@@ -11,8 +11,14 @@
  * @param array $classes An array of body classes
  * @return array
  */
-add_filter( 'body_class', function( $classes ) {
-	return array_merge( $classes, [
-		'l-body' => 'l-body',
-	] );
-} );
+add_filter(
+	'body_class',
+	function( $classes ) {
+		return array_merge(
+			$classes,
+			[
+				'l-body' => 'l-body',
+			]
+		);
+	}
+);
