@@ -16,11 +16,23 @@
 add_filter(
 	'embed_oembed_html',
 	function( $cache, $url, $attr, $post_id ) {
+		global $wp_query;
+
 		if ( wp_basis_is_16to9_oembed_domains( $url ) ) {
 			$cache = '<div class="c-responsive-container-16-9">' . $cache . '</div>';
 		} elseif ( wp_basis_is_4to3_oembed_domains( $url ) ) {
 			$cache = '<div class="c-responsive-container-4-3">' . $cache . '</div>';
 		}
+
+		if ( is_object( $wp_query ) && is_null( $wp_query->query ) && ! empty( $_GET['url'] ) && function_exists( 'is_gutenberg_page' ) ) {
+			// @codingStandardsIgnoreStart
+			$cache .= sprintf(
+				'<link rel="stylesheet" href="%1$s">',
+				esc_url_raw( get_template_directory_uri() . '/vendor/inc2734/wp-basis/src/assets/css/gutenberg-embed.min.css' )
+			);
+			// @codingStandardsIgnoreEnd
+		}
+
 		return $cache;
 	},
 	10,
