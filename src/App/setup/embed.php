@@ -18,65 +18,44 @@ add_filter(
 	function( $cache, $url, $attr, $post_id ) {
 		global $wp_query;
 
-		if ( wp_basis_is_16to9_oembed_domains( $url ) ) {
-			$cache = '<div class="c-responsive-container-16-9">' . $cache . '</div>';
-		} elseif ( wp_basis_is_4to3_oembed_domains( $url ) ) {
-			$cache = '<div class="c-responsive-container-4-3">' . $cache . '</div>';
+		if ( ! apply_filters( 'inc2734_wp_basis_use_responsive_iframe', true ) ) {
+			return $cache;
 		}
 
-		if ( is_object( $wp_query ) && is_null( $wp_query->query ) && ! empty( $_GET['url'] ) && function_exists( 'is_gutenberg_page' ) ) {
-			// @codingStandardsIgnoreStart
-			$cache .= sprintf(
-				'<link rel="stylesheet" href="%1$s">',
-				esc_url_raw( get_template_directory_uri() . '/vendor/inc2734/wp-basis/src/assets/css/gutenberg-embed.min.css' )
-			);
-			// @codingStandardsIgnoreEnd
+		if ( preg_match( '|^(.*?)(<iframe [^>]*?>[\s]*?</iframe>)(.*?)$|ms', $cache, $reg ) ) {
+			$iframe_before = $reg[1];
+			$iframe        = $reg[2];
+			$iframe_after  = $reg[3];
+
+			if ( preg_match( '| width=["\']?(\d+)["\']?|', $iframe, $width ) && preg_match( '| height=["\']?(\d+)["\']?|', $iframe, $height ) ) {
+				$width        = $width[1];
+				$height       = $height[1];
+				$aspect_ratio = $height / $width;
+				if ( 0.55 < $aspect_ratio && 0.57 > $aspect_ratio ) {
+					$cache = $iframe_before . '<div class="c-responsive-container-16-9">' . $iframe . '</div>' . $iframe_after;
+				} else {
+					$cache = $iframe_before . '<div class="c-responsive-container-4-3">' . $iframe . '</div>' . $iframe_after;
+				}
+			} elseif ( wp_basis_is_16to9_oembed_domains( $url ) ) {
+				$cache = $iframe_before . '<div class="c-responsive-container-16-9">' . $iframe . '</div>' . $iframe_after;
+			} elseif ( wp_basis_is_4to3_oembed_domains( $url ) ) {
+				$cache = $iframe_before . '<div class="c-responsive-container-4-3">' . $iframe . '</div>' . $iframe_after;
+			}
+
+			if ( is_object( $wp_query ) && is_null( $wp_query->query ) && ! empty( $_GET['url'] ) && function_exists( 'is_gutenberg_page' ) ) {
+				// @codingStandardsIgnoreStart
+				$cache .= sprintf(
+					'<link rel="stylesheet" href="%1$s">',
+					esc_url_raw( get_template_directory_uri() . '/vendor/inc2734/wp-basis/src/assets/css/gutenberg-embed.min.css' )
+				);
+				// @codingStandardsIgnoreEnd
+			}
 		}
 
 		return $cache;
 	},
 	10,
 	4
-);
-
-/**
- * If only oEmbed, pure iframes are not responsive,
- * so pure iframes are maked to force all responsive.
- *
- * @param string $content
- * @return string
- */
-add_filter(
-	'the_content',
-	function( $content ) {
-		if ( ! apply_filters( 'inc2734_wp_basis_use_responsive_iframe', true ) ) {
-			return $content;
-		}
-
-		preg_match(
-			'/<iframe[^>]*?src=["\']?([^"\'> ]*)["\']?[^<]*?<\/iframe>/i',
-			$content,
-			$reg
-		);
-
-		if ( ! empty( $reg[1] ) ) {
-			if ( wp_basis_is_oembed_domains( $reg[1] ) ) {
-				$content = preg_replace(
-					'/(<iframe [^>]*?>[^<]*?<\/iframe>)/i',
-					'<div class="c-responsive-container-16-9">$1</div>',
-					$content
-				);
-			}
-		}
-
-		$content = preg_replace(
-			'/<div class="c-responsive-container-([^ \"]+?)"><div class="c-responsive-container-[^ \"]+?">(.*?)<\/div><\/div>/',
-			'<div class="c-responsive-container-$1">$2</div>',
-			$content
-		);
-
-		return $content;
-	}
 );
 
 /**
