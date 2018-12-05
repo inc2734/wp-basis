@@ -1,27 +1,26 @@
 {
-  "_from": "sass-basis@9.2.6",
-  "_id": "sass-basis@9.2.6",
+  "_from": "sass-basis@^9.2.7",
+  "_id": "sass-basis@9.2.7",
   "_inBundle": false,
-  "_integrity": "sha512-cKXkFYn4BXf+dDRvfzsk9sdF4eQFRn5+dx7j/N8T0ZZSUs0Tzc6hhyyM/XrCFut+SGh8WOfLspIkHxVf7HqwPA==",
+  "_integrity": "sha512-/yHDvQijOAysh3hmCLcuIrBR3Am4idRQZKzw16mKDOhfrlGl+hqn/CC89X8AD056YwXsUcnPozNvPMnNEhdSoA==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "sass-basis@9.2.6",
+    "raw": "sass-basis@^9.2.7",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "9.2.6",
+    "rawSpec": "^9.2.7",
     "saveSpec": null,
-    "fetchSpec": "9.2.6"
+    "fetchSpec": "^9.2.7"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.2.6.tgz",
-  "_shasum": "6be05a2bd705d2911b6eecbd81ab395847b885fa",
-  "_spec": "sass-basis@9.2.6",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.2.7.tgz",
+  "_shasum": "90bbb9f6d09835a25fcd7dd36abb00e355e61fa5",
+  "_spec": "sass-basis@^9.2.7",
   "_where": "/Users/inc/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -48,9 +47,9 @@
   "deprecated": false,
   "description": "A lightweight responsive Sass/CSS framework based on flexible box.",
   "devDependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6",
-    "autoprefixer": "^9.3.1",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "autoprefixer": "^9.4.2",
     "browser-sync": "^2.26.3",
     "cpy-cli": "^2.0.0",
     "cssnano": "^4.1.7",
@@ -58,7 +57,7 @@
     "node-sass": "^4.10.0",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.0.1",
-    "rollup": "^0.67.3",
+    "rollup": "^0.67.4",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
@@ -127,5 +126,5 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "9.2.6"
+  "version": "9.2.7"
 }
