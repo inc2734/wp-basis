@@ -16,40 +16,31 @@
 add_filter(
 	'embed_oembed_html',
 	function( $cache, $url, $attr, $post_id ) {
-		global $wp_query;
-
-		if ( ! apply_filters( 'inc2734_wp_basis_use_responsive_iframe', true ) ) {
+		if ( ! wp_basis_use_responsive_iframe() ) {
 			return $cache;
 		}
 
-		if ( preg_match( '|^(.*?)(<iframe [^>]*?>[\s]*?</iframe>)(.*?)$|ms', $cache, $reg ) ) {
-			$iframe_before = $reg[1];
-			$iframe        = $reg[2];
-			$iframe_after  = $reg[3];
+		if ( ! preg_match( '|^(.*?)(<iframe [^>]*?>[\s]*?</iframe>)(.*?)$|ms', $cache, $reg ) ) {
+			return $cache;
+		}
 
-			if ( preg_match( '| width=["\']?(\d+)["\']?|', $iframe, $width ) && preg_match( '| height=["\']?(\d+)["\']?|', $iframe, $height ) ) {
-				$width        = $width[1];
-				$height       = $height[1];
-				$aspect_ratio = $height / $width;
-				if ( 0.55 < $aspect_ratio && 0.57 > $aspect_ratio ) {
-					$cache = $iframe_before . '<div class="c-responsive-container-16-9">' . $iframe . '</div>' . $iframe_after;
-				} else {
-					$cache = $iframe_before . '<div class="c-responsive-container-4-3">' . $iframe . '</div>' . $iframe_after;
-				}
-			} elseif ( wp_basis_is_16to9_oembed_domains( $url ) ) {
+		$iframe_before = $reg[1];
+		$iframe        = $reg[2];
+		$iframe_after  = $reg[3];
+
+		if ( preg_match( '| width=["\']?(\d+)["\']?|', $iframe, $width ) && preg_match( '| height=["\']?(\d+)["\']?|', $iframe, $height ) ) {
+			$width        = $width[1];
+			$height       = $height[1];
+			$aspect_ratio = $height / $width;
+			if ( 0.55 < $aspect_ratio && 0.57 > $aspect_ratio ) {
 				$cache = $iframe_before . '<div class="c-responsive-container-16-9">' . $iframe . '</div>' . $iframe_after;
-			} elseif ( wp_basis_is_4to3_oembed_domains( $url ) ) {
+			} else {
 				$cache = $iframe_before . '<div class="c-responsive-container-4-3">' . $iframe . '</div>' . $iframe_after;
 			}
-
-			if ( is_object( $wp_query ) && is_null( $wp_query->query ) && ! empty( $_GET['url'] ) && function_exists( 'is_gutenberg_page' ) ) {
-				// @codingStandardsIgnoreStart
-				$cache .= sprintf(
-					'<link rel="stylesheet" href="%1$s">',
-					esc_url_raw( get_template_directory_uri() . '/vendor/inc2734/wp-basis/src/assets/css/gutenberg-embed.min.css' )
-				);
-				// @codingStandardsIgnoreEnd
-			}
+		} elseif ( wp_basis_is_16to9_oembed_domains( $url ) ) {
+			$cache = $iframe_before . '<div class="c-responsive-container-16-9">' . $iframe . '</div>' . $iframe_after;
+		} elseif ( wp_basis_is_4to3_oembed_domains( $url ) ) {
+			$cache = $iframe_before . '<div class="c-responsive-container-4-3">' . $iframe . '</div>' . $iframe_after;
 		}
 
 		return $cache;
@@ -57,6 +48,49 @@ add_filter(
 	10,
 	4
 );
+
+/**
+ * Responsive iframe for block editor
+ *
+ * @param mixed $cache
+ * @param string $url
+ * @param array $attr
+ * @param int $post_id
+ */
+add_filter(
+	'embed_oembed_html',
+	function( $cache, $url, $attr, $post_id ) {
+		global $wp_query;
+
+		if ( ! wp_basis_use_responsive_iframe() ) {
+			return $cache;
+		}
+
+		if ( ! is_object( $wp_query ) || ! is_null( $wp_query->query ) || empty( $_GET['url'] ) ) {
+			return $cache;
+		}
+
+		// @codingStandardsIgnoreStart
+		$cache .= sprintf(
+			'<link rel="stylesheet" href="%1$s">',
+			esc_url_raw( get_template_directory_uri() . '/vendor/inc2734/wp-basis/src/assets/css/gutenberg-embed.min.css' )
+		);
+		// @codingStandardsIgnoreEnd
+
+		return $cache;
+	},
+	10,
+	4
+);
+
+/**
+ * Return true when using responsive iframe method
+ *
+ * @return boolean
+ */
+function wp_basis_use_responsive_iframe() {
+	return apply_filters( 'inc2734_wp_basis_use_responsive_iframe', true );
+}
 
 /**
  * Return true when oEmbed URL
