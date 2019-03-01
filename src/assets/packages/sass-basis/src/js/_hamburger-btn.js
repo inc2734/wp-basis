@@ -1,28 +1,33 @@
 'use strict';
 
-import addCustomEvent from './_add-custom-event.js';
+import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
+import addCustomEvent from '@inc2734/add-custom-event';
 
 export default class BasisHamburgerBtn {
   constructor(args = {}) {
     this.args = args;
-    this.args.btn = !! this.args.btn ? this.args.btn : '.c-hamburger-btn';
+    this.args.btn = this.args.btn || '.c-hamburger-btn';
 
     window.addEventListener('DOMContentLoaded', () => this._DOMContentLoaded(), false);
   }
 
   _DOMContentLoaded() {
     const hamburgerBtns = document.querySelectorAll(this.args.btn);
-    this._forEachHtmlNodes(hamburgerBtns, (element) => {
-      element.addEventListener('click', (event) => this._click(event), false);
-      element.addEventListener('openHamburgerBtn', (event) => BasisHamburgerBtn.open(element), false);
-      element.addEventListener('closeHamburgerBtn', (event) => BasisHamburgerBtn.close(element), false);
 
-      const drawer = document.getElementById(element.getAttribute('aria-controls'));
-      if (null !== drawer) {
-        drawer.addEventListener('closeDrawer', (event) => BasisHamburgerBtn.close(element), false);
-        drawer.addEventListener('openDrawer', (event) => BasisHamburgerBtn.open(element), false);
+    forEachHtmlNodes(
+      hamburgerBtns,
+      (element) => {
+        element.addEventListener('click', (event) => this._click(event), false);
+        element.addEventListener('openHamburgerBtn', () => BasisHamburgerBtn.open(element), false);
+        element.addEventListener('closeHamburgerBtn', () => BasisHamburgerBtn.close(element), false);
+
+        const drawer = document.getElementById(element.getAttribute('aria-controls'));
+        if (null !== drawer) {
+          drawer.addEventListener('closeDrawer', () => BasisHamburgerBtn.close(element), false);
+          drawer.addEventListener('openDrawer', () => BasisHamburgerBtn.open(element), false);
+        }
       }
-    });
+    );
   }
 
   static open(hamburgerBtn) {
@@ -47,12 +52,6 @@ export default class BasisHamburgerBtn {
       addCustomEvent(hamburgerBtn, 'openHamburgerBtn');
     } else {
       addCustomEvent(hamburgerBtn, 'closeHamburgerBtn');
-    }
-  }
-
-  _forEachHtmlNodes(htmlNodes, callback) {
-    if (0 < htmlNodes.length) {
-      [].forEach.call(htmlNodes, (htmlNode) => callback(htmlNode));
     }
   }
 }

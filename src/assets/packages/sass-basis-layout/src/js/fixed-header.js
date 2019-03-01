@@ -4,38 +4,36 @@
 
 'use strict';
 
-import $ from 'jquery';
-
 export default class BasisFixedHeader {
   constructor(args = {}) {
-    this.args = $.extend({
-      container: '.l-container',
-      header   : '.l-header'
-    }, args);
+    this.args = {};
+    this.args.container = this.args.container || '.l-container';
+    this.args.header = this.args.header || '.l-header';
 
-    this.windowScroll = $('html').attr('data-window-scroll');
+    window.addEventListener('DOMContentLoaded', () => this._DOMContentLoaded(), false);
+  }
 
-    if (this.shouldSetHeaderWidth()) {
-      this.setHeaderWidth();
+  _DOMContentLoaded() {
+    this.windowScroll = document.querySelector('html').getAttribute('data-window-scroll');
+    this.header       = document.querySelector(this.args.header);
+    this.container    = document.querySelector(this.args.container);
 
-      $(window).on('resize', (event) => {
-        this.setHeaderWidth();
-      });
+    if (this._shouldSetHeaderWidth()) {
+      this._setHeaderWidth();
+      window.addEventListener('resize', () => this._setHeaderWidth(), false);
     }
   }
 
-  shouldSetHeaderWidth() {
-    const position = $(this.args.header).css('position');
-    if ('fixed' === position && 'false' == this.windowScroll) {
-      return true;
-    }
-    return false;
+  _shouldSetHeaderWidth() {
+    const position = this.header.style.position;
+    return 'fixed' === position && 'false' === this.windowScroll;
   }
 
-  setHeaderWidth() {
-    const scrollbarWidth = $('body').innerWidth() - $(this.args.container)[0].clientWidth;
+  _setHeaderWidth() {
+    const body = document.querySelector('body');
+    const scrollbarWidth = body.clientWidth - this.container.clientWidth;
     if (scrollbarWidth > 0) {
-      $(this.args.header).width('calc(100% - ' + scrollbarWidth + 'px)');
+      this.header.style.width = `calc(100% - ${scrollbarWidth}px)`;
     }
   }
 }

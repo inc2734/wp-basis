@@ -1,8 +1,14 @@
 <?php
 /**
+ * Class SampleTest
+ *
+ * @package inc2734/wp-basis
+ */
+
+/**
  * @todo
  */
-class Sample_Test extends WP_UnitTestCase {
+class SampleTest extends WP_UnitTestCase {
 
 	public function setup() {
 		parent::setup();
@@ -13,7 +19,10 @@ class Sample_Test extends WP_UnitTestCase {
 	}
 
 	public function test_sample() {
-		new Inc2734\WP_Basis\Basis();
-		new Inc2734\WP_Basis\App\Model\Pagination();
+		$bootstrap  = new Inc2734\WP_Basis\Bootstrap();
+		$pagination = new Inc2734\WP_Basis\App\Model\Pagination();
+
+		$this->assertTrue( is_a( $bootstrap, 'Inc2734\WP_Basis\Bootstrap' ) );
+		$this->assertTrue( is_a( $pagination, 'Inc2734\WP_Basis\App\Model\Pagination' ) );
 	}
 }

@@ -11,8 +11,8 @@ This is a css module for the Basis.
 ## Get Started
 ### Install
 ```
-$ yarn add sass-basis
-$ yarn add sass-basis-layout
+$ npm install --save sass-basis
+$ npm install --save sass-basis-layout
 ```
 
 ### Sass

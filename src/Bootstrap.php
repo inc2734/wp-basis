@@ -7,14 +7,13 @@
 
 namespace Inc2734\WP_Basis;
 
-class Basis {
+class Bootstrap {
 
 	public function __construct() {
 		load_textdomain( 'inc2734-wp-basis', __DIR__ . '/languages/' . get_locale() . '.mo' );
 
 		$includes = [
 			'/setup',
-			'/function',
 		];
 		foreach ( $includes as $include ) {
 			foreach ( glob( __DIR__ . $include . '/*.php' ) as $file ) {

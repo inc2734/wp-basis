@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis-layout@^8.0.1",
-  "_id": "sass-basis-layout@8.0.1",
+  "_from": "sass-basis-layout@^8.0.2",
+  "_id": "sass-basis-layout@8.0.2",
   "_inBundle": false,
-  "_integrity": "sha1-dnd4/XxeSDT6SPGru1Sf68t2ADQ=",
+  "_integrity": "sha512-KZg2o+w74wd6B8FhxF+a05sdmXXvD+ljzO9RvDhDP/zOOouyPST05VqOf1Fe1BrXSnatGo2NGtNVY/lFMfET0w==",
   "_location": "/sass-basis-layout",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis-layout@^8.0.1",
+    "raw": "sass-basis-layout@^8.0.2",
     "name": "sass-basis-layout",
     "escapedName": "sass-basis-layout",
-    "rawSpec": "^8.0.1",
+    "rawSpec": "^8.0.2",
     "saveSpec": null,
-    "fetchSpec": "^8.0.1"
+    "fetchSpec": "^8.0.2"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis-layout/-/sass-basis-layout-8.0.1.tgz",
-  "_shasum": "767778fd7c5e4834fa48f1abbb549febcb760034",
-  "_spec": "sass-basis-layout@^8.0.1",
+  "_resolved": "https://registry.npmjs.org/sass-basis-layout/-/sass-basis-layout-8.0.2.tgz",
+  "_shasum": "70acb75c040df84721497f1aec81edc3d6e2308c",
+  "_spec": "sass-basis-layout@^8.0.2",
   "_where": "/Users/inc/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -38,5 +38,5 @@
     "type": "git",
     "url": "git+https://github.com/sass-basis/layout.git"
   },
-  "version": "8.0.1"
+  "version": "8.0.2"
 }

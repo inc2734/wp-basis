@@ -1,26 +1,26 @@
 'use strict';
 
-import addCustomEvent from './_add-custom-event.js';
+import forEachHtmlNodes from '@inc2734/for-each-html-nodes';
+import addCustomEvent from '@inc2734/add-custom-event';
 
 export default class BasisDrawerCloseZone {
   constructor(args = {}) {
     this.args = args;
-    this.args.drawer = !! this.args.drawer ? this.args.drawer : '.c-drawer';
+    this.args.drawer = this.args.drawer || '.c-drawer';
 
     window.addEventListener('DOMContentLoaded', () => this._DOMContentLoaded(), false);
   }
 
   _DOMContentLoaded() {
     const drawers = document.querySelectorAll(this.args.drawer);
-    this._forEachHtmlNodes(drawers, (drawer) => {
-      drawer.addEventListener('openDrawer', (event) => {
-        BasisDrawerCloseZone.createCloseZone(drawer);
-      }, false);
 
-      drawer.addEventListener('closeDrawer', (event) => {
-        BasisDrawerCloseZone.removeCloseZone(drawer);
-      }, false);
-    });
+    forEachHtmlNodes(
+      drawers,
+      (drawer) => {
+        drawer.addEventListener('openDrawer', () => BasisDrawerCloseZone.createCloseZone(drawer), false);
+        drawer.addEventListener('closeDrawer', () => BasisDrawerCloseZone.removeCloseZone(drawer), false);
+      }
+    );
   }
 
   static createCloseZone(drawer) {
@@ -39,9 +39,7 @@ export default class BasisDrawerCloseZone {
     closeZone.setAttribute('id', BasisDrawerCloseZone.generateCloseZoneId(drawerId));
     closeZone.setAttribute('aria-controls', drawerId);
 
-    closeZone.addEventListener('click', (event) => {
-      addCustomEvent(closeZone, 'clickDrawerCloseZone');
-    }, false);
+    closeZone.addEventListener('click', (event) => addCustomEvent(closeZone, 'clickDrawerCloseZone'), false);
 
     drawer.parentNode.appendChild(closeZone);
   }
@@ -56,7 +54,7 @@ export default class BasisDrawerCloseZone {
   }
 
   static generateCloseZoneId(drawerId) {
-    return `${drawerId}-close-zone`;;
+    return `${drawerId}-close-zone`;
   }
 
   static getCloseZone(drawer) {
@@ -64,11 +62,5 @@ export default class BasisDrawerCloseZone {
     const closeZoneId = BasisDrawerCloseZone.generateCloseZoneId(drawerId);
 
     return document.getElementById(closeZoneId);
-  }
-
-  _forEachHtmlNodes(htmlNodes, callback) {
-    if (0 < htmlNodes.length) {
-      [].forEach.call(htmlNodes, (htmlNode) => callback(htmlNode));
-    }
   }
 }

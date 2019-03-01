@@ -4,59 +4,69 @@
 
 'use strict';
 
-import $ from 'jquery';
-
 export default class BasisStickyHeader {
   constructor(args = {}) {
-    this.args = $.extend({
-      container: '.l-container',
-      header   : '.l-header',
-      contents : '.l-contents'
-    }, args);
+    this.args = {};
+    this.args.container = this.args.container || '.l-container';
+    this.args.header = this.args.header || '.l-header';
+    this.args.contents = this.args.contents || '.l-contents';
 
-    this.windowScroll = $('html').attr('data-window-scroll');
-
-    this.setScroll();
-    this.setSticky();
-    this.setListener();
+    window.addEventListener('DOMContentLoaded', () => this._DOMContentLoaded(), false);
   }
 
-  setListener() {
-    const target = this.getScrollTarget();
+  _DOMContentLoaded() {
+    this.windowScroll = document.querySelector('html').getAttribute('data-window-scroll');
+    this.header       = document.querySelector(this.args.header);
+    this.contents     = document.querySelector(this.args.contents);
+    this.container    = document.querySelector(this.args.container);
 
-    target.on('scroll resize', (event) => {
-      this.setScroll();
-      this.setSticky();
-    });
+    this._setScroll();
+    this._setSticky();
+
+    const target = this._getScrollTarget();
+
+    target.addEventListener(
+      'scroll',
+      () => {
+        this._setScroll();
+        this._setSticky();
+      },
+      false
+    );
+
+    target.addEventListener(
+      'resize',
+      () => {
+        this._setScroll();
+        this._setSticky();
+      },
+      false
+    );
   }
 
-  setScroll() {
-    const scroll = this.getScrollTop();
+  _setScroll() {
+    const scroll   = this._getScrollTop();
+    const html     = document.querySelector('html');
+    const scrolled = scroll > 0 ? 'true' : 'false';
 
-    if (scroll > 0) {
-      $('html').attr('data-scrolled', 'true');
-    } else {
-      $('html').attr('data-scrolled', 'false');
-    }
+    html.setAttribute('data-scrolled', scrolled);
   }
 
-  setSticky() {
-    if ('sticky' !== $(this.args.header).attr('data-l-header-type')) {
+  _setSticky() {
+    if ('sticky' !== this.header.getAttribute('data-l-header-type')) {
       return;
     }
-    const headerHeight = $(this.args.header).outerHeight();
-    $(this.args.contents).css('marginTop', `${headerHeight}px`);
+
+    const headerHeight = this.header.offsetHeight;
+    this.contents.style.marginTop = `${headerHeight}px`;
   }
 
-  getScrollTarget() {
-    if ('false' == this.windowScroll) {
-      return $(this.args.container);
-    } else {
-      return $(window);
-    }
+  _getScrollTarget() {
+    return 'false' == this.windowScroll ? this.container : window;
   }
 
-  getScrollTop() {
-    return this.getScrollTarget().scrollTop();
+  _getScrollTop() {
+    const target = this._getScrollTarget();
+    return window === target ? document.documentElement.scrollTop || document.body.scrollTop : target.scrollTop;
   }
 }

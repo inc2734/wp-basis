@@ -16,7 +16,7 @@ $ composer require inc2734/wp-basis
 ```
 <?php
 // When Using composer auto loader
-$Basis = new Inc2734\WP_Basis\Basis();
+$Basis = new Inc2734\WP_Basis\Bootstrap();
 ```
 
 ```
