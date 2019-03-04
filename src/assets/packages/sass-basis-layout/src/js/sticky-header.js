@@ -20,6 +20,10 @@ export default class BasisStickyHeader {
     this.contents     = document.querySelector(this.args.contents);
     this.container    = document.querySelector(this.args.container);
 
+    if (! this.header || ! this.contents || ! this.container) {
+      return;
+    }
+
     this._setScroll();
     this._setSticky();
 

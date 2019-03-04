@@ -3,7 +3,7 @@
   "license": "GPL-2.0+",
   "dependencies": {
     "sass-basis": "^9.2.9",
-    "sass-basis-layout": "^8.0.2"
+    "sass-basis-layout": "^8.0.3"
   },
   "devDependencies": {
     "cpy-cli": "^2.0.0",

@@ -18,6 +18,10 @@ export default class BasisFixedHeader {
     this.header       = document.querySelector(this.args.header);
     this.container    = document.querySelector(this.args.container);
 
+    if (! this.header || ! this.container) {
+      return;
+    }
+
     if (this._shouldSetHeaderWidth()) {
       this._setHeaderWidth();
       window.addEventListener('resize', () => this._setHeaderWidth(), false);
