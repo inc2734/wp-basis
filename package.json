@@ -2,8 +2,8 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "dependencies": {
-    "sass-basis": "^9.2.9",
-    "sass-basis-layout": "^8.0.3"
+    "sass-basis": "^9.2.10",
+    "sass-basis-layout": "^8.0.4"
   },
   "devDependencies": {
     "cpy-cli": "^2.0.0",

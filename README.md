@@ -20,14 +20,23 @@ $Basis = new Inc2734\WP_Basis\Bootstrap();
 ```
 
 ```
-// Install sass-basis
-$ cd vendor/inc2734/wp-basis
-$ npm install
-
 // in style.scss
-$_font-path: '../../../vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/font' !default;
-@import '../../../vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/css/basis';
+$_font-path: '/PATH/TO/vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/font' !default;
+@import '/PATH/TO/vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/css/basis';
 ```
+
+```
+// in js
+import '/PATH/TO/vendor/inc2734/wp-basis/src/assets/packages/sass-basis/src/js/basis.js';
+
+import BasisStickyHeader from '/PATH/TO/vendor/inc2734/wp-basis/src/assets/packages/sass-basis-layout/src/js/sticky-header.js';
+document.addEventListener(
+  'DOMContentLoaded',
+  () => {
+    new BasisStickyHeader();
+  },
+  false
+);
 
 ## Walker_Nav_Menu for navbar
 ```

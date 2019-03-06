@@ -37,11 +37,18 @@ The header fixed to top and the contents is under the header.
 ### JavaScript
 ```
 import BasisStickyHeader from 'node_modules/sass-basis-layout/src/js/sticky-header.js';
-new BasisStickyHeader({
-  container: '.l-container',
-  header   : '.l-header',
-  contents : '.l-contents'
-});
+
+document.addEventListener(
+  'DOMContentLoaded',
+  () => {
+    new BasisStickyHeader({
+      container: '.l-container',
+      header   : '.l-header',
+      contents : '.l-contents'
+    });
+  },
+  false
+);
 ```
 
 ## Using overlay header
@@ -60,10 +67,17 @@ The header fixed to top and overlay the contents.
 ### JavaScript
 ```
 import BasisFixedHeader from 'node_modules/sass-basis-layout/src/js/fixed-header.js';
-new BasisFixedHeader({
-  container: '.l-container',
-  header   : '.l-header'
-});
+
+document.addEventListener(
+  'DOMContentLoaded',
+  () => {
+    new BasisFixedHeader({
+      container: '.l-container',
+      header   : '.l-header'
+    });
+  },
+  false
+);
 ```
 
 ## Using sticky footer
@@ -102,17 +116,31 @@ When with using sticky or overlay header.
 
 ```
 import BasisStickyHeader from 'node_modules/sass-basis-layout/src/js/sticky-header.js';
-new BasisStickyHeader({
-  container: '.l-container',
-  header   : '.l-header',
-  contents : '.l-contents'
-});
+
+document.addEventListener(
+  'DOMContentLoaded',
+  () => {
+    new BasisStickyHeader({
+      container: '.l-container',
+      header   : '.l-header',
+      contents : '.l-contents'
+    });
+  },
+  false
+);
 
 import BasisFixedHeader from 'node_modules/sass-basis-layout/src/js/fixed-header.js';
-new BasisFixedHeader({
-  container: '.l-container',
-  header   : '.l-header'
-});
+
+document.addEventListener(
+  'DOMContentLoaded',
+  () => {
+    new BasisFixedHeader({
+      container: '.l-container',
+      header   : '.l-header'
+    });
+  },
+  false
+);
 ```
 
 ## Browser support

@@ -10,10 +10,6 @@ export default class BasisFixedHeader {
     this.args.container = this.args.container || '.l-container';
     this.args.header = this.args.header || '.l-header';
 
-    window.addEventListener('DOMContentLoaded', () => this._DOMContentLoaded(), false);
-  }
-
-  _DOMContentLoaded() {
     this.windowScroll = document.querySelector('html').getAttribute('data-window-scroll');
     this.header       = document.querySelector(this.args.header);
     this.container    = document.querySelector(this.args.container);

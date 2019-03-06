@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^9.2.9",
-  "_id": "sass-basis@9.2.9",
+  "_from": "sass-basis@^9.2.10",
+  "_id": "sass-basis@9.2.10",
   "_inBundle": false,
-  "_integrity": "sha512-2tOTIhhrcmj7gADyRvGw7GgqLrzldGDcaXUR1N3UInIjCRMoblAbgv0TImOzUTMjUxNhySI7Lgnt2S+EyvtKhQ==",
+  "_integrity": "sha512-PqTZxTwITpfygbTm/AHK+76QDRTQjzHlmiDhsfdiKdGRh/uZPLhJFOH6N05HqYQJOKFnEzuMwPM6QgAQ+BcaVA==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^9.2.9",
+    "raw": "sass-basis@^9.2.10",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^9.2.9",
+    "rawSpec": "^9.2.10",
     "saveSpec": null,
-    "fetchSpec": "^9.2.9"
+    "fetchSpec": "^9.2.10"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.2.9.tgz",
-  "_shasum": "455dd8e9b5197559b06cc88fc97a7904c54344e6",
-  "_spec": "sass-basis@^9.2.9",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.2.10.tgz",
+  "_shasum": "5d12f22baf3852f3b93d50d1381b15c44c9ed6d5",
+  "_spec": "sass-basis@^9.2.10",
   "_where": "/Users/inc/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -51,7 +51,8 @@
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
-    "autoprefixer": "^9.4.9",
+    "autoprefixer": "^9.4.10",
+    "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.3",
     "cpy-cli": "^2.0.0",
     "cssnano": "^4.1.10",
@@ -59,11 +60,8 @@
     "node-sass": "^4.11.0",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.1.2",
-    "rollup": "^1.3.3",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.2.1",
-    "rollup-plugin-node-resolve": "^4.0.1",
-    "uglify-js": "^3.4.9"
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
   },
   "engines": {
     "node": "^6.9 || ^8.9 || ^9 || ^10"
@@ -102,9 +100,7 @@
     "aigis:css": "npm-run-all -s aigis:css:*",
     "aigis:css:postcss": "postcss dist/aigis/aigis_assets/css/style.css -o dist/aigis/aigis_assets/css/style.min.css -c=postcss.config.js",
     "aigis:css:sass": "node-sass --include-path=node_modules/node-normalize-scss src/aigis/assets/css/style.scss -o dist/aigis/aigis_assets/css",
-    "aigis:js": "npm-run-all -s aigis:js:*",
-    "aigis:js:rollup": "rollup src/aigis/assets/js/app.js --dir dist/aigis/aigis_assets/js -c=rollup.config.js",
-    "aigis:js:uglifyjs": "uglifyjs dist/aigis/aigis_assets/js/app.js -o dist/aigis/aigis_assets/js/app.min.js -mc",
+    "aigis:js": "webpack src/aigis/assets/js/app.js -o dist/aigis/aigis_assets/js/app.min.js --config webpack.config.js",
     "browsersync": "npm run aigis && browser-sync start -s 'dist/aigis' -f 'dist/aigis'",
     "build": "npm-run-all -p css js font",
     "cleanup:aigis": "rimraf dist/aigis && mkdir -p dist/aigis/aigis_assets",
@@ -120,13 +116,11 @@
     "css:basis:sass": "node-sass --include-path=node_modules/node-normalize-scss src/css/basis.scss -o dist/css",
     "font": "npm run cleanup:font && cpy '**' '../../dist/font' --cwd=src/font --parents",
     "js": "npm run cleanup:js && npm-run-all -p js:*",
-    "js:basis": "npm-run-all -s js:basis:*",
-    "js:basis:rollup": "rollup src/js/basis.js --dir dist/js -c=rollup.config.js",
-    "js:basis:uglifyjs": "uglifyjs dist/js/basis.js -o dist/js/basis.min.js -mc",
+    "js:basis": "webpack src/js/basis.js -o dist/js/basis.min.js --config webpack.config.js",
     "prepublish": "npm run cleanup:aigis && npm run build",
     "start": "npm run build",
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "9.2.9"
+  "version": "9.2.10"
 }

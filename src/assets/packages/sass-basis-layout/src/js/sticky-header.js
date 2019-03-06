@@ -4,6 +4,8 @@
 
 'use strict';
 
+import addCustomEvent from '@inc2734/add-custom-event';
+
 export default class BasisStickyHeader {
   constructor(args = {}) {
     this.args = {};
@@ -11,10 +13,6 @@ export default class BasisStickyHeader {
     this.args.header = this.args.header || '.l-header';
     this.args.contents = this.args.contents || '.l-contents';
 
-    window.addEventListener('DOMContentLoaded', () => this._DOMContentLoaded(), false);
-  }
-
-  _DOMContentLoaded() {
     this.windowScroll = document.querySelector('html').getAttribute('data-window-scroll');
     this.header       = document.querySelector(this.args.header);
     this.contents     = document.querySelector(this.args.contents);
@@ -63,6 +61,8 @@ export default class BasisStickyHeader {
 
     const headerHeight = this.header.offsetHeight;
     this.contents.style.marginTop = `${headerHeight}px`;
+
+    addCustomEvent(document, 'afterSetStickyHeader');
   }
 
   _getScrollTarget() {
