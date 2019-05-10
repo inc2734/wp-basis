@@ -34,20 +34,22 @@ class Pagination {
 	 * @return void
 	 */
 	public static function the_posts_pagination() {
+		ob_start();
+
+		the_posts_pagination(
+			[
+				'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+				'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+			]
+		);
+
+		$pagination = self::pagination( ob_get_clean() );
+		if ( ! $pagination ) {
+			return;
+		}
 		?>
 		<div class="c-pagination">
-			<?php
-			ob_start();
-
-			the_posts_pagination(
-				[
-					'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-					'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
-				]
-			);
-
-			self::_sanitize_pagination_e( self::pagination( ob_get_clean() ) );
-			?>
+			<?php self::_sanitize_pagination_e( $pagination ); ?>
 		</div>
 		<?php
 	}
@@ -58,23 +60,24 @@ class Pagination {
 	 * @return void
 	 */
 	public static function the_comments_pagination( $args = array() ) {
+		ob_start();
+
+		$args = array_merge(
+			$args,
+			[
+				'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+				'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+			]
+		);
+		the_comments_pagination( $args );
+
+		$pagination = self::pagination( ob_get_clean() );
+		if ( ! $pagination ) {
+			return;
+		}
 		?>
 		<div class="c-pagination">
-			<?php
-			ob_start();
-
-			$args = array_merge(
-				$args,
-				[
-					'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-					'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
-				]
-			);
-
-			the_comments_pagination( $args );
-
-			self::_sanitize_pagination_e( self::pagination( ob_get_clean() ) );
-			?>
+			<?php self::_sanitize_pagination_e( $pagination ); ?>
 		</div>
 		<?php
 	}
@@ -93,6 +96,11 @@ class Pagination {
 		);
 		$pagination = preg_replace(
 			'|<span ([^>]*?)class="page-numbers|',
+			'<span $1 class="c-pagination__item',
+			$pagination
+		);
+		$pagination = preg_replace(
+			'|<span ([^>]*?)class="post-page-numbers|',
 			'<span $1 class="c-pagination__item',
 			$pagination
 		);
