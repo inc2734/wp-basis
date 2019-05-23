@@ -1,27 +1,26 @@
 {
-  "_from": "sass-basis@9.2.13",
-  "_id": "sass-basis@9.2.13",
+  "_from": "sass-basis@^9.2.14",
+  "_id": "sass-basis@9.2.14",
   "_inBundle": false,
-  "_integrity": "sha512-FPcTAmplq7rzd2Db200+jQpnT6Y1yFlJMJkwoKSWp3DM8GQJiDONJCtU7C56ruJkcTVFwxkTO5tm+aivJfKaZQ==",
+  "_integrity": "sha512-9JXQ2J8aSXxz+hTakP1w/WmZheQ3tHXheB9CSNyA19Ix2UJSN95zi/ClD1LUAEgdrRvDsPQZjpEXHBtkX0lofA==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "sass-basis@9.2.13",
+    "raw": "sass-basis@^9.2.14",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "9.2.13",
+    "rawSpec": "^9.2.14",
     "saveSpec": null,
-    "fetchSpec": "9.2.13"
+    "fetchSpec": "^9.2.14"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.2.13.tgz",
-  "_shasum": "28979e2a99709a7ee50fb4e8532d0b20242b308d",
-  "_spec": "sass-basis@9.2.13",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.2.14.tgz",
+  "_shasum": "af91e166d108f679a8a530424cfb9e4f6c0148d8",
+  "_spec": "sass-basis@^9.2.14",
   "_where": "/Users/inc/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -50,19 +49,19 @@
   "deprecated": false,
   "description": "A lightweight responsive Sass/CSS framework based on flexible box.",
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "autoprefixer": "^9.4.10",
-    "babel-loader": "^8.0.5",
-    "browser-sync": "^2.26.3",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "autoprefixer": "^9.5.1",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.5",
     "cpy-cli": "^2.0.0",
     "cssnano": "^4.1.10",
     "node-aigis": "^1.4.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.1.2",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2"
   },
   "engines": {
     "node": "^6.9 || ^8.9 || ^9 || ^10"
@@ -123,5 +122,5 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "9.2.13"
+  "version": "9.2.14"
 }
