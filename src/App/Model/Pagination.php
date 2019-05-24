@@ -94,29 +94,46 @@ class Pagination {
 			'"',
 			$pagination
 		);
+
 		$pagination = preg_replace(
 			'|<span ([^>]*?)class="page-numbers|',
 			'<span $1 class="c-pagination__item',
 			$pagination
 		);
+
 		$pagination = preg_replace(
 			'|<span ([^>]*?)class="post-page-numbers|',
 			'<span $1 class="c-pagination__item',
 			$pagination
 		);
+
 		$pagination = str_replace(
 			'<a class="page-numbers',
 			'<a class="c-pagination__item-link',
 			$pagination
 		);
+
 		$pagination = str_replace(
 			'c-pagination__item dots"',
 			'c-pagination__item-ellipsis" aria-hidden="true"',
 			$pagination
 		);
+
 		$pagination = str_replace(
 			[ 'next page-numbers', 'prev page-numbers' ],
 			'c-pagination__item-link',
+			$pagination
+		);
+
+		$pagination = preg_replace(
+			'|<a class="c-pagination__item-link" href=("[^"]+?)"><i class="fa fa-angle-right"|',
+			'<a class="c-pagination__item-link c-pagination__item-next" href="%1$s"><i class="fa fa-angle-right"',
+			$pagination
+		);
+
+		$pagination = preg_replace(
+			'|<a class="c-pagination__item-link" href=("[^"]+?)"><i class="fa fa-angle-left"|',
+			'<a class="c-pagination__item-link c-pagination__item-prev" href="%1$s"><i class="fa fa-angle-left"',
 			$pagination
 		);
 
