@@ -126,14 +126,14 @@ class Pagination {
 		);
 
 		$pagination = preg_replace(
-			'|<a class="c-pagination__item-link" href=("[^"]+?)"><i class="fa fa-angle-right"|',
-			'<a class="c-pagination__item-link c-pagination__item-next" href="%1$s"><i class="fa fa-angle-right"',
+			'|<a class="c-pagination__item-link" href="([^"]+?)"><i class="fa fa-angle-right"|',
+			'<a class="c-pagination__item-link c-pagination__item-prev c-pagination__item-right" href="$1"><i class="fa fa-angle-right"',
 			$pagination
 		);
 
 		$pagination = preg_replace(
-			'|<a class="c-pagination__item-link" href=("[^"]+?)"><i class="fa fa-angle-left"|',
-			'<a class="c-pagination__item-link c-pagination__item-prev" href="%1$s"><i class="fa fa-angle-left"',
+			'|<a class="c-pagination__item-link" href="([^"]+?)"><i class="fa fa-angle-left"|',
+			'<a class="c-pagination__item-link c-pagination__item-next c-pagination__item-left" href="$1"><i class="fa fa-angle-left"',
 			$pagination
 		);
 
