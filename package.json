@@ -2,24 +2,25 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "dependencies": {
-    "sass-basis": "^9.2.14",
+    "sass-basis": "^9.3.0",
     "sass-basis-layout": "^8.0.4"
   },
   "devDependencies": {
     "cpy-cli": "^2.0.0",
-    "cssnano-cli": "^1.0.5",
+    "autoprefixer": "^9.6.0",
+    "cssnano": "^4.1.10",
     "node-sass": "^4.12.0",
-    "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.1.2",
+    "npm-run-all": "^4.1.5",
     "rimraf": "^2.6.3"
   },
   "scripts": {
     "cleanup:css": "rimraf src/assets/css",
     "cleanup:packages": "rimraf src/assets/packages && mkdir -p src/assets/packages",
-    "css:sass": "node-sass src/src/css -o src/assets/css",
-    "css:postcss": "postcss src/assets/css/**/*.css -r --no-map -c=postcss.config.js",
-    "minify:css:embed": "cssnano src/assets/css/gutenberg-embed.css src/assets/css/gutenberg-embed.min.css --no-zindex",
-    "css": "npm-run-all -s cleanup:css css:sass css:postcss minify:css:embed",
+    "css:embed:sass": "node-sass src/src/css/gutenberg-embed.scss -o src/assets/css",
+    "css:embed:postcss": "postcss src/assets/css/gutenberg-embed.css -o src/assets/css/gutenberg-embed.min.css -c=postcss.config.js",
+    "css:embed": "npm-run-all -s css:embed:*",
+    "css": "npm run cleanup:css && npm-run-all -p css:*",
     "packages:html5shiv": "cpy 'html5shiv/**' '../src/assets/packages' --cwd=node_modules --parents",
     "packages:node-normalize-scss": "cpy 'node-normalize-scss/**' '../src/assets/packages' --cwd=node_modules --parents",
     "packages:sass-basis": "cpy 'sass-basis/**' '../src/assets/packages' --cwd=node_modules --parents",
