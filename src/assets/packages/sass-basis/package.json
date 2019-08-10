@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^9.5.0",
-  "_id": "sass-basis@9.5.0",
+  "_from": "sass-basis@^9.5.1",
+  "_id": "sass-basis@9.5.1",
   "_inBundle": false,
-  "_integrity": "sha512-JvIiOPcx/P572ZpwBCGycKR+/JWxMX190C6pPWCe6n8pakJ6aeuNLCSP4gAygNo8zEpafwWjsWGHwSWnYOnElQ==",
+  "_integrity": "sha512-Rdv/rw8iwMRjVgVDkk0U+mUawOC43DsDYdBV3KeMuYoZjFU8/KLZgaek7vBzWXsewUH3OhvOFpL4G3XakIc22Q==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^9.5.0",
+    "raw": "sass-basis@^9.5.1",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^9.5.0",
+    "rawSpec": "^9.5.1",
     "saveSpec": null,
-    "fetchSpec": "^9.5.0"
+    "fetchSpec": "^9.5.1"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.5.0.tgz",
-  "_shasum": "54bfdd6ca2937c546da97e12d68ee9678df2bb35",
-  "_spec": "sass-basis@^9.5.0",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.5.1.tgz",
+  "_shasum": "31eb26d0fbaf94ac5290f77362adab84680e1e28",
+  "_spec": "sass-basis@^9.5.1",
   "_where": "/Users/inc/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -122,14 +122,14 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "9.5.0",
+  "version": "9.5.1",
   "warnings": [
     {
       "code": "ENOTSUP",
       "required": {
         "node": "^6.9 || ^8.9 || ^9 || ^10"
       },
-      "pkgid": "sass-basis@9.5.0"
+      "pkgid": "sass-basis@9.5.1"
     }
   ]
 }
