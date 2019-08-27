@@ -10,9 +10,8 @@ namespace Inc2734\WP_Basis\App\Model;
 class Pagination {
 
 	public static function the_wp_link_pages() {
-		ob_start();
-
-		wp_link_pages(
+		$args = apply_filters(
+			'inc2734_wp_basis_wp_link_pages_args',
 			[
 				'before'           => '<div class="c-pagination"><div class="nav-links">',
 				'after'            => '</div></div>',
@@ -25,6 +24,8 @@ class Pagination {
 			]
 		);
 
+		ob_start();
+		wp_link_pages( $args );
 		self::_sanitize_pagination_e( ob_get_clean() );
 	}
 
@@ -34,14 +35,17 @@ class Pagination {
 	 * @return void
 	 */
 	public static function the_posts_pagination() {
-		ob_start();
-
-		the_posts_pagination(
+		$args = apply_filters(
+			'inc2734_wp_basis_posts_pagination_args',
 			[
 				'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
 				'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
 			]
 		);
+
+		ob_start();
+
+		the_posts_pagination( $args );
 
 		$pagination = self::pagination( ob_get_clean() );
 		if ( ! $pagination ) {
