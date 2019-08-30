@@ -64,15 +64,16 @@ class Pagination {
 	 * @return void
 	 */
 	public static function the_comments_pagination( $args = array() ) {
-		ob_start();
-
-		$args = array_merge(
-			$args,
+		$args = apply_filters(
+			'inc2734_wp_basis_comments_pagination_args',
 			[
 				'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
 				'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
 			]
 		);
+
+		ob_start();
+
 		the_comments_pagination( $args );
 
 		$pagination = self::pagination( ob_get_clean() );

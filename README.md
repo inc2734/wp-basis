@@ -117,3 +117,18 @@ add_filter(
   }
 );
 ```
+
+### inc2734_wp_basis_comments_pagination_args
+```
+/**
+ * @see https://developer.wordpress.org/reference/functions/get_the_comments_pagination/
+ * @param array $args
+ * @return array
+ */
+add_filter(
+  'inc2734_wp_basis_comments_pagination_args',
+  function( $args ) {
+    return $args;
+  }
+);
+```
