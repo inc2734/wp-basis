@@ -2,12 +2,12 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "dependencies": {
-    "sass-basis": "^9.5.5",
+    "sass-basis": "^9.5.8",
     "sass-basis-layout": "^8.0.4"
   },
   "devDependencies": {
-    "cpy-cli": "^2.0.0",
-    "autoprefixer": "^9.7.1",
+    "cpy-cli": "^3.0.0",
+    "autoprefixer": "^9.7.3",
     "cssnano": "^4.1.10",
     "node-sass": "^4.13.0",
     "postcss-cli": "^6.1.3",

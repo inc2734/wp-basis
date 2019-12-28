@@ -1,5 +1,14 @@
 #Changelog
 
+## December 28, 2019 v9.5.8
+* Fix IE11 JS error.
+
+## December 28, 2019 v9.5.7
+* Update npm packages.
+
+## December 13, 2019 v9.5.6
+* Fix navbar js error.
+
 ## November 3, 2019 v9.5.5
 * Fix `.c-navbar--center` bug.
 * Fix `.u-hidden` bug.
