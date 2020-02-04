@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^9.5.9",
-  "_id": "sass-basis@9.5.9",
+  "_from": "sass-basis@^9.5.10",
+  "_id": "sass-basis@9.5.10",
   "_inBundle": false,
-  "_integrity": "sha512-34fTfEIDr4+hgNSOSvKU+f9Sfdq9hobd0E3lhR9KK9Z7GMLIJMTkCzF6GG2uzTC5D+chV4mUnzketVuGEpxXwA==",
+  "_integrity": "sha512-lZaJnUNEmdYG23l9rU7gGnQruyp8vWmc86/+8mkg8bQAur8JZJ1Z7qEPTUTsXBcJqnlYBPuvZyCwb28ehyp1cQ==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^9.5.9",
+    "raw": "sass-basis@^9.5.10",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^9.5.9",
+    "rawSpec": "^9.5.10",
     "saveSpec": null,
-    "fetchSpec": "^9.5.9"
+    "fetchSpec": "^9.5.10"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.5.9.tgz",
-  "_shasum": "a44451cd7a402affc74affe46a19560f64412ddd",
-  "_spec": "sass-basis@^9.5.9",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.5.10.tgz",
+  "_shasum": "b0c2701836f6b4885906cb94f91882643a813698",
+  "_spec": "sass-basis@^9.5.10",
   "_where": "/Users/inc/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -50,15 +50,16 @@
   "deprecated": false,
   "description": "A lightweight responsive Sass/CSS framework based on flexible box.",
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "autoprefixer": "^9.7.3",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@wordpress/browserslist-config": "^2.6.0",
+    "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
     "cpy-cli": "^3.0.0",
     "cssnano": "^4.1.10",
     "node-aigis": "^1.4.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^7.1.0",
     "webpack": "^4.41.5",
@@ -122,14 +123,14 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "9.5.9",
+  "version": "9.5.10",
   "warnings": [
     {
       "code": "ENOTSUP",
       "required": {
         "node": "^6.9 || ^8.9 || ^9 || ^10"
       },
-      "pkgid": "sass-basis@9.5.9"
+      "pkgid": "sass-basis@9.5.10"
     }
   ]
 }
