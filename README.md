@@ -37,6 +37,7 @@ document.addEventListener(
   },
   false
 );
+```
 
 ## Walker_Nav_Menu for navbar
 ```
