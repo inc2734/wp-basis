@@ -442,7 +442,7 @@ Return the margin conforming to the rhythm
 ### scss
 ```scss
 //
-// @param   int|length  $coefficient
+// @param   number  $coefficient
 // @return  length
 //
 
@@ -950,13 +950,6 @@ Basis font relative path
 $_font-path: '../font';
 ```
 */
-@font-face {
-  font-family: 'basis';
-  src: url("../font/basis.eot");
-  src: url("../font/basis.eot#iefix") format("embedded-opentype"), url("../font/basis.ttf") format("truetype"), url("../font/basis.woff") format("woff"), url("../font/basis.svg#basis") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
 /*
 ---
 name: $_min-columns
@@ -1002,6 +995,103 @@ $_sizes: (
   'lg': (_px2rem(1024px) / _px2rem($_base-font-size-px) * 1em),
   'xl': (_px2rem(1280px) / _px2rem($_base-font-size-px) * 1em)
 );
+```
+*/
+/*
+---
+name: $_container-margin
+category:
+  - core/abstract
+  - core/abstract/container
+  - core/variable/container
+---
+Container side margin
+
+### scss
+```scss
+//
+// @var  length
+//
+
+$_container-margin: $_base-line-height;
+```
+*/
+/*
+---
+name: $_container-max-width
+category:
+  - core/abstract
+  - core/abstract/container
+  - core/variable/container
+---
+Container max width
+
+### scss
+```scss
+//
+// @var  length
+//
+
+$_container-max-width: 1200px;
+```
+*/
+/*
+---
+name: $_form-control-border-color
+category:
+  - core/mixin
+  - core/mixin/form
+  - core/variable/form
+---
+Form Control border color
+
+### scss
+```scss
+$_form-control-border-color: _light($_color-gray);
+```
+*/
+/*
+---
+name: $_form-control-border-color-hover
+category:
+  - core/mixin
+  - core/mixin/form
+  - core/variable/form
+---
+Form Control border color when hover
+
+### scss
+```scss
+$_form-control-border-color-hover: $_color-gray;
+```
+*/
+/*
+---
+name: $_form-control-border-color-focus
+category:
+  - core/mixin
+  - core/mixin/form
+  - core/variable/form
+---
+Form Control border color when focus
+
+### scss
+```scss
+$_form-control-border-color-focus: #85B7D9;
+```
+*/
+/*
+---
+name: $_page-effect-z-index
+category:
+  - core/abstract
+  - core/variable/page-effect
+---
+`z-index` of page effect
+
+### scss
+```scss
+$_page-effect-z-index: 1000000;
 ```
 */
 /*
@@ -1313,6 +1403,32 @@ Clearfix helper
 */
 /*
 ---
+name: _between-content()
+category:
+  - core/mixin
+---
+Sets Child elements margin
+
+### scss
+```scss
+//
+// @param  int  $coefficient
+//
+
+.u-between-content {
+  @include _between-content(1);
+}
+```
+
+### html
+```ejs
+<div class="u-between-content">
+  ...
+</div>
+```
+*/
+/*
+---
 name: _content()
 category:
   - core/mixin
@@ -1379,51 +1495,6 @@ input[type="text"],
 select {
   @include _form-control-base-padding();
 }
-```
-*/
-/*
----
-name: $_form-control-border-color
-category:
-  - core/mixin
-  - core/mixin/form
-  - core/variable/form
----
-Form Control border color
-
-### scss
-```scss
-$_form-control-border-color: _light($_color-gray);
-```
-*/
-/*
----
-name: $_form-control-border-color-hover
-category:
-  - core/mixin
-  - core/mixin/form
-  - core/variable/form
----
-Form Control border color when hover
-
-### scss
-```scss
-$_form-control-border-color-hover: $_color-gray;
-```
-*/
-/*
----
-name: $_form-control-border-color-focus
-category:
-  - core/mixin
-  - core/mixin/form
-  - core/variable/form
----
-Form Control border color when focus
-
-### scss
-```scss
-$_form-control-border-color-focus: #85B7D9;
 ```
 */
 /*
@@ -1508,31 +1579,6 @@ ul.u-inline-list {
 */
 /*
 ---
-name: _margin()
-category:
-  - core/mixin
-  - core/mixin/margin
----
-Sets margin
-
-### scss
-```scss
-//
-// @param  int  $coefficient-1
-// @param  int  $coefficient-2
-// @param  int  $coefficient-3
-// @param  int  $coefficient-4
-//
-
-@include _margin(1);
-@include _margin(1, 2);
-@include _margin(1, 2, .5);
-@include _margin(1, 2, .5, 2);
-@include _margin(10px);
-```
-*/
-/*
----
 name: _margin-top()
 category:
   - core/mixin
@@ -1609,6 +1655,31 @@ Sets margin-left
 */
 /*
 ---
+name: _margin()
+category:
+  - core/mixin
+  - core/mixin/margin
+---
+Sets margin
+
+### scss
+```scss
+//
+// @param  int  $coefficient-1
+// @param  int  $coefficient-2
+// @param  int  $coefficient-3
+// @param  int  $coefficient-4
+//
+
+@include _margin(1);
+@include _margin(1, 2);
+@include _margin(1, 2, .5);
+@include _margin(1, 2, .5, 2);
+@include _margin(10px);
+```
+*/
+/*
+---
 name: _overlay()
 category:
   - core/mixin
@@ -1625,6 +1696,86 @@ Overlay helper
 .c-foo {
   @include _overlay(#fff, .5);
 }
+```
+*/
+/*
+---
+name: _padding-top()
+category:
+  - core/mixin
+  - core/mixin/padding
+---
+Sets padding-top
+
+### scss
+```scss
+//
+// @param  int  $coefficient
+// @param  boolean  $apply-margin-scale
+//
+
+@include _padding-top(1);
+@include _padding-top(10px);
+```
+*/
+/*
+---
+name: _padding-right()
+category:
+  - core/mixin
+  - core/mixin/padding
+---
+Sets padding-right
+
+### scss
+```scss
+//
+// @param  int  $coefficient
+// @param  boolean  $apply-margin-scale
+//
+
+@include _padding-right(1);
+@include _padding-right(10px);
+```
+*/
+/*
+---
+name: _padding-bottom()
+category:
+  - core/mixin
+  - core/mixin/padding
+---
+Sets padding-bottom
+
+### scss
+```scss
+//
+// @param  int  $coefficient
+// @param  boolean  $apply-margin-scale
+//
+
+@include _padding-bottom(1);
+@include _padding-bottom(10px);
+```
+*/
+/*
+---
+name: _padding-left()
+category:
+  - core/mixin
+  - core/mixin/padding
+---
+Sets padding-left
+
+### scss
+```scss
+//
+// @param  int  $coefficient
+// @param  boolean  $apply-margin-scale
+//
+
+@include _padding-left(1);
+@include _padding-left(10px);
 ```
 */
 /*
@@ -1654,85 +1805,10 @@ Sets padding
 */
 /*
 ---
-name: _padding-top()
-category:
-  - core/mixin
-  - core/mixin/padding
----
-Sets padding-top
-
-### scss
-```scss
-//
-// @param  int  $coefficient
-//
-
-@include _padding-top(1);
-@include _padding-top(10px);
-```
-*/
-/*
----
-name: _padding-right()
-category:
-  - core/mixin
-  - core/mixin/padding
----
-Sets padding-right
-
-### scss
-```scss
-//
-// @param  int  $coefficient
-//
-
-@include _padding-right(1);
-@include _padding-right(10px);
-```
-*/
-/*
----
-name: _padding-bottom()
-category:
-  - core/mixin
-  - core/mixin/padding
----
-Sets padding-bottom
-
-### scss
-```scss
-//
-// @param  int  $coefficient
-//
-
-@include _padding-bottom(1);
-@include _padding-bottom(10px);
-```
-*/
-/*
----
-name: _padding-left()
-category:
-  - core/mixin
-  - core/mixin/padding
----
-Sets padding-left
-
-### scss
-```scss
-//
-// @param  int  $coefficient
-//
-
-@include _padding-left(1);
-@include _padding-left(10px);
-```
-*/
-/*
----
 name: _position()
 category:
   - core/mixin
+  - core/mixin/position
 ---
 The position shorthand
 
@@ -1748,6 +1824,82 @@ The position shorthand
 //
 
 @include _position(absolute, 10px, null, null, 10px, 1);
+```
+*/
+/*
+---
+name: _top()
+category:
+  - core/mixin
+  - core/mixin/position
+---
+Sets top
+
+### scss
+```scss
+//
+// @param  int  $coefficient
+//
+
+@include _top(1);
+@include _top(10px);
+```
+*/
+/*
+---
+name: _right()
+category:
+  - core/mixin
+  - core/mixin/position
+---
+Sets right
+
+### scss
+```scss
+//
+// @param  int  $coefficient
+//
+
+@include _right(1);
+@include _right(10px);
+```
+*/
+/*
+---
+name: _bottom()
+category:
+  - core/mixin
+  - core/mixin/position
+---
+Sets bottom
+
+### scss
+```scss
+//
+// @param  int  $coefficient
+//
+
+@include _bottom(1);
+@include _bottom(10px);
+```
+*/
+/*
+---
+name: _left()
+category:
+  - core/mixin
+  - core/mixin/position
+---
+Sets left
+
+### scss
+```scss
+//
+// @param  int  $coefficient
+//
+
+@include _left(1);
+@include _left(10px);
 ```
 */
 /*
@@ -2304,56 +2456,19 @@ Abstract checkbox component
 
 ### scss
 ```scss
-//
-// @param  hash  $params
-//   size           length
-//   border-radius  length
-//
-
 .c-checkbox {
-  @include _checkbox((
-    size: $_base-font-size-px,
-    border-radius: 2px
-  ));
+  @include _checkbox();
 }
-```
-
-### js
-```js
-import BasisCheckbox from 'node_modules/sass-basis/src/js/_checkbox.js';
-new BasisCheckbox({
-  checkbox: '.c-checkbox',
-});
 ```
 
 ### html
 ```ejs
 <label>
-  <span class="c-checkbox" aria-checked="false">
-    <input type="checkbox">
-    <span class="c-checkbox__control"></span>
+  <span class="c-checkbox">
+    <input type="checkbox" class="c-checkbox__control">
+    <span class="c-checkbox__label">...</span>
   </span>
-  ...
 </label>
-```
-*/
-/*
----
-name: $_container-margin
-category:
-  - core/abstract
-  - core/abstract/container
-  - core/variable/container
----
-Container side margin
-
-### scss
-```scss
-//
-// @var  length
-//
-
-$_container-margin: $_base-line-height;
 ```
 */
 /*
@@ -2377,25 +2492,6 @@ Abstract fluid container component
 <div class="c-fluid-container">
   ...
 </div>
-```
-*/
-/*
----
-name: $_container-max-width
-category:
-  - core/abstract
-  - core/abstract/container
-  - core/variable/container
----
-Container max width
-
-### scss
-```scss
-//
-// @var  length
-//
-
-$_container-max-width: 1200px;
 ```
 */
 /*
@@ -2468,7 +2564,10 @@ Abstract drawer component
   }
 
   &__toggle {
-    @include _position(absolute, _space(.5), 5px, 0);
+    position: absolute;
+    @include _top(.5);
+    @include _right(5px);
+    @include _bottom(0);
     @include _square($_base-line-height);
     display: flex;
     align-items: center;
@@ -2578,7 +2677,10 @@ Abstract dropdown component
   }
 
   &__toggle {
-    @include _position(absolute, _space(.5), 5px, 0);
+    position: absolute;
+    @include _top(.5);
+    @include _right(5px);
+    @include _bottom(0);
     @include _square($_base-line-height);
     display: flex;
     align-items: center;
@@ -3198,20 +3300,6 @@ new BasisNavbar({
 */
 /*
 ---
-name: $_page-effect-z-index
-category:
-  - core/abstract
-  - core/variable/page-effect
----
-`z-index` of page effect
-
-### scss
-```scss
-$_page-effect-z-index: 1000000;
-```
-*/
-/*
----
 name: _page-effect()
 category:
   - core/abstract
@@ -3344,28 +3432,17 @@ Abstract radio button component
 ### scss
 ```scss
 .c-radio {
-  @include _radio((
-    size: $_base-font-size-px,
-  ));
+  @include _radio();
 }
-```
-
-### js
-```js
-import BasisRadio from 'node_modules/sass-basis/src/js/_radio.js';
-new BasisRadio({
-  radio: '.c-radio',
-});
 ```
 
 ### html
 ```ejs
 <label>
-  <span class="c-radio" aria-checked="false">
-    <input type="radio">
-    <span class="c-radio__control"></span>
+  <span class="c-radio">
+    <input type="radio" class="c-radio__control">
+    <span class="c-radio__label">...</span>
   </span>
-  ...
 </label>
 ```
 */
@@ -3668,6 +3745,34 @@ Abstract column element of flexbox based grid system
 */
 /*
 ---
+name: _lattice__col--width()
+category:
+  - core/abstract
+  - core/abstract/grid-system/lattice
+---
+Sets column width of flexbox based grid system
+
+### scss
+```scss
+//
+// @param  length  $width
+//
+
+.c-lattice {
+  @include _lattice();
+
+  &__col {
+    @include _lattice__col(1, 2);
+
+    @include _media-min(lg) {
+      @include _lattice__col--width(1 / 3 * 100%);
+    }
+  }
+}
+```
+*/
+/*
+---
 name: _section()
 category:
   - core/abstract
@@ -3720,25 +3825,16 @@ Abstract selectbox component
 }
 ```
 
-### js
-```js
-import BasisSelect from 'node_modules/sass-basis/src/js/_select.js';
-new BasisSelect({
-  select: '.c-select',
-  label : '.c-select__label'
-});
-```
-
 ### html
 ```ejs
-<span class="c-select c-select--block" aria-selected="false">
-  <select>
+<div class="c-select">
+  <select class="c-select__control">
     <option value="1">label-1</option>
     <option value="2">label-2</option>
     <option value="3">label-3</option>
   </select>
-  <span class="c-select__label"></span>
-</span>
+  <span class="c-select__toggle"></span>
+</div>
 ```
 */
 /*

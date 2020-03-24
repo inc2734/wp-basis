@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^9.6.1",
-  "_id": "sass-basis@9.6.1",
+  "_from": "sass-basis@^10.0.0",
+  "_id": "sass-basis@10.0.0",
   "_inBundle": false,
-  "_integrity": "sha512-SLAM4I9Ij+AzgRL+kLpWYI+X85do2i8nZNW2+cb24vUJmiWii1oxYdnYIzekR8ZrZMR83dHVhgW+l1blCxG/kQ==",
+  "_integrity": "sha512-eUAI1dI99ogCEkGTS7UAs0x7lTcK6FYIzM+mVjK7mbGugGdfNjp1Xg9ca7WqUtGNhbhfw7CnhVHvWBPAcq0fHQ==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^9.6.1",
+    "raw": "sass-basis@^10.0.0",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^9.6.1",
+    "rawSpec": "^10.0.0",
     "saveSpec": null,
-    "fetchSpec": "^9.6.1"
+    "fetchSpec": "^10.0.0"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-9.6.1.tgz",
-  "_shasum": "4e11bc2e61d888ef7db7440da1931a625977de00",
-  "_spec": "sass-basis@^9.6.1",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-10.0.0.tgz",
+  "_shasum": "1f34708c7b4c913e979aa66f61ddad133410ed35",
+  "_spec": "sass-basis@^10.0.0",
   "_where": "/Users/inc/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -50,11 +50,11 @@
   "deprecated": false,
   "description": "A lightweight responsive Sass/CSS framework based on flexible box.",
   "devDependencies": {
-    "@babel/core": "^7.8.6",
-    "@babel/preset-env": "^7.8.6",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
     "@wordpress/browserslist-config": "^2.6.0",
     "autoprefixer": "^9.7.4",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.7",
     "cpy-cli": "^3.1.0",
     "cssnano": "^4.1.10",
@@ -123,5 +123,5 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "9.6.1"
+  "version": "10.0.0"
 }

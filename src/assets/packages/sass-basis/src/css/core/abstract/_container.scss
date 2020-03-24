@@ -1,24 +1,4 @@
-/*
----
-name: $_container-margin
-category:
-  - core/abstract
-  - core/abstract/container
-  - core/variable/container
----
-Container side margin
 
-### scss
-```scss
-//
-// @var  length
-//
-
-$_container-margin: $_base-line-height;
-```
-*/
-
-$_container-margin: $_base-line-height !default;
 
 /*
 ---
@@ -45,36 +25,16 @@ Abstract fluid container component
 */
 
 @mixin _fluid-container() {
-  padding-right: ($_container-margin / 2);
-  padding-left: ($_container-margin / 2);
+  padding-right: $_container-margin; // for IE11
+  padding-left: $_container-margin; // for IE11
+
+  padding-right: _var-container-margin();
+  padding-left: _var-container-margin();
 
   @include _media-min(md) {
-    padding-right: $_container-margin;
-    padding-left: $_container-margin;
+    --_container-margin: #{$_container-margin * 2};
   }
 }
-
-/*
----
-name: $_container-max-width
-category:
-  - core/abstract
-  - core/abstract/container
-  - core/variable/container
----
-Container max width
-
-### scss
-```scss
-//
-// @var  length
-//
-
-$_container-max-width: 1200px;
-```
-*/
-
-$_container-max-width: 1200px !default;
 
 /*
 ---
@@ -107,6 +67,7 @@ Abstract container component
   margin-left: auto;
 
   @include _media-min(lg) {
-    max-width: $_container-max-width;
+    max-width: $_container-max-width; // for IE11
+    max-width: _var-container-max-width();
   }
 }
