@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^10.1.1",
-  "_id": "sass-basis@10.1.1",
+  "_from": "sass-basis@^11.0.0",
+  "_id": "sass-basis@11.0.0",
   "_inBundle": false,
-  "_integrity": "sha512-JvjqA4THn4s2lpGAH/SdvbjIh8NMFwair2Ih/dwCz4TNt85F2pteNCta5gKe3+RUO/25H1zItPd/4+71necJNA==",
+  "_integrity": "sha512-TWDmMn4oqUsSUy4pX1uN649sKUu3nPTPw9X+Oz8xqPS4oVeJdOVpqttnzc33doo+0hog4D1ns1gzFQlsapN5bw==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^10.1.1",
+    "raw": "sass-basis@^11.0.0",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^10.1.1",
+    "rawSpec": "^11.0.0",
     "saveSpec": null,
-    "fetchSpec": "^10.1.1"
+    "fetchSpec": "^11.0.0"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-10.1.1.tgz",
-  "_shasum": "93b1c4d716922edb384b80a0f5fbee23b0cd5187",
-  "_spec": "sass-basis@^10.1.1",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-11.0.0.tgz",
+  "_shasum": "006d781a58b2819e4fa4aff7e52379bf08cc004d",
+  "_spec": "sass-basis@^11.0.0",
   "_where": "/Users/inc/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -50,19 +50,19 @@
   "deprecated": false,
   "description": "A lightweight responsive Sass/CSS framework based on flexible box.",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "@wordpress/browserslist-config": "^2.6.0",
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "^9.8.0",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.7",
-    "cpy-cli": "^3.1.0",
+    "cpy-cli": "^3.1.1",
     "cssnano": "^4.1.10",
     "node-aigis": "^1.4.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^7.1.0",
-    "webpack": "^4.42.0",
+    "postcss-cli": "^7.1.1",
+    "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
   "engines": {
@@ -123,5 +123,5 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "10.1.1"
+  "version": "11.0.0"
 }
