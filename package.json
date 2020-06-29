@@ -2,7 +2,7 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "dependencies": {
-    "sass-basis": "^11.0.2",
+    "sass-basis": "^11.0.3",
     "sass-basis-layout": "^8.0.4"
   },
   "devDependencies": {
@@ -18,12 +18,9 @@
   "scripts": {
     "cleanup:css": "rimraf src/assets/css",
     "cleanup:packages": "rimraf src/assets/packages && mkdir -p src/assets/packages",
-    "css:embed:sass": "node-sass src/src/css/gutenberg-embed.scss -o src/assets/css",
-    "css:embed:postcss": "postcss src/assets/css/gutenberg-embed.css -o src/assets/css/gutenberg-embed.min.css -c=postcss.config.js",
-    "css:embed": "npm-run-all -s css:embed:*",
+    "css:embed": "node-sass src/src/css/gutenberg-embed.scss src/assets/css/gutenberg-embed.min.css && postcss -r src/assets/css/gutenberg-embed.min.css -c=postcss.config.js",
     "css": "npm run cleanup:css && npm-run-all -p css:*",
     "packages:html5shiv": "cpy 'html5shiv/**' '../src/assets/packages' --cwd=node_modules --parents",
-    "packages:node-normalize-scss": "cpy 'node-normalize-scss/**' '../src/assets/packages' --cwd=node_modules --parents",
     "packages:sass-basis": "cpy 'sass-basis/**' '../src/assets/packages' --cwd=node_modules --parents",
     "packages:sass-basis-layout": "cpy 'sass-basis-layout/**' '../src/assets/packages' --cwd=node_modules --parents",
     "packages": "npm run cleanup:packages && npm-run-all packages:*",

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Basis Styleguide</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/railscasts.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./aigis_assets/css/style.min.css">
+  <link rel="stylesheet" href="./aigis_assets/css/theme.css">
+  <link rel="stylesheet" href="./aigis_assets/css/highlight/okadia.css">
+  <!--[if lt IE 10]>
+  <link rel="stylesheet" href="/aigis_assets/css/plugin/basis-ie9/basis-ie9.min.css" />
+  <![endif]-->
+  <link href="//fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+  <link rel="shortcut icon" href=".//aigis_assets/images/favicon.ico">
+</head>
+
+<body class="l-body" data-sticky-footer="true">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98014432-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<div class="c-page-effect" data-page-effect="fadein" aria-hidden="false">
+	<div class="c-page-effect__item">
+		<div class="c-circle-spinner"></div>
+	</div>
+</div>
+
+
+<nav id="drawer-nav" class="c-drawer c-drawer--fixed" role="navigation" aria-hidden="true" aria-labelledby="hamburger-btn">
+  
+    <ul data-path-depth="0"><li data-path-depth="0"><a>core</a><ul data-path-depth="1"><li data-path-depth="1"><a href="category/core/abstract/index.html">abstract</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/core/abstract/balloon/index.html">balloon</a></li><li data-path-depth="2"><a href="category/core/abstract/container/index.html">container</a></li><li data-path-depth="2"><a href="category/core/abstract/form/index.html">form</a></li><li data-path-depth="2"><a>grid-system</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/core/abstract/grid-system/flexbox/index.html">flexbox</a></li><li data-path-depth="3"><a href="category/core/abstract/grid-system/inline-block/index.html">inline-block</a></li><li data-path-depth="3"><a href="category/core/abstract/grid-system/lattice/index.html">lattice</a></li></ul></li><li data-path-depth="2"><a href="category/core/abstract/spinner/index.html">spinner</a></li></ul></li><li data-path-depth="1"><a href="category/core/function/index.html">function</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/core/function/color/index.html">color</a></li><li data-path-depth="2"><a href="category/core/function/condition/index.html">condition</a></li><li data-path-depth="2"><a href="category/core/function/media-query/index.html">media-query</a></li></ul></li><li data-path-depth="1"><a href="category/core/mixin/index.html">mixin</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/core/mixin/animation/index.html">animation</a></li><li data-path-depth="2"><a href="category/core/mixin/background-image/index.html">background-image</a></li><li data-path-depth="2"><a href="category/core/mixin/form/index.html">form</a></li><li data-path-depth="2"><a href="category/core/mixin/list/index.html">list</a></li><li data-path-depth="2"><a href="category/core/mixin/margin/index.html">margin</a></li><li data-path-depth="2"><a href="category/core/mixin/media-query/index.html">media-query</a></li><li data-path-depth="2"><a href="category/core/mixin/padding/index.html">padding</a></li><li data-path-depth="2"><a href="category/core/mixin/position/index.html">position</a></li><li data-path-depth="2"><a href="category/core/mixin/shape/index.html">shape</a></li><li data-path-depth="2"><a href="category/core/mixin/typography/index.html">typography</a></li><li data-path-depth="2"><a href="category/core/mixin/visibility/index.html">visibility</a></li></ul></li><li data-path-depth="1"><a href="category/core/variable/index.html">variable</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/core/variable/color/index.html">color</a></li><li data-path-depth="2"><a href="category/core/variable/container/index.html">container</a></li><li data-path-depth="2"><a href="category/core/variable/form/index.html">form</a></li><li data-path-depth="2"><a href="category/core/variable/media-query/index.html">media-query</a></li><li data-path-depth="2"><a href="category/core/variable/page-effect/index.html">page-effect</a></li><li data-path-depth="2"><a href="category/core/variable/typography/index.html">typography</a></li></ul></li></ul></li><li data-path-depth="0"><a>object</a><ul data-path-depth="1"><li data-path-depth="1"><a href="category/object/component/index.html">component</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/object/component/alert/index.html">alert</a></li><li data-path-depth="2"><a href="category/object/component/balloon/index.html">balloon</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/component/balloon/bottom-balloon/index.html">bottom-balloon</a></li><li data-path-depth="3"><a href="category/object/component/balloon/left-balloon/index.html">left-balloon</a></li><li data-path-depth="3"><a href="category/object/component/balloon/right-balloon/index.html">right-balloon</a></li><li data-path-depth="3"><a href="category/object/component/balloon/top-balloon/index.html">top-balloon</a></li></ul></li><li data-path-depth="2"><a href="category/object/component/breadcrumbs/index.html">breadcrumbs</a></li><li data-path-depth="2"><a href="category/object/component/btn/index.html">btn</a></li><li data-path-depth="2"><a href="category/object/component/checkbox/index.html">checkbox</a></li><li data-path-depth="2"><a href="category/object/component/container/index.html">container</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/component/container/container/index.html">container</a></li><li data-path-depth="3"><a href="category/object/component/container/fluid-container/index.html">fluid-container</a></li></ul></li><li data-path-depth="2"><a href="category/object/component/drawer/index.html">drawer</a></li><li data-path-depth="2"><a href="category/object/component/dropdown/index.html">dropdown</a></li><li data-path-depth="2"><a href="category/object/component/entries/index.html">entries</a></li><li data-path-depth="2"><a href="category/object/component/entry/index.html">entry</a></li><li data-path-depth="2"><a href="category/object/component/form-control/index.html">form-control</a></li><li data-path-depth="2"><a href="category/object/component/grid-system/index.html">grid-system</a></li><li data-path-depth="2"><a href="category/object/component/hamburger-btn/index.html">hamburger-btn</a></li><li data-path-depth="2"><a href="category/object/component/hero/index.html">hero</a></li><li data-path-depth="2"><a href="category/object/component/icon/index.html">icon</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/component/icon/ic-angle-down/index.html">ic-angle-down</a></li><li data-path-depth="3"><a href="category/object/component/icon/ic-angle-right/index.html">ic-angle-right</a></li><li data-path-depth="3"><a href="category/object/component/icon/ic-check/index.html">ic-check</a></li></ul></li><li data-path-depth="2"><a href="category/object/component/input-group/index.html">input-group</a></li><li data-path-depth="2"><a href="category/object/component/media/index.html">media</a></li><li data-path-depth="2"><a href="category/object/component/meta/index.html">meta</a></li><li data-path-depth="2"><a href="category/object/component/navbar/index.html">navbar</a></li><li data-path-depth="2"><a href="category/object/component/page-effect/index.html">page-effect</a></li><li data-path-depth="2"><a href="category/object/component/page-header/index.html">page-header</a></li><li data-path-depth="2"><a href="category/object/component/paginatiion/index.html">paginatiion</a></li><li data-path-depth="2"><a href="category/object/component/radio/index.html">radio</a></li><li data-path-depth="2"><a href="category/object/component/responsive-container/index.html">responsive-container</a></li><li data-path-depth="2"><a href="category/object/component/responsive-table/index.html">responsive-table</a></li><li data-path-depth="2"><a href="category/object/component/section/index.html">section</a></li><li data-path-depth="2"><a href="category/object/component/select/index.html">select</a></li><li data-path-depth="2"><a href="category/object/component/site-branding/index.html">site-branding</a></li><li data-path-depth="2"><a href="category/object/component/spinner/index.html">spinner</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/component/spinner/circle-spinner/index.html">circle-spinner</a></li><li data-path-depth="3"><a href="category/object/component/spinner/dots-spinner/index.html">dots-spinner</a></li><li data-path-depth="3"><a href="category/object/component/spinner/pulse-spinner/index.html">pulse-spinner</a></li></ul></li></ul></li><li data-path-depth="1"><a href="category/object/utility/index.html">utility</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/object/utility/animation/index.html">animation</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/utility/animation/extend-underline/index.html">extend-underline</a></li><li data-path-depth="3"><a href="category/object/utility/animation/shake-horizontal/index.html">shake-horizontal</a></li><li data-path-depth="3"><a href="category/object/utility/animation/shake-scale/index.html">shake-scale</a></li><li data-path-depth="3"><a href="category/object/utility/animation/shake-vertical/index.html">shake-vertical</a></li><li data-path-depth="3"><a href="category/object/utility/animation/vibrate-horizontal/index.html">vibrate-horizontal</a></li><li data-path-depth="3"><a href="category/object/utility/animation/vibrate-scale/index.html">vibrate-scale</a></li><li data-path-depth="3"><a href="category/object/utility/animation/vibrate-vertical/index.html">vibrate-vertical</a></li></ul></li><li data-path-depth="2"><a href="category/object/utility/clearfix/index.html">clearfix</a></li><li data-path-depth="2"><a href="category/object/utility/content/index.html">content</a></li><li data-path-depth="2"><a href="category/object/utility/hidden/index.html">hidden</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/utility/hidden/hidden/index.html">hidden</a></li></ul></li><li data-path-depth="2"><a href="category/object/utility/img-2x/index.html">img-2x</a></li><li data-path-depth="2"><a href="category/object/utility/noscroll/index.html">noscroll</a></li><li data-path-depth="2"><a href="category/object/utility/pull/index.html">pull</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/utility/pull/pull-left/index.html">pull-left</a></li><li data-path-depth="3"><a href="category/object/utility/pull/pull-right/index.html">pull-right</a></li></ul></li><li data-path-depth="2"><a href="category/object/utility/text/index.html">text</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/utility/text/text-center/index.html">text-center</a></li><li data-path-depth="3"><a href="category/object/utility/text/text-left/index.html">text-left</a></li><li data-path-depth="3"><a href="category/object/utility/text/text-right/index.html">text-right</a></li></ul></li><li data-path-depth="2"><a href="category/object/utility/transition/index.html">transition</a></li><li data-path-depth="2"><a href="category/object/utility/visible/index.html">visible</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/utility/visible/visible/index.html">visible</a></li></ul></li></ul></li></ul></li></ul>
+
+</nav>
+
+
+<div id="container" class="l-container" data-l="container">
+  <header id="header" class="l-header" role="banner" data-l="header" data-l-header-type="overlay">
+  <div class="c-container">
+    <div class="c-row c-row--nowrap c-row--lg-margin c-row--middle">
+      <div class="c-row__col c-row__col--auto c-row__col--md-1-2">
+        <div class="c-site-branding">
+          <h1 class="c-site-branding__title">
+            <a href="./"><img src="./aigis_assets/images/logo.svg" alt="">Basis Styleguide</a>
+          </h1>
+        </div>
+      </div>
+      <div class="c-row__col c-row__col--fit c-row__col--md-1-2">
+        <div class="u-hidden-lg-up">
+          <div id="hamburger-btn" class="c-hamburger-btn u-hidden-lg-up" aria-controls="drawer-nav" aria-expanded="false">
+            <div class="c-hamburger-btn__bars">
+              <div class="c-hamburger-btn__bar"></div>
+              <div class="c-hamburger-btn__bar"></div>
+              <div class="c-hamburger-btn__bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="u-hidden u-visible-lg-up">
+          <div class="p-global-nav u-pull-right" role="navigation">
+  <ul class="c-navbar c-navbar--right">
+    <li class="c-navbar__item"><a href="https://sass-basis.github.io">Brand site</a></li>
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div id="contents" class="l-contents" data-l="contents">
+    
+
+<div class="c-container">
+  <div class="c-row c-row--margin-l">
+    <div class="c-row__col c-row__col--1-1 c-row__col--lg-3-4">
+      <main id="main" class="l-main" role="main">
+
+        
+          <article class="c-entry">
+            <div class="c-entry__content">
+              <h1 id="basis">Basis</h1>
+<p>A lightweight responsive Sass/CSS framework based on flexible box.</p>
+<p><img src="https://avatars0.githubusercontent.com/u/18589717?v=3&s=200" alt="Basis" width="100" /></p>
+<ul>
+<li>Document: <a href="https://sass-basis.github.io/" title="null">https://sass-basis.github.io/</a></li>
+<li>GitHub: <a href="https://github.com/sass-basis/basis/" title="null">https://github.com/sass-basis/basis/</a></li>
+<li>Release: <a href="https://github.com/sass-basis/basis/releases/" title="null">https://github.com/sass-basis/basis/releases/</a></li>
+</ul>
+<h2 id="why-it-s-awesome-">Why it&#39;s awesome?</h2>
+<ul>
+<li>Basis isn&#39;t about a UI framework. Basis provides only basic frame of components. So you build a responsive web page quickly and easy to overwrite with your Sass or CSS.</li>
+<li>CSS architecture of Basis is <a href="https://github.com/hiloki/flocss" title="null">FLOCSS</a>. So it is possible a modular approach.</li>
+<li>Basis has incorporated the concept of vertical rhythm. So you can be a good-balanced design.</li>
+<li>Basis has many mixins. Usufule mixins and abstract mixin of compornents.</li>
+</ul>
+<h2 id="demo-html5-templates-">Demo ( HTML5 Templates )</h2>
+<ul>
+<li>integrity: <a href="https://sass-basis.github.io/integrity/" title="null">https://sass-basis.github.io/integrity/</a></li>
+<li>improve: <a href="https://sass-basis.github.io/improve/" title="null">https://sass-basis.github.io/improve/</a></li>
+<li>affinity: <a href="https://sass-basis.github.io/affinity/" title="null">https://sass-basis.github.io/affinity/</a></li>
+</ul>
+<h2 id="get-started">Get started</h2>
+<h3 id="using-basis-project-starter-kit-">Using Basis Project (Starter Kit)</h3>
+<pre><code>$ git clone https<span class="token punctuation" >:</span><span class="token operator" >/</span><span class="token operator" >/</span>github<span class="token punctuation" >.</span>com<span class="token operator" >/</span>sass<span class="token operator" >-</span>basis<span class="token operator" >/</span>starter<span class="token operator" >-</span>kit<span class="token punctuation" >.</span>git
+$ cd starter<span class="token operator" >-</span>kit
+$ npm install
+$ npm start
+</code></pre><h3 id="using-npm">Using NPM</h3>
+<p>Installs Basis</p>
+<pre><code>$ npm install sass<span class="token operator" >-</span>basis
+</code></pre><p>Imports Basis your Sass/SCSS.</p>
+<pre><code><span class="token operator" >/</span><span class="token operator" >*</span> <span class="token keyword" >If</span> you want <span class="token keyword" >to</span> use Basis classes <span class="token operator" >*</span><span class="token operator" >/</span>
+<span class="token variable" >@import</span> node_modules<span class="token operator" >/</span>sass<span class="token operator" >-</span>basis<span class="token operator" >/</span>src<span class="token operator" >/</span>css<span class="token operator" >/</span>basis<span class="token comment" spellcheck="true">;</span>
+
+<span class="token operator" >/</span><span class="token operator" >*</span> <span class="token keyword" >If</span> you want <span class="token keyword" >to</span> use Basis mixins only <span class="token operator" >*</span><span class="token operator" >/</span>
+<span class="token variable" >@import</span> node_modules<span class="token operator" >/</span>sass<span class="token operator" >-</span>basis<span class="token operator" >/</span>src<span class="token operator" >/</span>css<span class="token operator" >/</span>basis<span class="token operator" >-</span>core<span class="token comment" spellcheck="true">;</span>
+</code></pre><p>Imports JavaScript</p>
+<pre><code>import <span class="token string" >'node_modules/sass-basis/src/js/basis.js'</span><span class="token comment" spellcheck="true">;</span>
+</code></pre><h3 id="download-from-github">Download from GitHub</h3>
+<p>Download the basis from <a href="https://github.com/sass-basis/basis/releases" title="null">https://github.com/sass-basis/basis/releases</a></p>
+<p>Imports Basis your Sass/SCSS.</p>
+<pre><code><span class="token operator" >/</span><span class="token operator" >*</span> <span class="token keyword" >If</span> you want <span class="token keyword" >to</span> use Basis classes <span class="token operator" >*</span><span class="token operator" >/</span>
+<span class="token variable" >@import</span> basis<span class="token operator" >/</span>src<span class="token operator" >/</span>css<span class="token operator" >/</span>basis<span class="token comment" spellcheck="true">;</span>
+
+<span class="token operator" >/</span><span class="token operator" >*</span> <span class="token keyword" >If</span> you want <span class="token keyword" >to</span> use Basis mixins only <span class="token operator" >*</span><span class="token operator" >/</span>
+<span class="token variable" >@import</span> basis<span class="token operator" >/</span>src<span class="token operator" >/</span>css<span class="token operator" >/</span>basis<span class="token operator" >-</span>core<span class="token comment" spellcheck="true">;</span>
+</code></pre><p>or Just this link.</p>
+<pre><code><span class="token operator" >&lt;</span>link rel<span class="token operator" >=</span><span class="token string" >"stylesheet"</span> href<span class="token operator" >=</span><span class="token string" >"basis/dist/css/basis.min.css"</span><span class="token operator" >></span>
+</code></pre><p>Loads JavaScripts</p>
+<pre><code><span class="token operator" >&lt;</span>script src<span class="token operator" >=</span><span class="token string" >"node_modules/sass-basis/dist/js/basis.min.js"</span><span class="token operator" >></span><span class="token operator" >&lt;</span><span class="token operator" >/</span>script<span class="token operator" >></span>
+</code></pre><h3 id="using-cdn-jsdelivr-">Using CDN (jsDelivr)</h3>
+<p><a href="https://cdn.jsdelivr.net/npm/sass-basis@latest/dist/" title="null">https://cdn.jsdelivr.net/npm/sass-basis@latest/dist/</a></p>
+<h3 id="sample-for-using-classes">Sample for using classes</h3>
+<pre><code><span class="token operator" >&lt;</span>a class<span class="token operator" >=</span><span class="token string" >"c-btn c-btn--block"</span><span class="token operator" >></span>Btn<span class="token operator" >&lt;</span><span class="token operator" >/</span>a<span class="token operator" >></span>
+</code></pre><h3 id="sample-for-using-abstracts">Sample for using abstracts</h3>
+<pre><code><span class="token punctuation" >.</span>c<span class="token operator" >-</span>btn {
+  <span class="token variable" >@include</span> _c<span class="token operator" >-</span><span class="token function" >btn</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token comment" spellcheck="true">;</span>
+
+  <span class="token operator" >&amp;</span><span class="token operator" >-</span><span class="token operator" >-</span>block {
+    display<span class="token punctuation" >:</span> block<span class="token comment" spellcheck="true">;</span>
+  }
+}
+</code></pre><pre><code><span class="token operator" >&lt;</span>a class<span class="token operator" >=</span><span class="token string" >"c-btn c-btn--block"</span><span class="token operator" >></span>Btn<span class="token operator" >&lt;</span><span class="token operator" >/</span>a<span class="token operator" >></span>
+</code></pre><h3 id="option">Option</h3>
+<p>Support IE9 ( Not perfect )</p>
+<pre><code class="language-html"><span class="token comment" spellcheck="true">&lt;!--[if lt IE 10]>
+&lt;link rel="stylesheet" href="node_modules/sass-basis/dist/css/plugin/basis-ie9/basis-ie9.min.css" />
+&lt;![endif]--></span>
+</code></pre>
+<p>And support IE8 ( Not perfect )</p>
+<pre><code class="language-html"><span class="token comment" spellcheck="true">&lt;!--[if lt IE 9]>
+&lt;script src="node_modules/html5shiv/dist/html5shiv.js">&lt;/script>
+&lt;![endif]--></span>
+</code></pre>
+<h2 id="browser-support">Browser support</h2>
+<p>Modern Browser and IE10+</p>
+<h2 id="how-to-contribute">How to contribute</h2>
+<p>Please make an issue if there is a problem and needs.
+Please don&#39;t make the new issue if the issue of the same content already exists.
+If you can coding, please give me a pull request.
+But, please do not send in the master branch.
+Pull request sent to the master branch doesn&#39;t merge.</p>
+<h2 id="license">License</h2>
+<p>MIT License</p>
+
+            </div>
+          </article>
+        
+
+      </main>
+    </div>
+    <div class="c-row__col c-row__col--1-1 c-row__col--lg-1-4 u-hidden u-visible-lg-up">
+      <aside id="sub" class="l-sub" role="complementary">
+        <nav class="p-local-nav">
+          
+    <ul data-path-depth="0"><li data-path-depth="0"><a>core</a><ul data-path-depth="1"><li data-path-depth="1"><a href="category/core/abstract/index.html">abstract</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/core/abstract/balloon/index.html">balloon</a></li><li data-path-depth="2"><a href="category/core/abstract/container/index.html">container</a></li><li data-path-depth="2"><a href="category/core/abstract/form/index.html">form</a></li><li data-path-depth="2"><a>grid-system</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/core/abstract/grid-system/flexbox/index.html">flexbox</a></li><li data-path-depth="3"><a href="category/core/abstract/grid-system/inline-block/index.html">inline-block</a></li><li data-path-depth="3"><a href="category/core/abstract/grid-system/lattice/index.html">lattice</a></li></ul></li><li data-path-depth="2"><a href="category/core/abstract/spinner/index.html">spinner</a></li></ul></li><li data-path-depth="1"><a href="category/core/function/index.html">function</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/core/function/color/index.html">color</a></li><li data-path-depth="2"><a href="category/core/function/condition/index.html">condition</a></li><li data-path-depth="2"><a href="category/core/function/media-query/index.html">media-query</a></li></ul></li><li data-path-depth="1"><a href="category/core/mixin/index.html">mixin</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/core/mixin/animation/index.html">animation</a></li><li data-path-depth="2"><a href="category/core/mixin/background-image/index.html">background-image</a></li><li data-path-depth="2"><a href="category/core/mixin/form/index.html">form</a></li><li data-path-depth="2"><a href="category/core/mixin/list/index.html">list</a></li><li data-path-depth="2"><a href="category/core/mixin/margin/index.html">margin</a></li><li data-path-depth="2"><a href="category/core/mixin/media-query/index.html">media-query</a></li><li data-path-depth="2"><a href="category/core/mixin/padding/index.html">padding</a></li><li data-path-depth="2"><a href="category/core/mixin/position/index.html">position</a></li><li data-path-depth="2"><a href="category/core/mixin/shape/index.html">shape</a></li><li data-path-depth="2"><a href="category/core/mixin/typography/index.html">typography</a></li><li data-path-depth="2"><a href="category/core/mixin/visibility/index.html">visibility</a></li></ul></li><li data-path-depth="1"><a href="category/core/variable/index.html">variable</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/core/variable/color/index.html">color</a></li><li data-path-depth="2"><a href="category/core/variable/container/index.html">container</a></li><li data-path-depth="2"><a href="category/core/variable/form/index.html">form</a></li><li data-path-depth="2"><a href="category/core/variable/media-query/index.html">media-query</a></li><li data-path-depth="2"><a href="category/core/variable/page-effect/index.html">page-effect</a></li><li data-path-depth="2"><a href="category/core/variable/typography/index.html">typography</a></li></ul></li></ul></li><li data-path-depth="0"><a>object</a><ul data-path-depth="1"><li data-path-depth="1"><a href="category/object/component/index.html">component</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/object/component/alert/index.html">alert</a></li><li data-path-depth="2"><a href="category/object/component/balloon/index.html">balloon</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/component/balloon/bottom-balloon/index.html">bottom-balloon</a></li><li data-path-depth="3"><a href="category/object/component/balloon/left-balloon/index.html">left-balloon</a></li><li data-path-depth="3"><a href="category/object/component/balloon/right-balloon/index.html">right-balloon</a></li><li data-path-depth="3"><a href="category/object/component/balloon/top-balloon/index.html">top-balloon</a></li></ul></li><li data-path-depth="2"><a href="category/object/component/breadcrumbs/index.html">breadcrumbs</a></li><li data-path-depth="2"><a href="category/object/component/btn/index.html">btn</a></li><li data-path-depth="2"><a href="category/object/component/checkbox/index.html">checkbox</a></li><li data-path-depth="2"><a href="category/object/component/container/index.html">container</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/component/container/container/index.html">container</a></li><li data-path-depth="3"><a href="category/object/component/container/fluid-container/index.html">fluid-container</a></li></ul></li><li data-path-depth="2"><a href="category/object/component/drawer/index.html">drawer</a></li><li data-path-depth="2"><a href="category/object/component/dropdown/index.html">dropdown</a></li><li data-path-depth="2"><a href="category/object/component/entries/index.html">entries</a></li><li data-path-depth="2"><a href="category/object/component/entry/index.html">entry</a></li><li data-path-depth="2"><a href="category/object/component/form-control/index.html">form-control</a></li><li data-path-depth="2"><a href="category/object/component/grid-system/index.html">grid-system</a></li><li data-path-depth="2"><a href="category/object/component/hamburger-btn/index.html">hamburger-btn</a></li><li data-path-depth="2"><a href="category/object/component/hero/index.html">hero</a></li><li data-path-depth="2"><a href="category/object/component/icon/index.html">icon</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/component/icon/ic-angle-down/index.html">ic-angle-down</a></li><li data-path-depth="3"><a href="category/object/component/icon/ic-angle-right/index.html">ic-angle-right</a></li><li data-path-depth="3"><a href="category/object/component/icon/ic-check/index.html">ic-check</a></li></ul></li><li data-path-depth="2"><a href="category/object/component/input-group/index.html">input-group</a></li><li data-path-depth="2"><a href="category/object/component/media/index.html">media</a></li><li data-path-depth="2"><a href="category/object/component/meta/index.html">meta</a></li><li data-path-depth="2"><a href="category/object/component/navbar/index.html">navbar</a></li><li data-path-depth="2"><a href="category/object/component/page-effect/index.html">page-effect</a></li><li data-path-depth="2"><a href="category/object/component/page-header/index.html">page-header</a></li><li data-path-depth="2"><a href="category/object/component/paginatiion/index.html">paginatiion</a></li><li data-path-depth="2"><a href="category/object/component/radio/index.html">radio</a></li><li data-path-depth="2"><a href="category/object/component/responsive-container/index.html">responsive-container</a></li><li data-path-depth="2"><a href="category/object/component/responsive-table/index.html">responsive-table</a></li><li data-path-depth="2"><a href="category/object/component/section/index.html">section</a></li><li data-path-depth="2"><a href="category/object/component/select/index.html">select</a></li><li data-path-depth="2"><a href="category/object/component/site-branding/index.html">site-branding</a></li><li data-path-depth="2"><a href="category/object/component/spinner/index.html">spinner</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/component/spinner/circle-spinner/index.html">circle-spinner</a></li><li data-path-depth="3"><a href="category/object/component/spinner/dots-spinner/index.html">dots-spinner</a></li><li data-path-depth="3"><a href="category/object/component/spinner/pulse-spinner/index.html">pulse-spinner</a></li></ul></li></ul></li><li data-path-depth="1"><a href="category/object/utility/index.html">utility</a><ul data-path-depth="2"><li data-path-depth="2"><a href="category/object/utility/animation/index.html">animation</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/utility/animation/extend-underline/index.html">extend-underline</a></li><li data-path-depth="3"><a href="category/object/utility/animation/shake-horizontal/index.html">shake-horizontal</a></li><li data-path-depth="3"><a href="category/object/utility/animation/shake-scale/index.html">shake-scale</a></li><li data-path-depth="3"><a href="category/object/utility/animation/shake-vertical/index.html">shake-vertical</a></li><li data-path-depth="3"><a href="category/object/utility/animation/vibrate-horizontal/index.html">vibrate-horizontal</a></li><li data-path-depth="3"><a href="category/object/utility/animation/vibrate-scale/index.html">vibrate-scale</a></li><li data-path-depth="3"><a href="category/object/utility/animation/vibrate-vertical/index.html">vibrate-vertical</a></li></ul></li><li data-path-depth="2"><a href="category/object/utility/clearfix/index.html">clearfix</a></li><li data-path-depth="2"><a href="category/object/utility/content/index.html">content</a></li><li data-path-depth="2"><a href="category/object/utility/hidden/index.html">hidden</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/utility/hidden/hidden/index.html">hidden</a></li></ul></li><li data-path-depth="2"><a href="category/object/utility/img-2x/index.html">img-2x</a></li><li data-path-depth="2"><a href="category/object/utility/noscroll/index.html">noscroll</a></li><li data-path-depth="2"><a href="category/object/utility/pull/index.html">pull</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/utility/pull/pull-left/index.html">pull-left</a></li><li data-path-depth="3"><a href="category/object/utility/pull/pull-right/index.html">pull-right</a></li></ul></li><li data-path-depth="2"><a href="category/object/utility/text/index.html">text</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/utility/text/text-center/index.html">text-center</a></li><li data-path-depth="3"><a href="category/object/utility/text/text-left/index.html">text-left</a></li><li data-path-depth="3"><a href="category/object/utility/text/text-right/index.html">text-right</a></li></ul></li><li data-path-depth="2"><a href="category/object/utility/transition/index.html">transition</a></li><li data-path-depth="2"><a href="category/object/utility/visible/index.html">visible</a><ul data-path-depth="3"><li data-path-depth="3"><a href="category/object/utility/visible/visible/index.html">visible</a></li></ul></li></ul></li></ul></li></ul>
+
+        </nav>
+      </aside>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <footer id="footer" class="l-footer" data-l="footer">
+  <div class="c-container">
+    <ul class="p-social-nav">
+      <li class="p-social-nav__item"><a href="https://github.com/sass-basis/" target="_blank"><i class="fa fa-github"></i></a></li>
+      <li class="p-social-nav__item"><a href="https://twitter.com/inc2734/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+    </ul>
+
+    <div class="c-copyright">
+      Created and maintened by <a href="https://2inc.org" target="_blank">Monkey Wrench</a>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="./aigis_assets/js/app.min.js"></script>
+
+</body>
+</html>
