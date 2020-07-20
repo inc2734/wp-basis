@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^11.0.3",
-  "_id": "sass-basis@11.0.3",
+  "_from": "sass-basis@^11.1.0",
+  "_id": "sass-basis@11.1.0",
   "_inBundle": false,
-  "_integrity": "sha512-YzPF6TtTFFO2XuMWsC0Toq9Uq2qLjVytNvxkj6pM5i4lZb7VoNfFA+4GdFRUmLDxqwgzYI6O98gaeUWkQ0ccBw==",
+  "_integrity": "sha512-1m75/AaEU1ln5w26RSCE6iaDvMz2VZE010UW+rkqOHegfPPlTObQtfePMi57yTwKv1bExRJr7cI9b/6Q2PHjwA==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^11.0.3",
+    "raw": "sass-basis@^11.1.0",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^11.0.3",
+    "rawSpec": "^11.1.0",
     "saveSpec": null,
-    "fetchSpec": "^11.0.3"
+    "fetchSpec": "^11.1.0"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-11.0.3.tgz",
-  "_shasum": "f5b58053c39ab18d3647611131cb26d55ab697cc",
-  "_spec": "sass-basis@^11.0.3",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-11.1.0.tgz",
+  "_shasum": "a5510dbb6d35d46215e262c8a31bdd950b59eded",
+  "_spec": "sass-basis@^11.1.0",
   "_where": "/Users/inc/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -49,12 +49,12 @@
   "deprecated": false,
   "description": "A lightweight responsive Sass/CSS framework based on flexible box.",
   "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
     "@wordpress/browserslist-config": "^2.7.0",
-    "autoprefixer": "^9.8.4",
+    "autoprefixer": "^9.8.5",
     "babel-loader": "^8.1.0",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.10",
     "cpy-cli": "^3.1.1",
     "cssnano": "^4.1.10",
     "node-aigis": "^1.4.1",
@@ -116,5 +116,5 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "11.0.3"
+  "version": "11.1.0"
 }
