@@ -2,12 +2,12 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "dependencies": {
-    "sass-basis": "^11.1.0",
+    "sass-basis": "^12.0.0",
     "sass-basis-layout": "^8.0.4"
   },
   "devDependencies": {
     "@wordpress/browserslist-config": "^2.7.0",
-    "autoprefixer": "^9.8.5",
+    "autoprefixer": "^9.8.6",
     "cpy-cli": "^3.1.1",
     "cssnano": "^4.1.10",
     "node-sass": "^4.14.1",
