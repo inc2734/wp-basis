@@ -6,16 +6,14 @@
  */
 
 /**
- * oEmbed container customization
+ * oEmbed container customization.
  *
- * @param mixed $cache
- * @param string $url
- * @param array $attr
- * @param int $post_id
+ * @param string|false $cache The cached HTML result, stored in post meta.
+ * @param string       $url   The attempted embed URL.
  */
 add_filter(
 	'embed_oembed_html',
-	function( $cache, $url, $attr, $post_id ) {
+	function( $cache, $url ) {
 		if ( ! wp_basis_use_responsive_iframe() ) {
 			return $cache;
 		}
@@ -46,20 +44,17 @@ add_filter(
 		return $cache;
 	},
 	10,
-	4
+	2
 );
 
 /**
- * Responsive iframe for block editor
+ * Responsive iframe for block editor.
  *
- * @param mixed $cache
- * @param string $url
- * @param array $attr
- * @param int $post_id
+ * @param string|false $cache The cached HTML result, stored in post meta.
  */
 add_filter(
 	'embed_oembed_html',
-	function( $cache, $url, $attr, $post_id ) {
+	function( $cache ) {
 		global $wp_query;
 
 		if ( ! wp_basis_use_responsive_iframe() ) {
@@ -78,13 +73,11 @@ add_filter(
 		// @codingStandardsIgnoreEnd
 
 		return $cache;
-	},
-	10,
-	4
+	}
 );
 
 /**
- * Return true when using responsive iframe method
+ * Return true when using responsive iframe method.
  *
  * @return boolean
  */
@@ -93,9 +86,9 @@ function wp_basis_use_responsive_iframe() {
 }
 
 /**
- * Return true when oEmbed URL
+ * Return true when oEmbed URL.
  *
- * @param string $src
+ * @param string $src Target src.
  * @return boolean
  */
 function wp_basis_is_oembed_domains( $src ) {
@@ -113,7 +106,7 @@ function wp_basis_is_oembed_domains( $src ) {
 }
 
 /**
- * Return 16:9 oembed domains
+ * Return 16:9 oembed domains.
  *
  * @return array
  */
@@ -128,9 +121,9 @@ function wp_basis_get_16to9_oembed_domains() {
 }
 
 /**
- * Return true when 16:9 oEmbed URL
+ * Return true when 16:9 oEmbed URL.
  *
- * @param string $url
+ * @param string $url Target URL.
  * @return boolean
  */
 function wp_basis_is_16to9_oembed_domains( $url ) {
@@ -144,7 +137,7 @@ function wp_basis_is_16to9_oembed_domains( $url ) {
 }
 
 /**
- * Return 4:3 oembed domains
+ * Return 4:3 oembed domains.
  *
  * @return array
  */
@@ -155,9 +148,9 @@ function wp_basis_get_4to3_oembed_domains() {
 }
 
 /**
- * Return true when 4:3 oEmbed URL
+ * Return true when 4:3 oEmbed URL.
  *
- * @param string $url
+ * @param string $url Target URL.
  * @return boolean
  */
 function wp_basis_is_4to3_oembed_domains( $url ) {

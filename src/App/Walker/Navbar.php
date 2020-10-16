@@ -9,6 +9,9 @@ namespace Inc2734\WP_Basis\App\Walker;
 
 class Navbar extends \Walker_Nav_Menu {
 
+	/**
+	 * Constructor.
+	 */
 	public function __construct() {
 		add_filter( 'nav_menu_css_class', [ $this, '_nav_menu_css_class' ], 10, 4 );
 	}
@@ -22,7 +25,13 @@ class Navbar extends \Walker_Nav_Menu {
 	 * @param int      $depth  Depth of menu item. Used for padding.
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = [] ) {
+	public function start_lvl(
+		&$output,
+		// phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+		$depth = 0,
+		$args = []
+		// phpcs:enable
+	) {
 		$output .= '<ul class="c-navbar__submenu" aria-hidden="true">';
 	}
 
@@ -48,10 +57,15 @@ class Navbar extends \Walker_Nav_Menu {
 	}
 
 	/**
-	 * Sets up classes
+	 * Sets up classes.
 	 *
-	 * @return void
 	 * @see https://developer.wordpress.org/reference/classes/walker_nav_menu/
+	 *
+	 * @param array    $classes Array of the CSS classes that are applied to the menu item's <li> element.
+	 * @param WP_Post  $item    The current menu item.
+	 * @param stdClass $args    An object of wp_nav_menu() arguments.
+	 * @param int      $depth   Depth of menu item. Used for padding.
+	 * @return array
 	 */
 	public function _nav_menu_css_class( $classes, $item, $args, $depth ) {
 		if ( ! is_object( $args->walker ) ) {

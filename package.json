@@ -2,20 +2,33 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "dependencies": {
-    "sass-basis": "^12.0.1",
+    "sass-basis": "^12.1.0",
     "sass-basis-layout": "^8.0.4"
   },
   "devDependencies": {
     "@wordpress/browserslist-config": "^2.7.0",
-    "autoprefixer": "^9.8.6",
+    "@wordpress/env": "^2.1.0",
+    "autoprefixer": "^10.0.1",
     "cpy-cli": "^3.1.1",
     "cssnano": "^4.1.10",
     "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^7.1.1",
+    "postcss": "^8.1.1",
+    "postcss-cli": "^8.1.0",
     "rimraf": "^3.0.2"
   },
   "scripts": {
+    "wp-env": "wp-env",
+    "start": "wp-env start",
+    "stop": "wp-env stop",
+    "cli": "wp-env run cli",
+    "wp": "wp-env run cli wp",
+    "pretest": "wp-env start && wp-env run composer 'install --no-interaction'",
+    "test:lint:php": "wp-env run composer run-script lint",
+    "test:lint": "run-s test:lint:*",
+    "test:unit:php": "wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/wp-basis/.phpunit.xml.dist --verbose'",
+    "test:unit": "run-s test:unit:*",
+    "test": "run-s test:*",
     "cleanup:css": "rimraf src/assets/css",
     "cleanup:packages": "rimraf src/assets/packages && mkdir -p src/assets/packages",
     "css:embed": "node-sass src/src/css/gutenberg-embed.scss src/assets/css/gutenberg-embed.min.css && postcss -r src/assets/css/gutenberg-embed.min.css -c=postcss.config.js",
@@ -24,7 +37,6 @@
     "packages:sass-basis": "cpy 'sass-basis/**' '../src/assets/packages' --cwd=node_modules --parents",
     "packages:sass-basis-layout": "cpy 'sass-basis-layout/**' '../src/assets/packages' --cwd=node_modules --parents",
     "packages": "npm run cleanup:packages && npm-run-all packages:*",
-    "start": "npm run build",
     "build": "npm-run-all -s packages css",
     "postinstall": "npm run build"
   }

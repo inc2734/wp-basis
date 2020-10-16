@@ -1,0 +1,9 @@
+{
+  "core": null,
+  "mappings": {
+    "wp-content/plugins/wp-basis": "./"
+  },
+  "config": {
+    "WP_DEBUG": true
+  }
+}

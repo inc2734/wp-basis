@@ -6,9 +6,9 @@
  */
 
 /**
- * Sets up default fields html
+ * Sets up default fields html.
  *
- * @param array $fields The default comment fields
+ * @param array $fields The default comment fields.
  * @return array
  */
 add_filter(
@@ -22,9 +22,9 @@ add_filter(
 );
 
 /**
- * Sets up the comment field html
+ * Sets up the comment field html.
  *
- * @param string $fields The content of the comment textarea field
+ * @param string $fields The content of the comment textarea field.
  * @return string
  */
 add_filter(
@@ -35,9 +35,9 @@ add_filter(
 );
 
 /**
- * Sets up submit button
+ * Sets up submit button.
  *
- * @param string $submit_field HTML markup for the submit field
+ * @param string $submit_field HTML markup for the submit field.
  * @return string
  */
 add_filter(
@@ -48,9 +48,9 @@ add_filter(
 );
 
 /**
- * Add class attribute for the field
+ * Add class attribute for the field.
  *
- * @param $field The field html
+ * @param string $field The field html.
  */
 function wpbasis_add_class_attribute( $field ) {
 	if ( false !== strpos( $field, 'type="checkbox"' ) ) {

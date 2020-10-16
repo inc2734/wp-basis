@@ -6,25 +6,25 @@
  */
 
 /**
- * Remove .hentry
+ * Remove .hentry.
  *
- * @param array $classes An array of post classes
+ * @param array $classes An array of post classes.
  * @return array
  */
 add_filter(
 	'post_class',
 	function( $classes ) {
-		if ( in_array( 'hentry', $classes ) ) {
-			unset( $classes[ array_search( 'hentry', $classes ) ] );
+		if ( in_array( 'hentry', $classes, true ) ) {
+			unset( $classes[ array_search( 'hentry', $classes, true ) ] );
 		}
 		return $classes;
 	}
 );
 
 /**
- * Added ._c-entry
+ * Added ._c-entry.
  *
- * @param array $classes An array of post classes
+ * @param array $classes An array of post classes.
  * @return array
  */
 add_filter(

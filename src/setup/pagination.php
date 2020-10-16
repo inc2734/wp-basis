@@ -14,17 +14,17 @@
 add_filter(
 	'wp_link_pages_link',
 	function( $pagination ) {
-		$pagination = preg_replace(
+		$pagination  = preg_replace(
 			'/^(\d+)$/',
 			'<span class="page-numbers current">$1</span>',
 			$pagination
 		);
-		$pagination = preg_replace(
+		$pagination  = preg_replace(
 			'/^<a([^>]+)>(\d+?)<\/a>$/',
 			'<a class="page-numbers" $1>$2</a>',
 			$pagination
 		);
-		$pagination = Inc2734\WP_Basis\App\Model\Pagination::pagination( $pagination );
+		$pagination  = Inc2734\WP_Basis\App\Model\Pagination::pagination( $pagination );
 		$pagination .= "\n";
 
 		return $pagination;

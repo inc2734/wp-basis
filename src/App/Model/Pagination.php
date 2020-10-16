@@ -9,6 +9,9 @@ namespace Inc2734\WP_Basis\App\Model;
 
 class Pagination {
 
+	/**
+	 * wp_link_pages for Basis.
+	 */
 	public static function the_wp_link_pages() {
 		$args = apply_filters(
 			'inc2734_wp_basis_wp_link_pages_args',
@@ -30,7 +33,7 @@ class Pagination {
 	}
 
 	/**
-	 * the_posts_pagination() for Basis
+	 * the_posts_pagination() for Basis.
 	 *
 	 * @return void
 	 */
@@ -59,8 +62,9 @@ class Pagination {
 	}
 
 	/**
-	 * the_comments_pagination() for Basis
+	 * the_comments_pagination() for Basis.
 	 *
+	 * @param array $args See get_the_comments_pagination() for available arguments.
 	 * @return void
 	 */
 	public static function the_comments_pagination( $args = array() ) {
@@ -88,9 +92,9 @@ class Pagination {
 	}
 
 	/**
-	 * Update pagination
+	 * Update pagination.
 	 *
-	 * @param string $pagination
+	 * @param string $pagination Pagination HTML.
 	 * @return string
 	 */
 	public static function pagination( $pagination ) {
@@ -146,19 +150,19 @@ class Pagination {
 	}
 
 	/**
-	 * Print sanitized pagination
+	 * Print sanitized pagination.
 	 *
-	 * @param string $pagination
+	 * @param string $pagination Pagination HTML.
 	 * @return void
 	 */
 	protected static function _sanitize_pagination_e( $pagination ) {
 		echo wp_kses(
 			$pagination,
 			[
-				'h2' => [
+				'h2'   => [
 					'class' => [],
 				],
-				'div' => [
+				'div'  => [
 					'class' => [],
 				],
 				'span' => [
@@ -166,11 +170,11 @@ class Pagination {
 					'aria-current' => [],
 					'aria-hidden'  => [],
 				],
-				'a' => [
+				'a'    => [
 					'class' => [],
 					'href'  => [],
 				],
-				'i' => [
+				'i'    => [
 					'class'       => [],
 					'aria-hidden' => [],
 				],
