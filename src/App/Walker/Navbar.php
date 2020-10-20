@@ -11,8 +11,16 @@ class Navbar extends \Walker_Nav_Menu {
 
 	/**
 	 * Constructor.
+	 *
+	 * @param array $args Array of argment.
 	 */
-	public function __construct() {
+	public function __construct( array $args = [] ) {
+		$this->args = shortcode_atts(
+			[
+				'popup-mode' => 'hover',
+			],
+			$args
+		);
 		add_filter( 'nav_menu_css_class', [ $this, '_nav_menu_css_class' ], 10, 4 );
 	}
 
@@ -32,6 +40,11 @@ class Navbar extends \Walker_Nav_Menu {
 		$args = []
 		// phpcs:enable
 	) {
+		if ( 'click' === $this->args['popup-mode'] ) {
+			$output .= '<div class="c-navbar__toggle" aria-expanded="false">
+				<span class="c-ic-angle-right" aria-hidden="true"></span>
+			</div>';
+		}
 		$output .= '<ul class="c-navbar__submenu" aria-hidden="true">';
 	}
 
