@@ -7,6 +7,10 @@
 
 namespace Inc2734\WP_Basis;
 
+use FilesystemIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+
 class Bootstrap {
 
 	/**
@@ -15,13 +19,19 @@ class Bootstrap {
 	public function __construct() {
 		load_textdomain( 'inc2734-wp-basis', __DIR__ . '/languages/' . get_locale() . '.mo' );
 
-		$includes = [
-			'/setup',
-		];
-		foreach ( $includes as $include ) {
-			foreach ( glob( __DIR__ . $include . '/*.php' ) as $file ) {
-				require_once( $file );
+		$iterator = new RecursiveDirectoryIterator( __DIR__ . '/setup', FilesystemIterator::SKIP_DOTS );
+		$iterator = new RecursiveIteratorIterator( $iterator );
+
+		foreach ( $iterator as $file ) {
+			if ( ! $file->isFile() ) {
+				continue;
 			}
+
+			if ( 'php' !== $file->getExtension() ) {
+				continue;
+			}
+
+			include_once( realpath( $file->getPathname() ) );
 		}
 	}
 }

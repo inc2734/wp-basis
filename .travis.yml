@@ -5,7 +5,6 @@ services:
 php:
 - 7.2
 - 7.3
-sudo: false
 env:
   global:
   - GIT_COMMITTER_NAME=travis-ci
@@ -17,5 +16,6 @@ install:
 - nvm install 12
 - npm install
 - composer install
+- npm run build
 script:
 - npm run test
