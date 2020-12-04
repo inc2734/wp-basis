@@ -1,6 +1,6 @@
 # WP Basis
 
-[![Build Status](https://travis-ci.org/inc2734/wp-basis.svg?branch=master)](https://travis-ci.org/inc2734/wp-basis)
+![CI](https://github.com/inc2734/wp-basis/workflows/CI/badge.svg)
 [![Latest Stable Version](https://poser.pugx.org/inc2734/wp-basis/v/stable)](https://packagist.org/packages/inc2734/wp-basis)
 [![License](https://poser.pugx.org/inc2734/wp-basis/license)](https://packagist.org/packages/inc2734/wp-basis)
 
