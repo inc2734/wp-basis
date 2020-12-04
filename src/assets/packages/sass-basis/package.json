@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^12.1.1",
-  "_id": "sass-basis@12.1.1",
+  "_from": "sass-basis@^12.2.0",
+  "_id": "sass-basis@12.2.0",
   "_inBundle": false,
-  "_integrity": "sha512-zbCJuyDotyemiQnpKkiVsCIs9yHxCBJGniwr7A2kMP0gIqDnDqqdV1q6pt5Vqjp62oMjHlluWweVkTh4neK/4Q==",
+  "_integrity": "sha512-t/9NTAXX+hwFIE3iTJLjJfXUPf7tIMIk0U2cpenEZq02Q1oAT2jMsW2Kusd9lx9oDhKDZiczYcRNEmzc5hwfnQ==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^12.1.1",
+    "raw": "sass-basis@^12.2.0",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^12.1.1",
+    "rawSpec": "^12.2.0",
     "saveSpec": null,
-    "fetchSpec": "^12.1.1"
+    "fetchSpec": "^12.2.0"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-12.1.1.tgz",
-  "_shasum": "4c6c2bcb9d5616137cf0b49313be76c66a4796ca",
-  "_spec": "sass-basis@^12.1.1",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-12.2.0.tgz",
+  "_shasum": "7c21f651a6bb06b73ed972e59386213e0c86ebe0",
+  "_spec": "sass-basis@^12.2.0",
   "_where": "/Users/inc2734/Dropbox/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -49,11 +49,11 @@
   "deprecated": false,
   "description": "A lightweight responsive Sass/CSS framework based on flexible box.",
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
     "@wordpress/browserslist-config": "^2.7.0",
-    "autoprefixer": "^10.0.2",
-    "babel-loader": "^8.2.1",
+    "autoprefixer": "^10.0.4",
+    "babel-loader": "^8.2.2",
     "browser-sync": "^2.26.13",
     "cpy-cli": "^3.1.1",
     "cssnano": "^4.1.10",
@@ -61,10 +61,10 @@
     "node-sass": "^5.0.0",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.1.7",
-    "postcss-cli": "^8.2.0",
+    "postcss": "^8.1.14",
+    "postcss-cli": "^8.3.0",
     "postcss-import": "^13.0.0",
-    "webpack": "^5.4.0",
+    "webpack": "^5.9.0",
     "webpack-cli": "^4.2.0"
   },
   "engines": {
@@ -97,14 +97,14 @@
   },
   "scripts": {
     "aigis": "npm run cleanup:aigis && aigis run -c src/aigis/aigis_config.yml && npm-run-all -p aigis:css aigis-ie9:css aigis:js",
-    "aigis-ie9:css": "node-sass src/aigis/assets/css/basis-ie9.scss dist/aigis/aigis_assets/css/basis-ie9.min.css && postcss -r dist/aigis/aigis_assets/css/basis-ie9.min.css -c=postcss.config.js",
+    "aigis-ie9:css": "node-sass src/aigis/assets/css/basis-ie9.scss public/aigis_assets/css/basis-ie9.min.css && postcss -r public/aigis_assets/css/basis-ie9.min.css -c=postcss.config.js",
     "aigis:css": "npm-run-all -s aigis:css:*",
-    "aigis:css:postcss": "postcss dist/aigis/aigis_assets/css/style.css -o dist/aigis/aigis_assets/css/style.min.css -c=postcss.config.js",
-    "aigis:css:sass": "node-sass src/aigis/assets/css/style.scss -o dist/aigis/aigis_assets/css",
-    "aigis:js": "webpack ./src/aigis/assets/js/app.js -o ./dist/aigis/aigis_assets/js/ --output-filename app.min.js --config webpack.config.js",
-    "browsersync": "npm run aigis && browser-sync start -s 'dist/aigis' -f 'dist/aigis'",
+    "aigis:css:postcss": "postcss public/aigis_assets/css/style.css -o public/aigis_assets/css/style.min.css -c=postcss.config.js",
+    "aigis:css:sass": "node-sass src/aigis/assets/css/style.scss -o public/aigis_assets/css",
+    "aigis:js": "webpack ./src/aigis/assets/js/app.js -o ./public/aigis_assets/js/ --output-filename app.min.js --config webpack.config.js",
+    "browsersync": "npm run aigis && browser-sync start -s 'public' -f 'public'",
     "build": "npm-run-all -p css js aigis",
-    "cleanup:aigis": "rimraf dist/aigis && mkdir -p dist/aigis/aigis_assets",
+    "cleanup:aigis": "rimraf public && mkdir -p public/aigis_assets",
     "cleanup:css": "rimraf dist/css && mkdir -p dist/css",
     "cleanup:js": "rimraf dist/js && mkdir -p dist/js",
     "css": "npm run cleanup:css && npm-run-all -p css:*",
@@ -117,5 +117,5 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "12.1.1"
+  "version": "12.2.0"
 }
