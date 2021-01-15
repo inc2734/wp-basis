@@ -30,7 +30,7 @@ add_filter(
 add_filter(
 	'post_class',
 	function( $classes ) {
-		if ( ! in_array( 'c-entry', $classes ) ) {
+		if ( ! in_array( 'c-entry', $classes, true ) ) {
 			$classes[] = 'c-entry';
 		}
 		return $classes;
