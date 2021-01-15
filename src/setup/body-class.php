@@ -14,11 +14,9 @@
 add_filter(
 	'body_class',
 	function( $classes ) {
-		return array_merge(
-			$classes,
-			[
-				'l-body' => 'l-body',
-			]
-		);
+		if ( ! in_array( 'l-body', $classes ) ) {
+			$classes[] = 'l-body';
+		}
+		return $classes;
 	}
 );
