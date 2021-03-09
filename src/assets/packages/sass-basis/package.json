@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^12.2.2",
-  "_id": "sass-basis@12.2.2",
+  "_from": "sass-basis@^12.3.0",
+  "_id": "sass-basis@12.3.0",
   "_inBundle": false,
-  "_integrity": "sha512-wORnnTARB3Wz8tKl+ZtV0lXRoPNkYXghcmjbI/dqm/V9oxeds8H6kDJf0WvnFE2lnlp6qAvGlLUzyAJ7nk/G9Q==",
+  "_integrity": "sha512-SpygxPl4afdX7O1k5mJIGud0yWpAC6wPZNQymU986EqjxUo4ENIY0fTotOHMlF9vAfcR1l+XU380cfL2qMyy2w==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^12.2.2",
+    "raw": "sass-basis@^12.3.0",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^12.2.2",
+    "rawSpec": "^12.3.0",
     "saveSpec": null,
-    "fetchSpec": "^12.2.2"
+    "fetchSpec": "^12.3.0"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-12.2.2.tgz",
-  "_shasum": "74654841e7042f087602491c7e1fb3182ce55d2a",
-  "_spec": "sass-basis@^12.2.2",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-12.3.0.tgz",
+  "_shasum": "9a5025d0f9981066bdf1e01865e7c5a06c0639fc",
+  "_spec": "sass-basis@^12.3.0",
   "_where": "/Users/inc2734/Dropbox/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -49,10 +49,10 @@
   "deprecated": false,
   "description": "A lightweight responsive Sass/CSS framework based on flexible box.",
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
     "@wordpress/browserslist-config": "^3.0.1",
-    "autoprefixer": "^10.2.4",
+    "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
     "browser-sync": "^2.26.14",
     "cpy-cli": "^3.1.1",
@@ -64,7 +64,7 @@
     "postcss": "^8.2.7",
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.0",
-    "webpack": "^5.24.3",
+    "webpack": "^5.24.4",
     "webpack-cli": "^4.5.0"
   },
   "engines": {
@@ -117,5 +117,5 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "12.2.2"
+  "version": "12.3.0"
 }
