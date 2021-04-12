@@ -6,14 +6,14 @@
     "sass-basis-layout": "^8.0.4"
   },
   "devDependencies": {
-    "@wordpress/browserslist-config": "^3.0.1",
-    "@wordpress/env": "github:team-hamworks/wordpress-env",
+    "@wordpress/browserslist-config": "^3.0.2",
+    "@wordpress/env": "4.0.1",
     "autoprefixer": "^10.2.5",
     "cpy-cli": "^3.1.1",
-    "cssnano": "^4.1.10",
+    "cssnano": "^5.0.0",
     "node-sass": "^5.0.0",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.2.8",
+    "postcss": "^8.2.10",
     "postcss-cli": "^8.3.1",
     "rimraf": "^3.0.2"
   },
