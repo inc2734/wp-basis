@@ -3,8 +3,7 @@
 $color-primary: #00DAE6;
 $_font-family : "Helvetica Neue", Helvetica, sans-serif;
 $_color-text  : #444;
-$_base-font-size-px: 15px;
-$_between-lines: (1rem / 3);
+$_half-leading: _strip-unit(1rem / 2.6); // @todo
 $_font-path: '../../font';
 $_prefix: '';
 
@@ -45,3 +44,10 @@ $_prefix: '';
   @include _content();
   min-height: 150px;
 }
+
+@for $i from 10 through 42 {
+  .font-size-#{ $i }px {
+    @include _font-size-line-height(_strip-unit($i / $_base-font-size-px));
+  }
+}
+
