@@ -32,6 +32,10 @@
 		</properties>
 	</rule>
 
+  <rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable">
+    <exclude-pattern>/src/view/*</exclude-pattern>
+  </rule>
+
 	<arg value="ps"/>
 	<arg name="extensions" value="php"/>
 
