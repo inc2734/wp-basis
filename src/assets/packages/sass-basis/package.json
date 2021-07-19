@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^14.0.1",
-  "_id": "sass-basis@14.0.1",
+  "_from": "sass-basis@^14.0.2",
+  "_id": "sass-basis@14.0.2",
   "_inBundle": false,
-  "_integrity": "sha512-t0YhVirysrlvbI56uXQPCP30QxQ05Nory5jsjAi5s6Im8UeJGZv5awELgrfFc2+um+G3LDi6H3k/NWbs078yrg==",
+  "_integrity": "sha512-7aQEQnIV85ry8hxkCS5XXyBMKc3nbgKQiJxpfNWK7A4saghhUxR3O9gTauRQbc3MYFN7RgAgFhPFvH1zpFb88w==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^14.0.1",
+    "raw": "sass-basis@^14.0.2",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^14.0.1",
+    "rawSpec": "^14.0.2",
     "saveSpec": null,
-    "fetchSpec": "^14.0.1"
+    "fetchSpec": "^14.0.2"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-14.0.1.tgz",
-  "_shasum": "33c753e7420145289d2934e139f836b869f9a319",
-  "_spec": "sass-basis@^14.0.1",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-14.0.2.tgz",
+  "_shasum": "b33dabc8450c6a023380c156bd689724546c5b99",
+  "_spec": "sass-basis@^14.0.2",
   "_where": "/Users/inc2734/Dropbox/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -53,9 +53,9 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@wordpress/browserslist-config": "^4.0.1",
-    "autoprefixer": "^10.2.6",
+    "autoprefixer": "^10.3.1",
     "babel-loader": "^8.2.2",
-    "browser-sync": "^2.27.3",
+    "browser-sync": "^2.27.4",
     "cpy-cli": "^3.1.1",
     "cssnano": "^5.0.6",
     "node-aigis": "^1.4.1",
@@ -66,7 +66,7 @@
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.2",
     "postcss-mq-optimize": "^1.1.0",
-    "webpack": "^5.41.0",
+    "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2"
   },
   "engines": {
@@ -119,5 +119,5 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "14.0.1"
+  "version": "14.0.2"
 }
