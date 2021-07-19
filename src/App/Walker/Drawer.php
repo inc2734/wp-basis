@@ -32,7 +32,7 @@ class Drawer extends \Walker_Nav_Menu {
 		$args = []
 		// phpcs:enable
 	) {
-		$output .= '<div class="c-drawer__toggle" aria-expanded="false"><span class="c-ic-angle-right" aria-hidden="true"></span></div><ul class="c-drawer__submenu" aria-hidden="true">';
+		$output .= '<button class="c-drawer__toggle" aria-expanded="false"><span class="c-ic-angle-right" aria-hidden="true" aria-label="' . __( 'Open/close the submenu', 'inc2734-wp-basis' ) . '"></span></button><ul class="c-drawer__submenu" aria-hidden="true">';
 	}
 
 	/**

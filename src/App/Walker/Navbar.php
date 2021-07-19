@@ -41,9 +41,9 @@ class Navbar extends \Walker_Nav_Menu {
 		// phpcs:enable
 	) {
 		if ( 'click' === $this->args['popup-mode'] ) {
-			$output .= '<div class="c-navbar__toggle" aria-expanded="false">
+			$output .= '<button class="c-navbar__toggle" aria-expanded="false" aria-label="' . __( 'Open/close the submenu', 'inc2734-wp-basis' ) . '">
 				<span class="c-ic-angle-right" aria-hidden="true"></span>
-			</div>';
+			</button>';
 		}
 		$output .= '<ul class="c-navbar__submenu" aria-hidden="true">';
 	}
