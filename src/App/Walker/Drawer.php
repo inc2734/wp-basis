@@ -57,8 +57,14 @@ class Drawer extends \Walker_Nav_Menu {
 
 		if ( $depth > 0 ) {
 			$classes[] = 'c-drawer__subitem';
+			if ( $args->walker->has_children ) {
+				$classes[] = 'c-drawer__subitem--has-children';
+			}
 		} else {
 			$classes[] = 'c-drawer__item';
+			if ( $args->walker->has_children ) {
+				$classes[] = 'c-drawer__item--has-children';
+			}
 		}
 
 		$classes = array_unique( $classes );
