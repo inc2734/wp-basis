@@ -62,6 +62,10 @@ class Navbar extends \Walker_Nav_Menu {
 	public function start_el( &$output, $item, $depth = 0, $args = [], $item_id = 0 ) {
 		parent::start_el( $output, $item, $depth, $args, $item_id );
 
+		if ( 1 === $args->depth ) {
+			return;
+		}
+
 		$output = preg_replace(
 			'/menu-item-has-children([^>\"]*?)">/ms',
 			'menu-item-has-children$1" aria-haspopup="true">',
