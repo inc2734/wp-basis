@@ -71,8 +71,8 @@ class Pagination {
 		$args = apply_filters(
 			'inc2734_wp_basis_comments_pagination_args',
 			[
-				'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-				'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+				'prev_text' => '<i class="fa-solid fa-angle-left" aria-hidden="true"></i>',
+				'next_text' => '<i class="fa-solid fa-angle-right" aria-hidden="true"></i>',
 			]
 		);
 
@@ -135,14 +135,14 @@ class Pagination {
 		);
 
 		$pagination = preg_replace(
-			'|<a class="c-pagination__item-link" href="([^"]+?)"><i class="fa fa-angle-right"|',
-			'<a class="c-pagination__item-link c-pagination__item-prev c-pagination__item-right" href="$1"><i class="fa fa-angle-right"',
+			'|<a class="c-pagination__item-link" href="([^"]+?)"><i class="fa-solid fa-angle-right"|',
+			'<a class="c-pagination__item-link c-pagination__item-prev c-pagination__item-right" href="$1"><i class="fa-solid fa-angle-right"',
 			$pagination
 		);
 
 		$pagination = preg_replace(
-			'|<a class="c-pagination__item-link" href="([^"]+?)"><i class="fa fa-angle-left"|',
-			'<a class="c-pagination__item-link c-pagination__item-next c-pagination__item-left" href="$1"><i class="fa fa-angle-left"',
+			'|<a class="c-pagination__item-link" href="([^"]+?)"><i class="fa-solid fa-angle-left"|',
+			'<a class="c-pagination__item-link c-pagination__item-next c-pagination__item-left" href="$1"><i class="fa-solid fa-angle-left"',
 			$pagination
 		);
 
