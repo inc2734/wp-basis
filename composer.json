@@ -25,6 +25,11 @@
       "Inc2734\\WP_Basis\\" : "src"
     }
   },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
   "scripts": {
     "format": "phpcbf --standard=./.phpcs.xml.dist --report-summary --report-source",
     "lint": "phpcs --standard=./.phpcs.xml.dist"
