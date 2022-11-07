@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^17.1.0",
-  "_id": "sass-basis@17.1.0",
+  "_from": "sass-basis@^17.1.1",
+  "_id": "sass-basis@17.1.1",
   "_inBundle": false,
-  "_integrity": "sha512-dVPJFbfRPPfB5BnIs/FE4Rliu+Tmb26KJL5AXS14ifg+3UJvNTU6u5haIyd2bPrXCnBijdGvV8H9nUDiN5Q5qA==",
+  "_integrity": "sha512-3Cc3yEexMu39Mq65ZJ8CVVdTGCBf87dtSd99y88sSaQBfgOcgpGxCdsCjUTL12Qlxzq2PSR8gAbZPJSW1Nid4A==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^17.1.0",
+    "raw": "sass-basis@^17.1.1",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^17.1.0",
+    "rawSpec": "^17.1.1",
     "saveSpec": null,
-    "fetchSpec": "^17.1.0"
+    "fetchSpec": "^17.1.1"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-17.1.0.tgz",
-  "_shasum": "df4338f74b7a7a6ff7b3a294e509b29282e7ccad",
-  "_spec": "sass-basis@^17.1.0",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-17.1.1.tgz",
+  "_shasum": "a27e1b635a2fd4d8cebce3e3214fd6ea13336626",
+  "_spec": "sass-basis@^17.1.1",
   "_where": "/Users/inc2734/Dropbox/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -117,5 +117,5 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "17.1.0"
+  "version": "17.1.1"
 }
