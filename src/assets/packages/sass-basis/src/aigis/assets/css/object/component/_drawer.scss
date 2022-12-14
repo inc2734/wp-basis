@@ -1,13 +1,13 @@
-.#{$_prefix}l-body > .#{$_prefix}c-drawer {
-  background-color: _var-color-text();
-  @include _padding(.5);
-  color: _var-color-white();
+.#{ $_prefix }l-body > .#{ $_prefix }c-drawer {
+  background-color: var(--_color-text);
+  padding: var(--_padding-1);
+  color: var(--_color-white);
 
   a {
     display: block;
     color: inherit;
     text-decoration: none;
-    @include _padding(.25, 0);
+    padding: var(--_padding-2) 0;
   }
 
   ul {
@@ -16,7 +16,7 @@
 
   li {
     li {
-      @include _padding(0, 0, 0, .5);
+      padding: 0 0 0 var(--_padding-1);
     }
   }
 }

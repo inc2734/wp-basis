@@ -1,80 +1,21 @@
 /*
 ---
-name: _font-size()
-category:
-  - core/mixin
-  - core/mixin/typography
----
-Sets rem font-size
-
-### scss
-```scss
-//
-// @param  int  $scale-or-font-size  Font size scaling factor.
-//
-
-.c-foo {
-  @include _font-size(12px);
-}
-```
-*/
-
-@mixin _font-size($scale-or-font-size) {
-  font-size: _font-size($scale-or-font-size);
-}
-
-@mixin _deprecated-font-size($font-size) {
-  font-size: _deprecated-font-size($font-size);
-}
-
-/*
----
-name: _line-height()
-category:
-  - core/mixin
-  - core/mixin/typography
----
-Sets line-height for vertical rhythum
-
-### scss
-```scss
-//
-// @param  int  $scale-or-font-size  Font size scaling factor.
-//
-
-.c-foo {
-  @include _line-height(12px);
-}
-```
-*/
-
-@mixin _line-height($scale-or-font-size) {
-  line-height: _line-height($scale-or-font-size);
-}
-
-@mixin _deprecated-line-height($font-size) {
-  line-height: _deprecated-line-height($font-size);
-}
-
-/*
----
-name: _font-size-line-height()
+name: _set-font-size-level()
 category:
   - core/mixin
   - core/mixin/typography
   - foundation/typography
-  - foundation/typography/lists
 ---
-Sets rem font-size and line-height for vertical rhythum.
+Sets font-size and line-height.
 
 ### scss
 ```scss
 //
-// @param  int  $font-size
+// @param  int  $level  Font size level. Min -2, Max var(--_harmonic-sequence-base) - 1.
 //
 
 .c-foo {
-  @include _font-size-line-height(2);
+  @include _set-font-size-level(1);
 }
 ```
 
@@ -82,143 +23,96 @@ Sets rem font-size and line-height for vertical rhythum.
 ```html
 <h3>English</h3>
 
-<p class="font-size-10px">
+<p class="font-size-level:-2">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
+</p>
 
-<p class="font-size-12px">
+<p class="font-size-level:-1">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
+</p>
 
-<p class="font-size-14px">
+<p class="font-size-level:0">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
+</p>
 
-<p class="font-size-16px">
+<p class="font-size-level:1">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
+</p>
 
-<p class="font-size-20px">
+<p class="font-size-level:2">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
+</p>
 
-<p class="font-size-24px">
+<p class="font-size-level:3">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
+</p>
 
-<p class="font-size-30px">
+<p class="font-size-level:4">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
+</p>
 
-<p class="font-size-34px">
+<p class="font-size-level:5">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
+</p>
 
-<p class="font-size-38px">
+<p class="font-size-level:6">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
+</p>
 
-<p class="font-size-42px">
+<p class="font-size-level:7">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
-
-<p class="font-size-46px">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
-
-<p class="font-size-50px">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
-
-<p class="font-size-100px">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
-
-<p class="font-size-200px">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-<p>
+</p>
 
 <h3>Japanese</h3>
 
-<p class="font-size-10px">
+<p class="font-size-level:-2">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 
-<p class="font-size-12px">
+<p class="font-size-level:-1">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 
-<p class="font-size-14px">
+<p class="font-size-level:0">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 
-<p class="font-size-16px">
+<p class="font-size-level:1">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 
 <p class="font-size-20px">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 
-<p class="font-size-24px">
+<p class="font-size-level:2">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 
-<p class="font-size-30px">
+<p class="font-size-level:3">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 
-<p class="font-size-34px">
+<p class="font-size-level:4">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 
-<p class="font-size-38px">
+<p class="font-size-level:5">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 
-<p class="font-size-42px">
+<p class="font-size-level:6">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 
-<p class="font-size-46px">
+<p class="font-size-level:7">
   あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
-
-<p class="font-size-50px">
-  あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
-
-<p class="font-size-100px">
-  あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
-
-<p class="font-size-200px">
-  あともゴーシュ子たり何に向いていまし。夜中は次がしばらくと落ちて狸から舞台のようで来でおかげをしからちょろちょろゴーシュを合わせていです。どうかまげて子をこどもに出でしです。それりんに狸がこってボック
-<p>
+</p>
 ```
 */
+@mixin _set-font-size-level($level) {
+  --_font-size-level: #{ $level };
 
-@mixin _font-size-line-height($scale-or-font-size) {
-  @if unitless($scale-or-font-size) {
-    $scale: $scale-or-font-size;
-    @include _font-size($scale);
-    @include _line-height($scale);
-  } @else {
-    $font-size: $scale-or-font-size;
-    @include _deprecated-font-size-line-height($font-size);
-  }
-}
-
-@mixin _deprecated-font-size-line-height($font-size) {
-  $unit: unit($font-size);
-
-  $scale: false;
-  @if ('px' == $unit) {
-    $scale: $font-size / $_base-font-size-px;
-  } @else if ('rem' == $unit) {
-    $px: _rem2px($font-size);
-    $scale: $px / $_base-font-size-px;
-  }
-
-  @include _font-size-line-height($scale);
+  font-size: var(--_font-size);
+  line-height: var(--_line-height);
 }

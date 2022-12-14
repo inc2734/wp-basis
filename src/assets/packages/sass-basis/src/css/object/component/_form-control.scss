@@ -30,7 +30,7 @@ Form control component
 ```
 */
 
-.#{$_prefix}c-form-control {
+.#{ $_prefix }c-form-control {
   @include _form-control();
 
   &--has-icon {
@@ -42,19 +42,19 @@ Form control component
       flex: 1 1 0%;
     }
 
-    > .#{$_prefix}c-form-control__icon {
+    > .#{ $_prefix }c-form-control__icon {
       flex: 0 0 0%;
       margin-right: .5em;
     }
   }
 
   &[disabled] {
-    background-color: _var-lighter-color-gray();
+    background-color: var(--_lighter-color-gray);
     cursor: not-allowed;
   }
 
   &[readonly] {
-    background-color: _var-lighter-color-gray();
+    background-color: var(--_lighter-color-gray);
   }
 
   > input[type='email'],

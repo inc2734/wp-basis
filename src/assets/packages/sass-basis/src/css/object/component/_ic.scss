@@ -14,7 +14,7 @@ Icon (Angle Right) component
 ```
 */
 
-.#{$_prefix}c-ic-angle-right {
+.#{ $_prefix }c-ic-angle-right {
   display: inline-block;
   padding: 0 .25em;
   transform: translateY(-.15em);
@@ -24,7 +24,7 @@ Icon (Angle Right) component
     display: block;
     height: .4em;
     width: .4em;
-    border-color: _var-color-text();
+    border-color: currentColor;
     border-style: solid;
     border-width: 1px 1px 0 0;
     transform: rotate(45deg);
@@ -47,7 +47,7 @@ Icon (Check) component
 ```
 */
 
-.#{$_prefix}c-ic-check {
+.#{ $_prefix }c-ic-check {
   display: inline-block;
   padding: 0 .25em;
   transform: translateY(-.2em);
@@ -57,7 +57,7 @@ Icon (Check) component
     display: block;
     height: .4em;
     width: .25em;
-    border-color: _var-color-text();
+    border-color: currentColor;
     border-style: solid;
     border-width: 0 1px 1px 0;
     transform: rotate(45deg);
@@ -80,7 +80,7 @@ Icon (Angle Down) component
 ```
 */
 
-.#{$_prefix}c-ic-angle-down {
+.#{ $_prefix }c-ic-angle-down {
   display: inline-block;
   padding: 0 .25em;
   transform: translateY(-.2em);
@@ -90,7 +90,7 @@ Icon (Angle Down) component
     display: block;
     height: .4em;
     width: .4em;
-    border-color: _var-color-text();
+    border-color: currentColor;
     border-style: solid;
     border-width: 0 1px 1px 0;
     transform: rotate(45deg);

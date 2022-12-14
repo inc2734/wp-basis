@@ -12,7 +12,7 @@ Abstract media component
   @include _media();
 
   &__figure {
-    @include _margin(0, 1, 0, 0);
+    margin-right: var(--_margin1);
   }
 }
 ```
@@ -39,7 +39,7 @@ Abstract media component
 
     > * {
       vertical-align: top;
-      margin-top: calc(#{ _var-half-leading() } * 1rem);
+      margin-top: calc(var(--_half-leading) * 1rem);
     }
   }
 

@@ -1,67 +1,146 @@
-:root {
-  --_background-color: transparent;
-}
-
 * {
+  /**
+   * Font size formula.
+   */
+  --_font-size: #{ $_font-size };
+
+  /**
+   * Line height formula.
+   */
+  --_line-height: #{ $_line-height };
+
   box-sizing: border-box;
 
-  &:before, &:after {
+  &:before,
+  &:after {
     box-sizing: inherit;
   }
 }
 
-html, body,
-p, ol, ul, li, dl, dt, dd, table,
-blockquote, figure, fieldset, legend, pre, iframe, hr,
-h1, h2, h3, h4, h5, h6 {
+:where(
+  html,
+  body,
+  p,
+  ol,
+  ul,
+  li,
+  dl,
+  dt,
+  dd,
+  table,
+  blockquote,
+  figure,
+  fieldset,
+  legend,
+  pre,
+  iframe,
+  hr,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+) {
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-size: _var-base-font-size-px();
+  font-size: var(--_base-font-size-px);
+  line-break: normal;
+  hanging-punctuation: allow-end;
+}
+
+:where(body) {
+  background-color: var(--_background-color);
+  color: var(--_color-text);
+  font-family: var(--_base-font-family);
 }
 
 body {
-  background-color: _var-background-color();
-  color: _var-color-text();
-  font-family: _var-base-font-family();
-  @include _font-size-line-height($_base-font-size-px);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  // -moz-osx-font-smooting: grayscale; // White out elements will activate this.
+  @include _set-font-size-level(0);
 }
 
-code, kbd, pre, samp {
-  @include _font-size-line-height($_base-font-size-px - 2);
+:where(
+  code,
+  kbd,
+  pre,
+  samp
+) {
+  @include _set-font-size-level(-1);
   font-family: '_', monospace;
 }
 
-input, textarea, keygen, select, button {
-  font-family: _var-base-font-family();
-}
-
-input, textarea, optgroup, select, button {
-  @include _font-size-line-height($_base-font-size-px);
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
+:where(
+  code,
+  kbd
+) {
+  background-color: var(--_lighter-color-gray);
+  border-radius: var(--_border-radius);
+  padding: 2px 6px;
 }
 
 pre {
-  @include _pre();
+  overflow: auto;
+
+  code {
+    display: block;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+  }
 }
 
-code {
-  background-color: _var-lighter-color-gray();
-  border-radius: _var-border-radius();
-  padding: 2px 6px;
+:where(
+  input,
+  textarea,
+  keygen,
+  select,
+  button
+) {
+  font-family: var(--_base-font-family);
+}
+
+:where(
+  input,
+  textarea,
+  optgroup,
+  select,
+  button
+) {
+  @include _set-font-size-level(0);
 }
 
 label {
   cursor: pointer;
+}
+
+:where(figure, picture) {
+  :where(img, video) {
+    margin-top: 0;
+    margin-bottom: 0;
+    display: table;
+  }
+
+  :where(img:not([width]), video:not([width])) {
+    width: 100%;
+  }
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+figcaption {
+  @include _set-font-size-level(-1);
+  margin: var(--_margin-2) 0 0;
+  caption-side: bottom;
+  text-align: left;
 }
 
 /*
@@ -84,32 +163,39 @@ Headings
 ```
 */
 
-h1, h2, h3, h4, h5, h6 {
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+) {
   font-weight: bold;
 }
 
 h1 {
-  @include _font-size-line-height($_h1-font-size-scale);
+  @include _set-font-size-level(4);
 }
 
 h2 {
-  @include _font-size-line-height($_h2-font-size-scale);
+  @include _set-font-size-level(3);
 }
 
 h3 {
-  @include _font-size-line-height($_h3-font-size-scale);
+  @include _set-font-size-level(2);
 }
 
 h4 {
-  @include _font-size-line-height($_h4-font-size-scale);
+  @include _set-font-size-level(1);
 }
 
 h5 {
-  @include _font-size-line-height($_h5-font-size-scale);
+  @include _set-font-size-level(0);
 }
 
 h6 {
-  @include _font-size-line-height($_h6-font-size-scale);
+  @include _set-font-size-level(0);
 }
 
 /*
@@ -126,14 +212,40 @@ Lists
 <h3>ul</h3>
 <ul>
   <li>Lorem ipsum dolor sit amet</li>
-  <li>consectetur adipisicing elit</li>
+  <li>
+    consectetur adipisicing elit
+    <ul>
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>
+        consectetur adipisicing elit
+        <ul>
+          <li>Lorem ipsum dolor sit amet</li>
+          <li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
+        </ul>
+      </li>
+      <li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
+    </ul>
+  </li>
   <li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
 </ul>
 
 <h3>ol</h3>
 <ol>
   <li>Lorem ipsum dolor sit amet</li>
-  <li>consectetur adipisicing elit</li>
+  <li>
+    consectetur adipisicing elit
+    <ol>
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>
+        consectetur adipisicing elit
+        <ol>
+          <li>Lorem ipsum dolor sit amet</li>
+          <li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
+        </ol>
+      </li>
+      <li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
+    </ol>
+  </li>
   <li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
 </ol>
 
@@ -147,55 +259,13 @@ Lists
 ```
 */
 
-ul, ol {
+:where(
+  ul,
+  ol
+) {
   padding-left: 1.5em;
 }
 
-dt {
+:where(dt) {
   font-weight: bold;
-}
-dd {
-  margin-left: 0;
-}
-
-/*
----
-name: Blockquotes
-category:
-  - foundation/typography
-  - foundation/typography/blockquotes
----
-Blockquotes
-
-### html
-```html
-<blockquote>
-  <h3>Blockquotes</h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cill
-  </p>
-  <ul>
-    <li>Lorem ipsum dolor sit amet</li>
-    <li>consectetur adipisicing elit</li>
-    <li>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
-  </ul>
-</blockquote>
-```
-*/
-
-blockquote {
-  @include _content();
-
-  border-left: $_base-font-size-px / 2 solid _var-lighter-color-gray();
-  margin-left: 0;
-  padding: _var-base-font-size-px() 0 _var-base-font-size-px() _var-base-font-size-px();
-
-  :last-child {
-    margin-bottom: 0;
-  }
-
-  footer {
-    color: _var-darker-color-gray();
-    font-size: 90%;
-  }
 }

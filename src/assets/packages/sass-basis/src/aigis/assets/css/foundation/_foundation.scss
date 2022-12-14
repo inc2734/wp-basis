@@ -1,10 +1,6 @@
-body {
-  letter-spacing: 1px;
-}
-
 a {
-  transition: background-color #{ _var-transition-duration() } #{ _var-transition-function-timing() },
-              color #{ _var-transition-duration() } #{ _var-transition-function-timing() };
+  transition: background-color var(--_transition-duration) var(--_transition-function-timing),
+              color var(--_transition-duration) var(--_transition-function-timing);
   color: _dark($color-primary);
 }
 

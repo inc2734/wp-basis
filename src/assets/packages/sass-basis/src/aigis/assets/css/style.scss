@@ -3,7 +3,6 @@
 $color-primary: #00DAE6;
 $_font-family : "Helvetica Neue", Helvetica, sans-serif;
 $_color-text  : #444;
-$_font-path: '../../font';
 $_prefix: '';
 
 @import '../../../css/basis';
@@ -24,23 +23,23 @@ $_prefix: '';
 @import 'object/component/dummy-image';
 @import 'object/component/entry';
 @import 'object/component/fade-image';
+@import 'object/component/ib-row';
 @import 'object/component/label';
+@import 'object/component/lattice';
 @import 'object/component/meta';
 @import 'object/component/page-header';
 @import 'object/component/site-branding';
 @import 'object/component/table';
 
-@import 'object/project/footer-nav';
 @import 'object/project/global-nav';
 @import 'object/project/local-nav';
-@import 'object/project/media';
 @import 'object/project/scroll-top';
 @import 'object/project/show-grid';
 @import 'object/project/social-nav';
 @import 'object/project/table-of-contents';
 
 .aigis-preview {
-  @include _content();
+  @include _set-content-level(1);
   min-height: 150px;
 }
 
@@ -54,6 +53,25 @@ $_prefix: '';
       bottom: 100%;
       left: 0;
       content: '#{ $i }px';
+      display: inline-block;
+      background-color: #111;
+      color: #fff;
+      font-size: 12px;
+      padding: .25em .5em;
+    }
+  }
+}
+
+@for $i from -2 through 7 {
+  .font-size-level\:#{ $i } {
+    @include _set-font-size-level($i);
+
+    position: relative;
+    &::before {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      content: 'level: #{ $i }';
       display: inline-block;
       background-color: #111;
       color: #fff;

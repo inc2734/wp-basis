@@ -1,29 +1,30 @@
-.#{$_prefix}l-header {
+.#{ $_prefix }l-header {
   z-index: 1;
   background-color: #00dae6;
+  color: var(--_color-white);
   overflow: hidden;
 
-  &, a {
-    color: _var-color-white();
+  a {
+    color: inherit;
     text-decoration: none;
   }
 
-  > .#{$_prefix}c-container {
+  > .#{ $_prefix }c-container {
     position: relative;
   }
 
-  .#{$_prefix}c-site-branding {
-    padding: ($_base-line-height / 2) 0;
+  .#{ $_prefix }c-site-branding {
+    padding: var(--_padding-1) 0;
   }
 
-  .#{$_prefix}c-hamburger-btn {
+  .#{ $_prefix }c-hamburger-btn {
     position: absolute;
     top: 50%;
-    right: $_base-line-height;
+    right: var(--_s1);
     transform: translateY(-50%);
 
     &__bar {
-      background-color: _var-color-white();
+      background-color: var(--_color-white);;
     }
   }
 }

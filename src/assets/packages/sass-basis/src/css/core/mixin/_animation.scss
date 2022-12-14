@@ -273,12 +273,14 @@ Extend the underline from the center.
 */
 
 @mixin _extend-underline() {
-  @include _position(absolute, null, null, 0, 50%);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
   display: block;
   content: '';
   width: 0;
   height: 1px;
-  transition: width #{ _var-transition-duration() } #{ _var-transition-function-timing() };
+  transition: width var(--_transition-duration) var(--_transition-function-timing);
   transform: translateX(-50%);
-  background-color: _var-color-text();
+  background-color: currentColor;
 }

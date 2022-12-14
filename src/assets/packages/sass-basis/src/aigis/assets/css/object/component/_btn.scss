@@ -1,21 +1,21 @@
-.#{$_prefix}c-btn {
+.#{ $_prefix }c-btn {
   @include _transition(all);
   border: none;
-  border-radius: 3px;
-  @include _padding(.5, 1);
+  border-radius: var(--_border-radius);
+  padding: var(--_padding-2) var(--_padding-1);
 
   &--block {
     display: block;
   }
 
   &--ghost {
-    border: 1px solid _var-color-white();
+    border: 1px solid var(--_color-white);;
     background-color: transparent;
   }
 
   &--launch, &--download, &--buy {
     background-color: $color-primary;
-    color: _var-color-white();
+    color: var(--_color-white);
 
     @include _hover() {
       opacity: .8;
