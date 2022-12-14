@@ -174,13 +174,13 @@ function wp_basis_is_oembed_domains( $src ) {
  * @return array
  */
 function wp_basis_get_16to9_oembed_domains() {
-	return [
+	return array(
 		'(https?:)?\/\/www\.youtube\.com',
 		'(https?:)?\/\/youtu.be',
 		'(https?:)?\/\/vimeo.com',
 		'(https?:)?\/\/speakerdeck\.com',
 		'\/\/speakerdeck\.com',
-	];
+	);
 }
 
 /**
@@ -205,9 +205,9 @@ function wp_basis_is_16to9_oembed_domains( $url ) {
  * @return array
  */
 function wp_basis_get_4to3_oembed_domains() {
-	return [
+	return array(
 		'(https?:)?\/\/www\.slideshare\.net',
-	];
+	);
 }
 
 /**

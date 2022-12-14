@@ -14,14 +14,14 @@ class Navbar extends \Walker_Nav_Menu {
 	 *
 	 * @param array $args Array of argment.
 	 */
-	public function __construct( array $args = [] ) {
+	public function __construct( array $args = array() ) {
 		$this->args = shortcode_atts(
-			[
+			array(
 				'popup-mode' => 'hover',
-			],
+			),
 			$args
 		);
-		add_filter( 'nav_menu_css_class', [ $this, '_nav_menu_css_class' ], 10, 4 );
+		add_filter( 'nav_menu_css_class', array( $this, '_nav_menu_css_class' ), 10, 4 );
 	}
 
 	/**
@@ -37,7 +37,7 @@ class Navbar extends \Walker_Nav_Menu {
 		&$output,
 		// phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		$depth = 0,
-		$args = []
+		$args = array()
 		// phpcs:enable
 	) {
 		if ( 'click' === $this->args['popup-mode'] ) {
@@ -59,7 +59,7 @@ class Navbar extends \Walker_Nav_Menu {
 	 * @param stdClass $args    An object of wp_nav_menu() arguments.
 	 * @param int      $item_id Current item ID.
 	 */
-	public function start_el( &$output, $item, $depth = 0, $args = [], $item_id = 0 ) {
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $item_id = 0 ) {
 		parent::start_el( $output, $item, $depth, $args, $item_id );
 
 		if ( 1 === $args->depth ) {

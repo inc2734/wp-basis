@@ -17,7 +17,7 @@ add_filter(
 		ob_start();
 		include( __DIR__ . '/../view/password-form.php' );
 		$output = ob_get_clean();
-		$output = str_replace( [ "\n", "\r", "\n\r", "\t" ], '', $output );
+		$output = str_replace( array( "\n", "\r", "\n\r", "\t" ), '', $output );
 		return $output;
 	}
 );

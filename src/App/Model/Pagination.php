@@ -15,7 +15,7 @@ class Pagination {
 	public static function the_wp_link_pages() {
 		$args = apply_filters(
 			'inc2734_wp_basis_wp_link_pages_args',
-			[
+			array(
 				'before'           => '<div class="c-pagination"><div class="nav-links">',
 				'after'            => '</div></div>',
 				'link_before'      => '',
@@ -24,7 +24,7 @@ class Pagination {
 				'nextpagelink'     => '&gt;',
 				'previouspagelink' => '%lt;',
 				'pagelink'         => '%',
-			]
+			)
 		);
 
 		ob_start();
@@ -40,10 +40,10 @@ class Pagination {
 	public static function the_posts_pagination() {
 		$args = apply_filters(
 			'inc2734_wp_basis_posts_pagination_args',
-			[
+			array(
 				'prev_text' => '<i class="fa fa-angle-left" aria-hidden="true"></i>',
 				'next_text' => '<i class="fa fa-angle-right" aria-hidden="true"></i>',
-			]
+			)
 		);
 
 		ob_start();
@@ -70,10 +70,10 @@ class Pagination {
 	public static function the_comments_pagination( $args = array() ) {
 		$args = apply_filters(
 			'inc2734_wp_basis_comments_pagination_args',
-			[
+			array(
 				'prev_text' => '<i class="fa-solid fa-angle-left" aria-hidden="true"></i>',
 				'next_text' => '<i class="fa-solid fa-angle-right" aria-hidden="true"></i>',
-			]
+			)
 		);
 
 		ob_start();
@@ -129,7 +129,7 @@ class Pagination {
 		);
 
 		$pagination = str_replace(
-			[ 'next page-numbers', 'prev page-numbers' ],
+			array( 'next page-numbers', 'prev page-numbers' ),
 			'c-pagination__item-link',
 			$pagination
 		);
@@ -158,27 +158,27 @@ class Pagination {
 	protected static function _sanitize_pagination_e( $pagination ) {
 		echo wp_kses(
 			$pagination,
-			[
-				'h2'   => [
-					'class' => [],
-				],
-				'div'  => [
-					'class' => [],
-				],
-				'span' => [
-					'class'        => [],
-					'aria-current' => [],
-					'aria-hidden'  => [],
-				],
-				'a'    => [
-					'class' => [],
-					'href'  => [],
-				],
-				'i'    => [
-					'class'       => [],
-					'aria-hidden' => [],
-				],
-			]
+			array(
+				'h2'   => array(
+					'class' => array(),
+				),
+				'div'  => array(
+					'class' => array(),
+				),
+				'span' => array(
+					'class'        => array(),
+					'aria-current' => array(),
+					'aria-hidden'  => array(),
+				),
+				'a'    => array(
+					'class' => array(),
+					'href'  => array(),
+				),
+				'i'    => array(
+					'class'       => array(),
+					'aria-hidden' => array(),
+				),
+			)
 		);
 	}
 }

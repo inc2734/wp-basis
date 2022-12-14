@@ -39,7 +39,7 @@ jobs:
         node-version: 14.x
 
     - name: Npm install
-      run: npm install
+      run: npm ci
 
     - name: Npm build
       run: npm build
