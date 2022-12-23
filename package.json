@@ -2,7 +2,7 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "dependencies": {
-    "sass-basis": "^18.0.0-beta2",
+    "sass-basis": "^18.0.0-beta5",
     "sass-basis-layout": "^8.0.4"
   },
   "devDependencies": {
@@ -38,7 +38,6 @@
     "packages:sass-basis": "cpy 'sass-basis' '../src/assets/packages' --cwd=node_modules --parents",
     "packages:sass-basis-layout": "cpy 'sass-basis-layout' '../src/assets/packages' --cwd=node_modules --parents",
     "packages": "npm run cleanup:packages && npm-run-all packages:*",
-    "build": "npm-run-all -s packages css",
-    "postinstall": "npm run build"
+    "build": "npm-run-all -s packages css"
   }
 }

@@ -1,5 +1,30 @@
 # Changelog
 
+## December 20, 2022 18.0.0-beta5
+* Refactoring `_media-min()`、`_media-max()` and `_media-only()`.
+* Fixed a bug that `.c-row__col` sometimes didn't get the intended size.
+
+## December 19, 2022 18.0.0-beta4
+* Refactoring width of `.c-row` and `.c-row__col` CSS.
+* Deprecated: `_lattice()`.
+* Deprecated: `_lattice__col()`.
+* Deprecated: `_lattice__col--width()`.
+* Deprecated: `_lattice__col--width()`.
+* Deprecated: `_row__col()`.
+* Deprecated: `_row__col--width()`.
+
+## December 19, 2022 18.0.0-beta3
+* Add `--_global--line-height`.
+* Deprecated: `--_base-font-size-px`.
+* Add `--_global--font-size-px`.
+* Add `--_global--transition-duration`.
+* Add `--_global--transition-function-timing`.
+* Add `--_global--transition-delay`.
+* Add `--_global--border-radius`.
+* Add `--_global--background-color`.
+* Remove `--_background-color` in `:root`.
+* Change gap of `.c-row` to CSS vars.
+
 ## December 14, 2022 18.0.0-beta2
 * `_set-between-content-level()` permits only `-2` to `-7`.
 * `_set-content-level()` permits only `-2` to `-7`.
