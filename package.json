@@ -2,7 +2,7 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "dependencies": {
-    "sass-basis": "^18.1.5",
+    "sass-basis": "^18.1.6",
     "sass-basis-layout": "^8.0.4"
   },
   "devDependencies": {

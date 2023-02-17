@@ -1,26 +1,26 @@
 {
-  "_from": "sass-basis@^18.1.5",
-  "_id": "sass-basis@18.1.5",
+  "_from": "sass-basis@^18.1.6",
+  "_id": "sass-basis@18.1.6",
   "_inBundle": false,
-  "_integrity": "sha512-yEcCo2KML+AkRuimKJ6deqMi8+wd4+7dhJ6ce0AFTHVh8qyR4Y8LpnpNJPBPNbgzo8CK8n3HMzncLlo6dnPhuQ==",
+  "_integrity": "sha512-eovRX10Eqi8ENbwTZsR890HCGZcAflnpoveoOE8PsGPofM+O5aMKH5/y1e7QMpIbXbfDBhLfS86xtPVISVrtpw==",
   "_location": "/sass-basis",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "sass-basis@^18.1.5",
+    "raw": "sass-basis@^18.1.6",
     "name": "sass-basis",
     "escapedName": "sass-basis",
-    "rawSpec": "^18.1.5",
+    "rawSpec": "^18.1.6",
     "saveSpec": null,
-    "fetchSpec": "^18.1.5"
+    "fetchSpec": "^18.1.6"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-18.1.5.tgz",
-  "_shasum": "e115355f2248c715b4163c969170450e4ee74e9c",
-  "_spec": "sass-basis@^18.1.5",
+  "_resolved": "https://registry.npmjs.org/sass-basis/-/sass-basis-18.1.6.tgz",
+  "_shasum": "2ef42adf82ca549bdb2d0ad0fa3535db5d5f7a36",
+  "_spec": "sass-basis@^18.1.6",
   "_where": "/Users/inc2734/Dropbox/github/wp-basis",
   "author": {
     "name": "inc2734"
@@ -52,12 +52,12 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
-    "@wordpress/browserslist-config": "^5.9.0",
+    "@wordpress/browserslist-config": "^5.10.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
     "browser-sync": "^2.27.11",
     "cpy-cli": "^4.2.0",
-    "cssnano": "^5.1.14",
+    "cssnano": "^5.1.15",
     "node-aigis": "^1.4.1",
     "node-sass": "^8.0.0",
     "normalize.css": "^8.0.1",
@@ -116,5 +116,5 @@
     "test": "node-sass tests -o tests",
     "zip": "rimraf basis.zip && rsync -a --exclude '.*' --exclude '/basis/' --exclude '/node_modules/' --exclude '/bin/' ./ basis && cd basis && cd ../ && zip -9 -qmr basis.zip basis"
   },
-  "version": "18.1.5"
+  "version": "18.1.6"
 }
