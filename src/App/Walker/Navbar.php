@@ -68,7 +68,7 @@ class Navbar extends \Walker_Nav_Menu {
 
 		$output = preg_replace(
 			'/menu-item-has-children([^>\"]*?)">/ms',
-			'menu-item-has-children$1" aria-haspopup="true">',
+			'menu-item-has-children$1" aria-haspopup="true" data-submenu-visibility="hidden">',
 			$output
 		);
 	}
