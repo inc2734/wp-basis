@@ -10,12 +10,12 @@
  */
 class SampleTest extends WP_UnitTestCase {
 
-	public function setup() {
-		parent::setup();
+	public function set_up() {
+		parent::set_up();
 	}
 
-	public function tearDown() {
-		parent::tearDown();
+	public function tear_down() {
+		parent::tear_down();
 	}
 
 	public function test_sample() {
