@@ -13,7 +13,7 @@
  */
 add_filter(
 	'body_class',
-	function( $classes ) {
+	function ( $classes ) {
 		if ( ! in_array( 'l-body', $classes, true ) ) {
 			$classes[] = 'l-body';
 		}

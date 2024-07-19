@@ -13,9 +13,9 @@
  */
 add_filter(
 	'the_password_form',
-	function( $output ) {
+	function ( $output ) {
 		ob_start();
-		include( __DIR__ . '/../view/password-form.php' );
+		include __DIR__ . '/../view/password-form.php';
 		$output = ob_get_clean();
 		$output = str_replace( array( "\n", "\r", "\n\r", "\t" ), '', $output );
 		return $output;
@@ -30,7 +30,7 @@ add_filter(
  */
 add_action(
 	'the_content',
-	function( $content ) {
+	function ( $content ) {
 		return preg_replace( '/<p>(<input class="c-input-group__btn")/', '$1', $content );
 	}
 );

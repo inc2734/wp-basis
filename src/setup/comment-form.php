@@ -13,7 +13,7 @@
  */
 add_filter(
 	'comment_form_default_fields',
-	function( $fields ) {
+	function ( $fields ) {
 		foreach ( $fields as $key => $field ) {
 			$fields[ $key ] = wpbasis_add_class_attribute( $field );
 		}
@@ -29,7 +29,7 @@ add_filter(
  */
 add_filter(
 	'comment_form_field_comment',
-	function( $comment_field ) {
+	function ( $comment_field ) {
 		return wpbasis_add_class_attribute( $comment_field );
 	}
 );
@@ -42,7 +42,7 @@ add_filter(
  */
 add_filter(
 	'comment_form_submit_field',
-	function( $submit_field ) {
+	function ( $submit_field ) {
 		return str_replace( 'class="submit"', 'class="c-btn"', $submit_field );
 	}
 );

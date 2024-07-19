@@ -13,7 +13,7 @@
  */
 add_filter(
 	'wp_link_pages_link',
-	function( $pagination ) {
+	function ( $pagination ) {
 		$pagination  = preg_replace(
 			'/^(\d+)$/',
 			'<span class="page-numbers current">$1</span>',

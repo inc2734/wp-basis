@@ -1,42 +1,49 @@
 {
-  "author": "inc2734",
-  "license": "GPL-2.0+",
-  "dependencies": {
-    "sass-basis": "^18.2.1",
-    "sass-basis-layout": "^8.0.4"
-  },
-  "devDependencies": {
-    "@wordpress/browserslist-config": "^5.16.0",
-    "@wordpress/env": "7.0.0",
-    "autoprefixer": "^10.4.14",
-    "cpy-cli": "^4.2.0",
-    "cssnano": "^6.0.1",
-    "node-sass": "^8.0.0",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.23",
-    "postcss-cli": "^10.1.0",
-    "rimraf": "^5.0.0"
-  },
-  "scripts": {
-    "wp-env": "wp-env",
-    "start": "wp-env start",
-    "stop": "wp-env stop",
-    "cli": "wp-env run cli",
-    "wp": "wp-env run cli wp",
-    "composer": "wp-env run --env-cwd=\"wp-content/plugins/wp-basis\" cli composer",
-    "pretest": "wp-env start && npm run composer 'install --no-interaction'",
-    "test:lint:php": "npm run composer 'run-script lint'",
-    "test:lint": "run-s test:lint:*",
-    "test:unit:php": "wp-env run --env-cwd=\"wp-content/plugins/wp-basis\" tests-wordpress vendor/bin/phpunit -c .phpunit.xml.dist --verbose",
-    "test:unit": "run-s test:unit:*",
-    "test": "run-s test:*",
-    "cleanup:css": "rimraf src/assets/css",
-    "cleanup:packages": "rimraf src/assets/packages && mkdir -p src/assets/packages",
-    "css:embed": "node-sass src/src/css/gutenberg-embed.scss src/assets/css/gutenberg-embed.min.css && postcss -r src/assets/css/gutenberg-embed.min.css -c=postcss.config.js",
-    "css": "npm run cleanup:css && npm-run-all -p css:*",
-    "packages:sass-basis": "cpy 'sass-basis' '../src/assets/packages' --cwd=node_modules --parents",
-    "packages:sass-basis-layout": "cpy 'sass-basis-layout' '../src/assets/packages' --cwd=node_modules --parents",
-    "packages": "npm run cleanup:packages && npm-run-all packages:*",
-    "build": "npm-run-all -s packages css"
-  }
+	"engines": {
+		"node": ">=20.10.0",
+		"npm": ">=10.2.3"
+	},
+	"volta": {
+		"node": "20.11.1"
+	},
+	"author": "inc2734",
+	"license": "GPL-2.0+",
+	"dependencies": {
+		"sass-basis": "^18.2.4",
+		"sass-basis-layout": "^8.0.4"
+	},
+	"devDependencies": {
+		"@wordpress/browserslist-config": "^6.3.0",
+		"@wordpress/env": "10.3.0",
+		"autoprefixer": "^10.4.19",
+		"cpy-cli": "^5.0.0",
+		"cssnano": "^7.0.4",
+		"node-sass": "^9.0.0",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.4.39",
+		"postcss-cli": "^11.0.0",
+		"rimraf": "^6.0.1"
+	},
+	"scripts": {
+		"wp-env": "wp-env",
+		"start": "wp-env start",
+		"stop": "wp-env stop",
+		"cli": "wp-env run --env-cwd=wp-content/plugins/wp-basis cli",
+		"wp": "wp-env run cli --env-cwd=\"wp-content/plugins/wp-basis\" wp",
+		"composer": "wp-env run --env-cwd=\"wp-content/plugins/wp-basis\" cli composer",
+		"pretest": "wp-env start && npm run composer install -- --no-interaction",
+		"test:lint:php": "wp-env start && npm run composer lint",
+		"test:lint": "run-s test:lint:*",
+		"test:unit:php": "wp-env start && wp-env run --env-cwd=\"wp-content/plugins/wp-basis\" tests-wordpress vendor/bin/phpunit -c .phpunit.xml.dist --verbose",
+		"test:unit": "run-s test:unit:*",
+		"test": "run-s test:*",
+		"cleanup:css": "rimraf src/assets/css",
+		"cleanup:packages": "rimraf src/assets/packages && mkdir -p src/assets/packages",
+		"css:embed": "node-sass src/src/css/gutenberg-embed.scss src/assets/css/gutenberg-embed.min.css && postcss -r src/assets/css/gutenberg-embed.min.css -c=postcss.config.js",
+		"css": "npm run cleanup:css && run-p css:*",
+		"packages:sass-basis": "cpy 'node_modules/sass-basis/**' 'src/assets/packages/sass-basis'",
+		"packages:sass-basis-layout": "cpy 'node_modules/sass-basis-layout/**' 'src/assets/packages/sass-basis-layout'",
+		"packages": "npm run cleanup:packages && run-p packages:*",
+		"build": "run-s packages css"
+	}
 }

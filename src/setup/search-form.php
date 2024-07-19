@@ -13,9 +13,9 @@
  */
 add_filter(
 	'get_search_form',
-	function( $output ) {
+	function ( $output ) {
 		ob_start();
-		include( __DIR__ . '/../view/searchform.php' );
+		include __DIR__ . '/../view/searchform.php';
 		$output = ob_get_clean();
 		$output = str_replace( array( "\n", "\r", "\n\r", "\t" ), '', $output );
 		return $output;

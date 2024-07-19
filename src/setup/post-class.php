@@ -13,7 +13,7 @@
  */
 add_filter(
 	'post_class',
-	function( $classes ) {
+	function ( $classes ) {
 		if ( in_array( 'hentry', $classes, true ) ) {
 			unset( $classes[ array_search( 'hentry', $classes, true ) ] );
 		}
@@ -29,7 +29,7 @@ add_filter(
  */
 add_filter(
 	'post_class',
-	function( $classes ) {
+	function ( $classes ) {
 		if ( ! in_array( 'c-entry', $classes, true ) ) {
 			$classes[] = 'c-entry';
 		}

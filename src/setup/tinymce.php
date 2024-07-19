@@ -13,7 +13,7 @@
  */
 add_filter(
 	'tiny_mce_before_init',
-	function( $init ) {
+	function ( $init ) {
 		$init['body_class'] = 'p-entry-content';
 		return $init;
 	}

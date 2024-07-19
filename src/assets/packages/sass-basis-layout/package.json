@@ -1,48 +1,13 @@
 {
-  "_args": [
-    [
-      "sass-basis-layout@8.0.4",
-      "/Users/inc2734/Dropbox/github/wp-basis"
-    ]
-  ],
-  "_from": "sass-basis-layout@8.0.4",
-  "_id": "sass-basis-layout@8.0.4",
-  "_inBundle": false,
-  "_integrity": "sha512-/I56Xkn/9fUIobLh/kyftmeohUCwHJvTI1DD7MObFNlfLuJBTu8XyZU45N9hXS42dBU1vJfMRU3gERl0iPo2GA==",
-  "_location": "/sass-basis-layout",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "sass-basis-layout@8.0.4",
-    "name": "sass-basis-layout",
-    "escapedName": "sass-basis-layout",
-    "rawSpec": "8.0.4",
-    "saveSpec": null,
-    "fetchSpec": "8.0.4"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/sass-basis-layout/-/sass-basis-layout-8.0.4.tgz",
-  "_spec": "8.0.4",
-  "_where": "/Users/inc2734/Dropbox/github/wp-basis",
-  "author": {
-    "name": "inc2734"
-  },
-  "bugs": {
-    "url": "https://github.com/sass-basis/layout/issues"
+  "name": "sass-basis-layout",
+  "version": "8.0.4",
+  "author": "inc2734",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sass-basis/layout"
   },
   "dependencies": {
     "@inc2734/add-custom-event": "^0.1.0"
-  },
-  "description": "This is a css module for the Basis.",
-  "homepage": "https://github.com/sass-basis/layout#readme",
-  "license": "MIT",
-  "name": "sass-basis-layout",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sass-basis/layout.git"
-  },
-  "version": "8.0.4"
+  }
 }
