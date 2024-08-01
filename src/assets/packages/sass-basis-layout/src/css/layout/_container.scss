@@ -1,17 +1,17 @@
-html[data-sticky-footer="true"] .#{$_prefix}l-container,
+html[data-sticky-footer="true"] .l-container,
 html[data-window-scroll="false"] {
-  > .#{$_prefix}l-header,
-  > .#{$_prefix}l-footer {
+  > .l-header,
+  > .l-footer {
     flex: none;
   }
 }
 
-html[data-sticky-footer="true"] .#{$_prefix}l-container {
+html[data-sticky-footer="true"] .l-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
-  > .#{$_prefix}l-contents {
+  > .l-contents {
     flex: 1 0 auto;
   }
 }
@@ -29,7 +29,7 @@ html[data-window-scroll="false"] {
     overflow: hidden;
   }
 
-  .#{$_prefix}l-container {
+  .l-container {
     display: block;
     overflow-y: auto;
     height: 100vh;
