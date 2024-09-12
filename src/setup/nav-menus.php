@@ -7,7 +7,7 @@
 
 add_filter(
 	'nav_menu_item_args',
-	function( $args ) {
+	function ( $args ) {
 		return is_array( $args )
 			? (object) $args
 			: $args;
