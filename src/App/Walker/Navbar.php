@@ -37,7 +37,7 @@ class Navbar extends \Walker_Nav_Menu {
 		&$output,
 		// phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		$depth = 0,
-		$args = array()
+		$args = null
 		// phpcs:enable
 	) {
 		if ( 'click' === $this->args['popup-mode'] ) {
@@ -59,7 +59,7 @@ class Navbar extends \Walker_Nav_Menu {
 	 * @param stdClass $args    An object of wp_nav_menu() arguments.
 	 * @param int      $item_id Current item ID.
 	 */
-	public function start_el( &$output, $item, $depth = 0, $args = array(), $item_id = 0 ) {
+	public function start_el( &$output, $item, $depth = 0, $args = null, $item_id = 0 ) {
 		parent::start_el( $output, $item, $depth, $args, $item_id );
 
 		if ( 1 === $args->depth ) {
@@ -85,6 +85,10 @@ class Navbar extends \Walker_Nav_Menu {
 	 * @return array
 	 */
 	public function _nav_menu_css_class( $classes, $item, $args, $depth ) {
+		if ( is_array( $args ) ) {
+			$args = (object) $args;
+		}
+
 		if ( ! is_object( $args->walker ) ) {
 			return $classes;
 		}
