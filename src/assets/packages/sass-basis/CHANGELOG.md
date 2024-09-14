@@ -1,5 +1,11 @@
 # Changelog
 
+## September 14, 2024 19.0.3
+* Fix `input-group()` layout.
+
+## August 9, 2024 19.0.2
+* `_container-padding()` to `core.container-padding()`.
+
 ## July 31, 2024 19.0.1
 * Update form control styles.
 
