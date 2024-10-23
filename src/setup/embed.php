@@ -120,12 +120,12 @@ add_action(
 						}
 					}
 
-					if ( $has_percent_width ) {
+					if ( ! empty( $has_percent_width ) ) {
 						// Set dummy width.
 						$response->html = str_replace( 'width="100%"', 'width="100000"', $response->html );
 					}
 
-					if ( $has_percent_height ) {
+					if ( ! empty( $has_percent_height ) ) {
 						// Set dummy height.
 						$response->html = str_replace( 'height="100%"', 'height="100000"', $response->html );
 					}
