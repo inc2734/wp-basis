@@ -20,7 +20,6 @@ class Bootstrap {
 			}
 		);
 
-		include_once __DIR__ . '/setup/i18n.php';
 		include_once __DIR__ . '/setup/nav-menus.php';
 		include_once __DIR__ . '/setup/body-class.php';
 		include_once __DIR__ . '/setup/comment-form.php';
