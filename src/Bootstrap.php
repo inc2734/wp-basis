@@ -15,7 +15,7 @@ class Bootstrap {
 	public function __construct() {
 		add_action(
 			'init',
-			function() {
+			function () {
 				load_textdomain( 'inc2734-wp-basis', __DIR__ . '/languages/' . get_locale() . '.mo' );
 			}
 		);
