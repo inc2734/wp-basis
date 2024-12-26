@@ -116,9 +116,9 @@ class Pagination {
 			$pagination
 		);
 
-		$pagination = str_replace(
-			'<a class="page-numbers',
-			'<a class="c-pagination__item-link',
+		$pagination = preg_replace(
+			'|<a ([^>]*?)class="page-numbers|',
+			'<a $1 class="c-pagination__item-link',
 			$pagination
 		);
 
