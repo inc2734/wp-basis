@@ -41,6 +41,7 @@ define( 'GUTENBERG_LOAD_VENDOR_SCRIPTS', false );
 function _manually_load_plugin() {
 	switch_theme( 'TwentyTwenty' );
 	require dirname( dirname( __FILE__ ) ) . '/vendor/autoload.php';
+	new Inc2734\WP_Basis\Bootstrap();
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 

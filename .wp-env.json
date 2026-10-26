@@ -1,9 +1,10 @@
 {
-  "core": null,
-  "mappings": {
-    "wp-content/plugins/wp-basis": "./"
-  },
-  "config": {
-    "WP_DEBUG": true
-  }
+	"core": null,
+	"mappings": {
+		"wp-content/plugins/wp-basis": "./"
+	},
+	"config": {
+		"WP_DEBUG": true
+	},
+	"testsEnvironment": false
 }

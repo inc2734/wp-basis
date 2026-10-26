@@ -1,10 +1,10 @@
 {
 	"engines": {
-		"node": ">=20.10.0",
-		"npm": ">=10.2.3"
+		"node": ">=24.22.1",
+		"npm": ">=11.19.1"
 	},
 	"volta": {
-		"node": "20.11.1"
+		"node": "24.22.1"
 	},
 	"author": "inc2734",
 	"license": "GPL-2.0+",
@@ -13,8 +13,8 @@
 		"sass-basis-layout": "^9.0.0"
 	},
 	"devDependencies": {
-		"@wordpress/browserslist-config": "^6.16.0",
-		"@wordpress/env": "10.16.0",
+		"@wordpress/browserslist-config": "^7.0.0",
+		"@wordpress/env": "^12.0.0",
 		"autoprefixer": "^10.4.20",
 		"cpy-cli": "^5.0.0",
 		"cssnano": "^7.0.6",
@@ -28,22 +28,32 @@
 		"wp-env": "wp-env",
 		"start": "wp-env start",
 		"stop": "wp-env stop",
-		"cli": "wp-env run --env-cwd=wp-content/plugins/wp-basis cli",
+		"destroy": "wp-env destroy && wp-env destroy --config=.wp-env.tests.json",
+		"cli": "wp-env run cli --env-cwd=\"wp-content/plugins/wp-basis\"",
 		"wp": "wp-env run cli --env-cwd=\"wp-content/plugins/wp-basis\" wp",
-		"composer": "wp-env run --env-cwd=\"wp-content/plugins/wp-basis\" cli composer",
-		"pretest": "wp-env start && npm run composer install -- --no-interaction",
-		"test:lint:php": "wp-env start && npm run composer lint",
-		"test:lint": "run-s test:lint:*",
-		"test:unit:php": "wp-env start && wp-env run --env-cwd=\"wp-content/plugins/wp-basis\" tests-wordpress vendor/bin/phpunit -c .phpunit.xml.dist --verbose",
-		"test:unit": "run-s test:unit:*",
-		"test": "run-s test:*",
+		"composer": "wp-env run cli --env-cwd=\"wp-content/plugins/wp-basis\" composer",
+		"test:php:start": "wp-env start --config=.wp-env.tests.json",
+		"test:php:stop": "wp-env stop --config=.wp-env.tests.json",
+		"test-composer": "wp-env run cli --config=.wp-env.tests.json --env-cwd=\"wp-content/plugins/wp-basis\" composer",
+		"pretest:php:lint": "npm run test:php:start && npm run test-composer -- install --no-interaction",
+		"test:php:lint": "wp-env run wordpress --config=.wp-env.tests.json --env-cwd=\"wp-content/plugins/wp-basis\" composer run-script lint",
+		"posttest:php:lint": "npm run test:php:stop",
+		"pretest:php:unit": "npm run test:php:start && npm run test-composer -- install --no-interaction",
+		"test:php:unit": "wp-env run wordpress --config=.wp-env.tests.json --env-cwd=\"wp-content/plugins/wp-basis\" vendor/bin/phpunit -- -c .phpunit.xml.dist --verbose",
+		"posttest:php:unit": "npm run test:php:stop",
+		"test:lint:php": "npm run test:php:lint || (test_status=$?; npm run test:php:stop; exit $test_status)",
+		"test:lint": "npm run test:lint:php",
+		"test:unit:js": "node --test tests/js/*.test.cjs",
+		"test:unit:php": "npm run test:php:unit || (test_status=$?; npm run test:php:stop; exit $test_status)",
+		"test:unit": "run-s test:unit:js test:unit:php",
+		"test": "run-s test:lint test:unit",
 		"cleanup:css": "rimraf src/assets/css",
 		"cleanup:packages": "rimraf src/assets/packages && mkdir -p src/assets/packages",
 		"css:embed": "sass --no-source-map src/src/css/gutenberg-embed.scss src/assets/css/gutenberg-embed.min.css && postcss -r src/assets/css/gutenberg-embed.min.css -c=postcss.config.js",
 		"css": "npm run cleanup:css && run-p css:*",
 		"packages:sass-basis": "cpy 'node_modules/sass-basis/**' 'src/assets/packages/sass-basis'",
 		"packages:sass-basis-layout": "cpy 'node_modules/sass-basis-layout/**' 'src/assets/packages/sass-basis-layout'",
-		"packages": "npm run cleanup:packages && run-p packages:*",
+		"packages": "npm run cleanup:packages && run-p packages:* && node scripts/sync-package-engines.cjs",
 		"build": "run-s packages css"
 	}
 }
