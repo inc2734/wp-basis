@@ -41,4 +41,39 @@ class MarkupTest extends WP_UnitTestCase {
 		$this->assertStringContainsString( 'c-input-group', $form );
 		$this->assertStringContainsString( 'name="s"', $form );
 	}
+
+	public function test_password_form_has_a_label_and_post_redirect() {
+		$post = self::factory()->post->create_and_get( array( 'post_password' => 'fixture-password' ) );
+		$form = get_the_password_form( $post );
+		$tags = new WP_HTML_Tag_Processor( $form );
+
+		$this->assertStringContainsString( 'c-input-group', $form );
+		$this->assertStringNotContainsString( 'role="alert"', $form );
+		$this->assertTrue( $tags->next_tag( 'input' ) );
+		$this->assertSame( 'redirect_to', $tags->get_attribute( 'name' ) );
+		$this->assertSame( get_permalink( $post ), $tags->get_attribute( 'value' ) );
+		$this->assertTrue( $tags->next_tag( 'label' ) );
+		$field_id = $tags->get_attribute( 'for' );
+		$this->assertNotEmpty( $field_id );
+		$this->assertTrue( $tags->next_tag( 'input' ) );
+		$this->assertSame( 'post_password', $tags->get_attribute( 'name' ) );
+		$this->assertSame( $field_id, $tags->get_attribute( 'id' ) );
+	}
+
+	public function test_password_form_displays_the_core_error() {
+		$post = self::factory()->post->create_and_get( array( 'post_password' => 'fixture-password' ) );
+		$form = apply_filters( 'the_password_form', '', $post, 'Incorrect <strong>password</strong>.' );
+		$tags = new WP_HTML_Tag_Processor( $form );
+
+		$this->assertTrue( $tags->next_tag( array( 'class_name' => 'password-form-error' ) ) );
+		$this->assertTrue( $tags->next_tag( array( 'class_name' => 'post-password-form-invalid-password' ) ) );
+		$this->assertSame( 'alert', $tags->get_attribute( 'role' ) );
+		$this->assertTrue( $tags->next_tag( 'p' ) );
+		$error_id = $tags->get_attribute( 'id' );
+		$this->assertNotEmpty( $error_id );
+		$this->assertStringContainsString( 'Incorrect <strong>password</strong>.', $form );
+		$this->assertTrue( $tags->next_tag( 'input' ) );
+		$this->assertSame( 'post_password', $tags->get_attribute( 'name' ) );
+		$this->assertSame( $error_id, $tags->get_attribute( 'aria-describedby' ) );
+	}
 }
