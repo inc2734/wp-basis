@@ -159,6 +159,10 @@ class Pagination {
 		echo wp_kses(
 			$pagination,
 			array(
+				'nav'  => array(
+					'class'      => array(),
+					'aria-label' => array(),
+				),
 				'h2'   => array(
 					'class' => array(),
 				),

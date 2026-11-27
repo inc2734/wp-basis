@@ -68,6 +68,25 @@ class MarkupTest extends WP_UnitTestCase {
 		$this->assertSame( 'true', $tags->get_attribute( 'aria-hidden' ) );
 	}
 
+	public function test_posts_pagination_preserves_the_labelled_navigation() {
+		update_option( 'posts_per_page', 1 );
+		self::factory()->post->create_many( 2 );
+		$this->go_to( home_url( '/' ) );
+
+		ob_start();
+		Inc2734\WP_Basis\App\Model\Pagination::the_posts_pagination();
+		$tags = new WP_HTML_Tag_Processor( ob_get_clean() );
+
+		$this->assertTrue( $tags->next_tag( array( 'class_name' => 'c-pagination' ) ) );
+		$this->assertTrue( $tags->next_tag( 'nav' ) );
+		$this->assertTrue( $tags->has_class( 'pagination' ) );
+		$this->assertSame( 'Posts pagination', $tags->get_attribute( 'aria-label' ) );
+		$this->assertTrue( $tags->next_tag( array( 'class_name' => 'c-pagination__item' ) ) );
+		$this->assertSame( 'page', $tags->get_attribute( 'aria-current' ) );
+		$this->assertTrue( $tags->next_tag( array( 'class_name' => 'c-pagination__item-link' ) ) );
+		$this->assertNotEmpty( $tags->get_attribute( 'href' ) );
+	}
+
 	public function test_password_form_has_a_label_and_post_redirect() {
 		$post = self::factory()->post->create_and_get( array( 'post_password' => 'fixture-password' ) );
 		$form = get_the_password_form( $post );
