@@ -36,10 +36,36 @@ class MarkupTest extends WP_UnitTestCase {
 		}
 	}
 
-	public function test_search_form_uses_basis_markup() {
-		$form = get_search_form( array( 'echo' => false ) );
-		$this->assertStringContainsString( 'c-input-group', $form );
-		$this->assertStringContainsString( 'name="s"', $form );
+	public function test_search_forms_have_unique_labelled_inputs() {
+		$ids = array();
+
+		for ( $index = 0; $index < 2; ++$index ) {
+			$form = get_search_form( array( 'echo' => false ) );
+			$tags = new WP_HTML_Tag_Processor( $form );
+			$this->assertStringContainsString( 'c-input-group', $form );
+			$this->assertTrue( $tags->next_tag( 'label' ) );
+			$field_id = $tags->get_attribute( 'for' );
+			$this->assertNotEmpty( $field_id );
+			$this->assertTrue( $tags->next_tag( 'input' ) );
+			$this->assertSame( 's', $tags->get_attribute( 'name' ) );
+			$this->assertSame( $field_id, $tags->get_attribute( 'id' ) );
+			$ids[] = $field_id;
+		}
+
+		$this->assertNotSame( $ids[0], $ids[1] );
+	}
+
+	public function test_drawer_submenu_button_has_an_accessible_name() {
+		$walker = new Inc2734\WP_Basis\App\Walker\Drawer();
+		$output = '';
+		$walker->start_lvl( $output );
+		$tags = new WP_HTML_Tag_Processor( $output );
+
+		$this->assertTrue( $tags->next_tag( 'button' ) );
+		$this->assertSame( 'Open/close the submenu', $tags->get_attribute( 'aria-label' ) );
+		$this->assertSame( 'false', $tags->get_attribute( 'aria-expanded' ) );
+		$this->assertTrue( $tags->next_tag( 'span' ) );
+		$this->assertSame( 'true', $tags->get_attribute( 'aria-hidden' ) );
 	}
 
 	public function test_password_form_has_a_label_and_post_redirect() {
