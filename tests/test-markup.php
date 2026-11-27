@@ -36,6 +36,22 @@ class MarkupTest extends WP_UnitTestCase {
 		}
 	}
 
+	public function test_oembed_proxy_dimensions_are_independent_of_query_parameter_order() {
+		$url     = 'https://example.com/embed';
+		$request = new WP_REST_Request( 'GET', '/oembed/1.0/proxy' );
+		$iframe  = '<iframe width="100%" height="360"></iframe>';
+
+		foreach ( array( array( 'url' => $url, 'maxwidth' => 640 ), array( 'maxwidth' => 640, 'url' => $url ) ) as $params ) {
+			$request->set_query_params( $params );
+			$response = apply_filters( 'rest_request_after_callbacks', (object) array( 'html' => $iframe ), array(), $request );
+			$this->assertSame( '<iframe width="100000" height="360"></iframe>', $response->html );
+		}
+
+		$request->set_route( '/oembed/1.0/embed' );
+		$response = apply_filters( 'rest_request_after_callbacks', (object) array( 'html' => $iframe ), array(), $request );
+		$this->assertSame( $iframe, $response->html );
+	}
+
 	public function test_search_forms_have_unique_labelled_inputs() {
 		$ids = array();
 

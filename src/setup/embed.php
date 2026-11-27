@@ -86,57 +86,36 @@ add_filter(
 );
 
 /**
- * Make sure oEmbed REST Requests apply the WP Embed security mechanism for WordPress embeds.
+ * Normalize percentage dimensions in oEmbed previews for the block editor.
  *
- * @see  https://core.trac.wordpress.org/ticket/32522
- * @see  https://github.com/WordPress/gutenberg/blob/master/lib/rest-api.php
- * @copyright  https://github.com/WordPress/gutenberg
- *
- * @param  WP_HTTP_Response|WP_Error $response The REST Request response.
- * @param  WP_REST_Server            $handler  ResponseHandler instance (usually WP_REST_Server).
- * @param  WP_REST_Request           $request  Request used to generate the response.
- * @return WP_HTTP_Response|object|WP_Error    The REST Request response.
+ * @param mixed           $response The REST request response.
+ * @param array           $handler  Route handler used for the request.
+ * @param WP_REST_Request $request  Request used to generate the response.
+ * @return mixed The REST request response.
  */
-add_action(
-	'init',
-	function () {
-		if ( wp_basis_is_block_embed_rendering_request() ) {
-			add_filter(
-				'rest_request_after_callbacks',
-				function ( $response, $handler, $request ) {
-					if ( '/oembed/1.0/proxy' !== $request->get_route() ) {
-						return $response;
-					}
-
-					if ( ! filter_input( INPUT_GET, 'url' ) ) {
-						return $response;
-					}
-
-					if ( isset( $response->html ) ) {
-						$has_percent_width  = preg_match( '|^<iframe[^>]+ width="\d+%"|ms', $response->html );
-						$has_percent_height = preg_match( '|^<iframe[^>]+ height="\d+%"|ms', $response->html );
-						if ( ( ! $has_percent_width && ! $has_percent_height ) || ( $has_percent_width && $has_percent_height ) ) {
-							return $response;
-						}
-					}
-
-					if ( ! empty( $has_percent_width ) ) {
-						// Set dummy width.
-						$response->html = str_replace( 'width="100%"', 'width="100000"', $response->html );
-					}
-
-					if ( ! empty( $has_percent_height ) ) {
-						// Set dummy height.
-						$response->html = str_replace( 'height="100%"', 'height="100000"', $response->html );
-					}
-
-					return $response;
-				},
-				10,
-				3
-			);
+add_filter(
+	'rest_request_after_callbacks',
+	function ( $response, $handler, $request ) {
+		if ( '/oembed/1.0/proxy' !== $request->get_route() || ! $request->get_param( 'url' ) || ! isset( $response->html ) ) {
+			return $response;
 		}
-	}
+
+		$has_percent_width  = (bool) preg_match( '|^<iframe[^>]* width="\d+%"|ms', $response->html );
+		$has_percent_height = (bool) preg_match( '|^<iframe[^>]* height="\d+%"|ms', $response->html );
+		if ( $has_percent_width === $has_percent_height ) {
+			return $response;
+		}
+
+		if ( $has_percent_width ) {
+			$response->html = str_replace( 'width="100%"', 'width="100000"', $response->html );
+		} else {
+			$response->html = str_replace( 'height="100%"', 'height="100000"', $response->html );
+		}
+
+		return $response;
+	},
+	10,
+	3
 );
 
 /**
@@ -225,20 +204,4 @@ function wp_basis_is_4to3_oembed_domains( $url ) {
 		}
 	}
 	return false;
-}
-
-/**
- * Return true when block embed rendering request.
- *
- * @return boolean
- */
-function wp_basis_is_block_embed_rendering_request() {
-	if ( ! isset( $_SERVER['REQUEST_URI'] ) ) {
-		return false;
-	}
-
-	$request_uri = wp_unslash( $_SERVER['REQUEST_URI'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-
-	return false !== strpos( $request_uri, '/wp-json/oembed/1.0/proxy?url=' )
-			|| false !== strpos( $request_uri, rawurlencode( '/oembed/1.0/proxy' ) );
 }
